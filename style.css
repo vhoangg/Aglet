@@ -300,10 +300,10 @@ button:hover{
 #footer .form-input{
     width:65%;
     height: 40px;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
-#footer  .f-button{
+#footer  button{
     width: 25%;
     height: 40px;
     font-size: 30px;
