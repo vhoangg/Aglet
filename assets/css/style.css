@@ -1,57 +1,12 @@
-/* General */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Roboto", sans-serif;
     text-decoration: none;
     list-style: none;
-    scroll-behavior: smooth;
 }
-
-button:hover{
-    cursor: pointer;
-}
-
-.clear{
-    clear: both;
-}
-
-/* Responsive */
-.grid{
-    width: 1200px;
-    max-width:100%;
-    margin: 0 auto;
-}
-
-.grid__full-width{
-    width: 100%;
-}
-
-.grid__row{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
-/* Begin Header */
-#header {
-    /* width: 100%;
-    height: 55px;
-    background-color: wheat;
-    display: flex;
-    align-items: center;
-    position: relative; */
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.row {
-    margin-left: -10px;
-    margin-right: -10px;
-}
-#header .menu {
+.menu {
     background-color: #303030;
     text-align: right;
     height: 30px;
@@ -62,113 +17,164 @@ button:hover{
     padding-left: 0px;
     overflow: hidden;
 }
-#header .menu img {
-    max-width: 20px;
-    max-height: 20px;
-    width:auto;
-    height: auto;
+.menu i {
+    padding-right: 3px;
+    height: 30px;
 }
-#header .menu li {
-    position: relative;
+.menu li {
     display: inline-block;
-    margin-left: 18px;
+    margin-left: 15px;
+    text-shadow: 0 1px 2px rgb(255, 255, 255/30%);
 }
-#header .menu li a {
+.menu li a {
     font-size: 12px;
     color: #fff;
     display: inline-block;
 }
-#header .navbar {
+.menu li a:hover {
+    color: #f15e2c
+}
+/* Kết thúc menu */
+
+/* Bắt đầu navigation bar */
+
+.navbar {
     height: 75px;
-    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0px;
     margin-top: 12px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 10px;
+    position: relative;
 }
-#header .navbar .navbar-logo {
-    padding-left: 30px;
-    padding-right:0px;
-    padding-top: 15px;
+
+.navbar .navbar-logo {
+    padding-left: 65px;
+    padding-top: 20px;
 }
-#header .navbar .navbar-logo img {
+.navbar .navbar-logo img {
     max-width: 80px;
-    max-height: 50px;
+    max-height: 125px;
     width: auto;
     height: auto;
     overflow: visible;
     display: flex;
     justify-content: space-between;
 }
-#header .navbar .line {
+.navbar .line {
     border-right: #e3e2e2 2px solid;
     margin-top: 20px;
-    height: 25px;
+    height: 22px;
 }
-#header .navbar .navbar-center {
+.navbar .navbar-center {
+    padding-left: 50px;
+    padding-top: 20px;
     width: 100%;
     height: 100%;
-    position: relative;
+    overflow: visible;
 }
-#header .navbar .navbar-center li {
-    /* position: relative; */
+.navbar .navbar-center .dropdown, .line{
     display: inline-block;
-    padding: 0px 15px;
+    padding: 0px 8px;
     width: auto;
     text-align: center;
-    transition: all 0.4s ease;
+    height: 100%;
 }
-#header .navbar .navbar-center li a {
-    font-size: 23px;
+.navbar-center .fa-angle-down {
+    padding-top: 0px;
+    padding-left: 5px;
+}
+.dropdown-toggle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 25px;
     color: black;
-    font-weight: 500;
-    letter-spacing: 1.8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding-left: 18px;
+    height: 100%;
 }
-#header .navbar-center i {
-    max-width: 20px;
-    max-height: 20px;
-    padding-left: 10px;
+.navbar-center .dropdown:hover .dropdown-toggle{
+    color: #f15e2c;
 }
-#header .navbar .dropdown:hover {
-    background-color: #303030;
+.navbar-center .dropdown:hover .fa-angle-down{
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    transition: 0.3s ease;
+    margin-top: 0px;
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
 }
-#header .navbar .dropdown:hover a {
-    color: #fff;
-}
-#header .menu-sub {
+.navbar-center 
+.mega-menu {
+    padding-top: 20px;
+    left: 0px;
     position: absolute;
     background: #444;
     width: 100%;
-    height: 100%;
+    min-height: 100px;
     display:none;
 }
-#header .navbar-center .dropdown:hover .menu-sub {
+.mega-menu .mega-content {
+    background: #444;
+    display:flex;
+    padding: 25px 20px;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.mega-content .mega-row {
+    width:100%;
+    line-height: 45px;
+}
+.mega-content .mega-row header {
+    color: #f2f2f2;
+    font-size: 20px;
+    font-weight: 500;
+    justify-content: space-between;
+}
+.mega-content .mega-row .mega-links {
+    margin-left: 0px;
+    border-left: solid rgb(255, 255, 255/30%);
     display: block;
 }
-#header .menu-sub li {
-    display: block;
+nav .navbar-center .dropdown:hover .mega-menu {
+    display: flex;
+    padding-top: 20px;
+    background: transparent;
 }
-#header .box {
+
+.mega-row .mega-links li {
+    padding: 0 20px;
+    font-size: 17px;
+    display: block !important;
+}
+
+.mega-row .mega-links li a{
+    color: #fff;
+}
+
+/* Thanh tìm kiếm */
+.navbar-box{
     max-width: 200px;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 28px;
 }
-#header .search-box{
+.search-box{
     position: relative;
     height: 50px;
     max-width: 50px;
-    margin: auto;
+    margin-left: -38px;
     border-radius: 25px;
-    box-shadow: 0px 5px 10px -1px rbga(0, 0, 0, 0.25);
-    /* transition: 0.2s ease-in-out; */
+    box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease-in-out;
 }
-#header .search-box:hover {
+.search-box:hover {
     max-width: 380px;
 }
-#header .search-box input {
+.search-box input {
     cursor: text;
     position: absolute;
     width: 100%;
@@ -181,7 +187,7 @@ button:hover{
     background-color: rgb(0, 0, 0);
     color: #fff;
 }
-#header .search-box .icon {
+.search-box .icon {
     cursor: pointer;
     position: absolute;
     right: 0;
@@ -189,30 +195,19 @@ button:hover{
     width:3.125rem;
     height: 100%;
     background-color: rgb(0, 0, 0);
-    color: rgb(239, 4, 4);
+    color: #f15e2c;
     border-radius: 25px;
     text-align: center;
     line-height: 50px;
     font-size: 20px;
 }
+/* Kết thúc thanh tìm kiếm  */
 
-/* begin container */
-
-#container {
-    height: 600px;
-    margin: 0 10px;
+#content{
+    height: 500px;
 }
 
-
-#container .side-bar{
-    width: 25%;
-    padding-left: 10px;
-    padding-right: 20px;
-}
-
-
-
-/* Begin footer */
+/* Bắt đầu footer */
 
 #footer{
     background-color: #4c4c4c;
@@ -223,7 +218,7 @@ button:hover{
 #footer .find-store{
     float: left;
     width: 25%;
-    padding: 10px 20px;
+    padding: 30px;
 }
 
 #footer .find-store img{
@@ -238,7 +233,7 @@ button:hover{
     text-align: center;
     font-weight: 700;
     padding-top: 6px;
-    margin: 0 15px;
+    margin: 15px;
 }
 
 #footer .find-store-btn a{
@@ -248,6 +243,7 @@ button:hover{
 #footer .footer-items{
     display: inline-block;
     width: 75%;
+    padding-left: 10px;
 }
 
 #footer .rowF{
@@ -279,7 +275,7 @@ button:hover{
 }
 
 #footer .colF>ul{
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 #footer .ft-icon{
@@ -289,7 +285,11 @@ button:hover{
     opacity: 0.7;
 }
 
-#footer .ft-icon:hover{
+#footer .fa-brands{
+    padding-right: 5px;
+}
+
+#footer .fa-brands:hover{
     opacity: 1;
 }
 
@@ -326,3 +326,5 @@ button:hover{
     font-size: 16px;
     font-weight: 500;
 }
+
+/* Kết thúc footer */
