@@ -37,16 +37,13 @@
 /* Kết thúc menu */
 
 /* Bắt đầu navigation bar */
-
 .navbar {
     height: 75px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 0px;
     margin-top: 12px;
     padding-left: 20px;
-    padding-right: 10px;
+    padding-right: 20px;
     position: relative;
 }
 
@@ -54,6 +51,7 @@
     padding-left: 65px;
     padding-top: 20px;
 }
+
 .navbar .navbar-logo img {
     max-width: 80px;
     max-height: 125px;
@@ -63,11 +61,13 @@
     display: flex;
     justify-content: space-between;
 }
+
 .navbar .line {
     border-right: #e3e2e2 2px solid;
     margin-top: 20px;
     height: 22px;
 }
+
 .navbar .navbar-center {
     padding-left: 50px;
     padding-top: 20px;
@@ -75,6 +75,7 @@
     height: 100%;
     overflow: visible;
 }
+
 .navbar .navbar-center .dropdown, .line{
     display: inline-block;
     padding: 0px 8px;
@@ -82,10 +83,12 @@
     text-align: center;
     height: 100%;
 }
+
 .navbar-center .fa-angle-down {
     padding-top: 0px;
-    padding-left: 5px;
+    padding-left: 1px;
 }
+
 .dropdown-toggle {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 25px;
@@ -95,9 +98,11 @@
     padding-left: 18px;
     height: 100%;
 }
+
 .navbar-center .dropdown:hover .dropdown-toggle{
     color: #f15e2c;
 }
+
 .navbar-center .dropdown:hover .fa-angle-down{
     transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
@@ -107,53 +112,84 @@
     -moz-transform: rotateX(180deg);
     -o-transform: rotateX(180deg);
 }
-.navbar-center 
-.mega-menu {
-    padding-top: 20px;
+.navbar-center .mega-menu {
     left: 0px;
     position: absolute;
-    background: #444;
     width: 100%;
     min-height: 100px;
     display:none;
 }
 .mega-menu .mega-content {
-    background: #444;
+    background: #4c4c4c;
     display:flex;
     padding: 25px 20px;
     width: 100%;
-    justify-content: space-between;
+}
 
-}
 .mega-content .mega-row {
-    width:100%;
-    line-height: 45px;
+    padding-left: 6%;
+    margin-right: 4%;
+    width: 80%;
+    line-height: 42px;
+    text-align: left;
 }
+
 .mega-content .mega-row header {
-    color: #f2f2f2;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     justify-content: space-between;
+    padding-bottom: 15px;
+}
+.mega-content .mega-row header a {
+    color: #fff;
+    position: relative;
+}
+.mega-content .mega-row header a:after {
+    content: "";
+    position: absolute;
+    background-color: #e3e2e2;
+    height: 2px;
+    width: 110%;
+    left:0;
+    opacity: 0.7;
+    bottom: -6px;
 }
 .mega-content .mega-row .mega-links {
-    margin-left: 0px;
     border-left: solid rgb(255, 255, 255/30%);
     display: block;
 }
 nav .navbar-center .dropdown:hover .mega-menu {
     display: flex;
-    padding-top: 20px;
+    padding-top: 30px;
     background: transparent;
 }
 
 .mega-row .mega-links li {
-    padding: 0 20px;
-    font-size: 17px;
+    margin-top: -15px;
     display: block !important;
 }
+.mega-row .mega-links li a {
+    color: #d9d9d9;
+    font-size: 17px;
+}
+.mega-row header:hover a{
+    color:#f15e2c;
+}
+.mega-row header:hover a:after {
+    background-color: #f15e2c;
 
-.mega-row .mega-links li a{
-    color: #fff;
+}
+.mega-links li:hover a{
+    color: #f15e2c;
+}
+.mega-row img {
+    width: 150px;
+    height: 90px;
+    overflow: visible;
+    display: flex;
+}
+.mega-row.style1 a:after {
+    display:none;
 }
 
 /* Thanh tìm kiếm */
@@ -166,9 +202,8 @@ nav .navbar-center .dropdown:hover .mega-menu {
     position: relative;
     height: 50px;
     max-width: 50px;
-    margin-left: -38px;
     border-radius: 25px;
-    box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 10px -1px rbga(0, 0, 0, 0.25);
     transition: all 0.2s ease-in-out;
 }
 .search-box:hover {
