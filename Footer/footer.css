@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root{
+  --main-color:#f15e2c;
+}
+
+#footer{
+  background-color: #4c4c4c;
+  padding: 40px 0px 40px 0px;
+  overflow: hidden;
+}
+
+#footer .find-store{
+  float: left;
+  width: 25%;
+  padding: 30px;
+}
+
+#footer .find-store img{
+  width: 100%;
+}
+
+#footer .find-store-btn{
+  border-radius: 0px;
+  background-color: var(--main-color);
+  border:var(--main-color) 1px solid;
+  font-size: 23px;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 6px;
+  margin: 15px;
+}
+
+#footer .find-store-btn a{
+  color: #fff;
+}
+
+#footer .footer-items{
+  display: inline-block;
+  width: 75%;
+  padding-left: 10px;
+}
+
+#footer .rowF{
+  display: flex;
+  height: 33.33%;
+  margin-top: 20px;
+}
+
+#footer .colF{
+  width:25%;
+  float:left;
+}
+
+#footer .colF a{
+  color:#cccccc;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+#footer .colF>p,
+#footer .colF>a{
+  color: #fff;
+  font-size: 23px;
+  font-weight: 550;
+}
+
+#footer .colF>ul>li a:hover{
+  color:var(--main-color);
+}
+
+#footer .colF>ul{
+  padding-top: 10px;
+}
+
+#footer .ft-icon{
+  font-size:40px;
+  padding-top: 5px;
+  color:#cccccc;
+  opacity: 0.7;
+}
+
+#footer .fa-brands{
+  padding-right: 5px;
+}
+
+#footer .fa-brands:hover{
+  opacity: 1;
+}
+
+#footer form{
+  margin-top: 10px;
+}
+
+#footer .form-input{
+  width:65%;
+  height: 40px;
+  padding-top: 10px;
+}
+
+#footer  button{
+  width: 25%;
+  height: 40px;
+  font-size: 30px;
+  background-color:#303030;
+  border:1px solid #303030;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+#footer .f-r3{
+  margin-top:30px;
+}
+
+#footer .f-r3 p{
+  color: #808080;
+  width:150%;
+  padding-top: 25px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Kết thúc footer */

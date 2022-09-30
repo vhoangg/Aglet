@@ -1,0 +1,243 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root{
+  --main-color:#f15e2c;
+}
+
+.menu {
+  background-color: #303030;
+  text-align: right;
+  height: 30px;
+  width: 100%;
+  padding-top: 3px;
+  padding-right: 60px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  overflow: hidden;
+}
+.menu i {
+  padding-right: 3px;
+  height: 30px;
+}
+.menu li {
+  display: inline-block;
+  margin-left: 15px;
+  text-shadow: 0 1px 2px rgb(255, 255, 255/30%);
+}
+.menu li a {
+  font-size: 12px;
+  color: #fff;
+  display: inline-block;
+}
+.menu li a:hover {
+  color: var(--main-color)
+}
+/* Kết thúc menu */
+
+/* Bắt đầu navigation bar */
+.navbar {
+  height: 75px;
+  display: flex;
+  margin-bottom: 0px;
+  margin-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+}
+
+.navbar .navbar-logo {
+  padding-left: 65px;
+  padding-top: 20px;
+}
+
+.navbar .navbar-logo img {
+  max-width: 80px;
+  max-height: 125px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .line {
+  border-right: #e3e2e2 2px solid;
+  margin-top: 20px;
+  height: 22px;
+}
+
+.navbar .navbar-center {
+  padding-left: 50px;
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.navbar .navbar-center .dropdown, .line{
+  display: inline-block;
+  padding: 0px 8px;
+  width: auto;
+  text-align: center;
+  height: 100%;
+}
+
+.navbar-center .fa-angle-down {
+  padding-top: 0px;
+  padding-left: 1px;
+}
+
+.dropdown-toggle {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 25px;
+  color: black;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding-left: 18px;
+  height: 100%;
+}
+
+.navbar-center .dropdown:hover .dropdown-toggle{
+  color: var(--main-color);
+}
+
+.navbar-center .dropdown:hover .fa-angle-down{
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transition: 0.3s ease;
+  margin-top: 0px;
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+}
+.navbar-center .mega-menu {
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  min-height: 100px;
+  display:none;
+}
+.mega-menu .mega-content {
+  background: #4c4c4c;
+  display:flex;
+  padding: 25px 20px;
+  width: 100%;
+}
+
+.mega-content .mega-row {
+  padding-left: 6%;
+  margin-right: 4%;
+  width: 80%;
+  line-height: 42px;
+  text-align: left;
+}
+
+.mega-content .mega-row header {
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.mega-content .mega-row header a {
+  color: #fff;
+  position: relative;
+}
+.mega-content .mega-row header a:after {
+  content: "";
+  position: absolute;
+  background-color: #e3e2e2;
+  height: 2px;
+  width: 110%;
+  left:0;
+  opacity: 0.7;
+  bottom: -6px;
+}
+.mega-content .mega-row .mega-links {
+  border-left: solid rgb(255, 255, 255/30%);
+  display: block;
+}
+nav .navbar-center .dropdown:hover .mega-menu {
+  display: flex;
+  padding-top: 30px;
+  background: transparent;
+}
+
+.mega-row .mega-links li {
+  margin-top: -15px;
+  display: block !important;
+}
+.mega-row .mega-links li a {
+  color: #d9d9d9;
+  font-size: 17px;
+}
+.mega-row header:hover a{
+  color:var(--main-color);
+}
+.mega-row header:hover a:after {
+  background-color: var(--main-color);
+
+}
+.mega-links li:hover a{
+  color: var(--main-color);
+}
+.mega-row img {
+  width: 150px;
+  height: 90px;
+  overflow: visible;
+  display: flex;
+}
+.mega-row.style1 a:after {
+  display:none;
+}
+
+/* Thanh tìm kiếm */
+.navbar-box{
+  max-width: 200px;
+  width: 100%;
+  margin-top: 28px;
+}
+.search-box{
+  position: relative;
+  height: 50px;
+  max-width: 50px;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px -1px rbga(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+.search-box:hover {
+  max-width: 380px;
+}
+.search-box input {
+  cursor: text;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding-left: 20px;
+  font-size: 18px;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+}
+.search-box .icon {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top:0;
+  width:3.125rem;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  color: var(--main-color);
+  border-radius: 25px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+}
