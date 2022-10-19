@@ -12,9 +12,6 @@
   width: 100%;
   height: auto;
   position: relative;
-
-
-
 }
 
 .container{
@@ -23,7 +20,6 @@
   display: flex;
   margin: 0 auto;
 }
-
 
 .sidebar{
   width:300px;
@@ -82,7 +78,6 @@
 }
 
 .type-item .item:hover {
-
   background-color: rgb(235,235,235);
 }
 
@@ -94,10 +89,10 @@
   font-family: "Roboto", sans-serif;
 }
 
-
 .nav .tree{
   margin: 20px 0 0 0 ;
 }
+
 .nav .tree li{
   font-family: "Roboto", sans-serif;
   font-size: 14px;
