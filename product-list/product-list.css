@@ -6,6 +6,11 @@
 
 :root{
   --main-color: #f15e2c;
+  --fa-style-family: "Font Awesome 6 Pro";
+  --fa-style: 400;
+  --fa-border-color: red;
+  --fa-primary-color: green;
+  --fa-secondary-color: red;
 }
 
 .row{
@@ -117,6 +122,8 @@
 .orange{
   color: var(--main-color);
 }
+
+
 
 /* product list */
 
