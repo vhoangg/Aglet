@@ -15,6 +15,10 @@ div {
     --main-color: #f15e2c;
 }
 
+.container{
+    height: auto;
+    display: block;
+}
 .row {}
 
 .col {
@@ -50,7 +54,8 @@ div {
     max-width: 1200px;
     padding-top: 80px;
     margin: 0 auto;
-    height: 550px;
+    height: auto;
+
 }
 
 .hc1 {
