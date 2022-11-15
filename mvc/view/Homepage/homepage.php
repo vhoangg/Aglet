@@ -59,10 +59,10 @@
                     <img src="./mvc/view/Homepage/img/catalogy-1.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">GIÀY NAM</a>
-                    <a href="#" class="sub">New Arrivals</a>
-                    <a href="#" class="sub">Best Seller</a>
-                    <a href="#" class="sub">Sale-off</a>
+                    <a href="product_list" class="title">GIÀY NAM</a>
+                    <a href="product_list" class="sub">New Arrivals</a>
+                    <a href="product_list" class="sub">Best Seller</a>
+                    <a href="product_list" class="sub">Sale-off</a>
                 </div>
             </div>
             <div class="col col-third ">
@@ -70,10 +70,10 @@
                     <img src="./mvc/view/Homepage/img/catalogy-2.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">GIÀY NỮ</a>
-                    <a href="#" class="sub">New Arrivals</a>
-                    <a href="#" class="sub">Best Seller</a>
-                    <a href="#" class="sub">Sale-off</a>
+                    <a href="product_list" class="title">GIÀY NỮ</a>
+                    <a href="product_list" class="sub">New Arrivals</a>
+                    <a href="product_list" class="sub">Best Seller</a>
+                    <a href="product_list" class="sub">Sale-off</a>
                 </div>
             </div>
             <div class="col col-third ">
@@ -81,11 +81,11 @@
                     <img src="./mvc/view/Homepage/img/catalogy-3.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">DÒNG SẢN PHẨM</a>
-                    <a href="#" class="sub">Basas</a>
-                    <a href="#" class="sub">Vintas</a>
-                    <a href="#" class="sub">Urbas</a>
-                    <a href="#" class="sub">Pattas</a>
+                    <a href="product_list" class="title">DÒNG SẢN PHẨM</a>
+                    <a href="product_list" class="sub">Basas</a>
+                    <a href="product_list" class="sub">Vintas</a>
+                    <a href="product_list" class="sub">Urbas</a>
+                    <a href="product_list" class="sub">Pattas</a>
                 </div>
             </div>
         </div>
