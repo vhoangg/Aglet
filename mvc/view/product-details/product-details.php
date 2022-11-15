@@ -18,6 +18,7 @@
 
     <title>Document</title>
     <style>
+<<<<<<< HEAD
       .small-img-group {
         display: flex;
         justify-content: space-between;
@@ -26,16 +27,31 @@
         flex-basis: 24%;
       }
       .small-img {
+=======
+      #product-details .small-img-group {
+        display: flex;
+        justify-content: space-between;
+      }
+      #product-details .small-img-col {
+        flex-basis: 24%;
+      }
+      #product-details .small-img {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         width: 100%;
         height: 80%;
         object-fit: cover;
         opacity: 0.3;
       }
+<<<<<<< HEAD
       .img-fluid {
+=======
+      #product-details .img-fluid {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         width: 600px;
         height: 600px;
         object-fit: cover;
       }
+<<<<<<< HEAD
       .active-img {
         opacity: 1;
       }
@@ -48,12 +64,30 @@
       }
 
       .product-detail-right .divider {
+=======
+      #product-details .active-img {
+        opacity: 1;
+      }
+      #product-details .product-detail-item-info {
+        display: flex;
+        justify-content: space-between;
+      }
+      #product-details .product-detail-item-info > * {
+        display: flex;
+      }
+
+      #product-details .product-detail-right .divider {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         margin: 15px 0;
         height: 2px;
         background: url("https://ananas.vn/wp-content/themes/ananas/fe-assets/images/bg_divider.png")
           repeat-x 7px;
       }
+<<<<<<< HEAD
       .product-detail-right .divider1 {
+=======
+      #product-details .product-detail-right .divider1 {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         width: 100%;
         margin: 8px 0;
         height: 2px;
@@ -61,7 +95,11 @@
           repeat-x 7px;
       }
 
+<<<<<<< HEAD
       .product-detail-right .cb-color-fixed label {
+=======
+      #product-details .product-detail-right .cb-color-fixed label {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         padding: 3px 0px 0px 3px;
         width: 40px;
         height: 40px;
@@ -69,12 +107,17 @@
         margin: 4px;
         cursor: pointer;
       }
+<<<<<<< HEAD
       .product-detail-right .cb-color-fixed .bg-color {
+=======
+      #product-details .product-detail-right .cb-color-fixed .bg-color {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         width: 40px;
         height: 40px;
         z-index: 99;
         display: block;
       }
+<<<<<<< HEAD
       .row {
         margin-left: 3px;
         margin-right: -10px;
@@ -84,12 +127,27 @@
         width: 50%;
       }
       .my-3 {
+=======
+      #product-details .row {
+        margin-left: 3px;
+        margin-right: -10px;
+      }
+      #product-details .row > div {
+        display: block;
+        width: 50%;
+      }
+      #product-details .my-3 {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         height: 40px;
         width: 200px;
         font-size: 20px;
         border-radius: 6px;
       }
+<<<<<<< HEAD
       .btn-addcart {
+=======
+      #product-details .btn-addcart {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         width: 70%;
         background-color: orange;
         text-align: center;
@@ -97,7 +155,11 @@
         padding: 1em;
         height: 90px;
       }
+<<<<<<< HEAD
       .btn-favorite {
+=======
+      #product-details .btn-favorite {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         width: 27%;
         background-color: black;
         height: 90px;
@@ -107,6 +169,7 @@
         color: red;
         margin-left: 15px;
       }
+<<<<<<< HEAD
       .fa-heart {
         font-size: 30px;
         color: white;
@@ -118,6 +181,19 @@
         color: red;
       }
       .btn-pay {
+=======
+      #product-details .fa-heart {
+        font-size: 30px;
+        color: white;
+      }
+      #product-details .btn-favorite .fa-heart:hover {
+        color: red;
+      }
+      #product-details .isFavorite {
+        color: red;
+      }
+      #product-details .btn-pay {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         margin-top: 0.5em;
         height: 4em;
         width: 100%;
@@ -126,7 +202,11 @@
         background-color: black;
         color: white;
       }
+<<<<<<< HEAD
       .btn-pay:hover {
+=======
+      #product-details .btn-pay:hover {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         color: red;
       }
 
@@ -136,7 +216,11 @@
         width: 100%;
       }
 
+<<<<<<< HEAD
       .accordion .content-container .question {
+=======
+      #product-details .accordion .content-container .question {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         font-weight: 700;
         font-size: 20px;
         padding: 15px 0;
@@ -147,13 +231,21 @@
         position: relative;
       }
 
+<<<<<<< HEAD
       .accordion .content-container .question::after {
+=======
+      #product-details .accordion .content-container .question::after {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         content: "+";
         position: absolute;
         right: 2px;
       }
 
+<<<<<<< HEAD
       .accordion .content-container .answer {
+=======
+      #product-details .accordion .content-container .answer {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         padding-top: 15px;
         font-size: 22px;
         line-height: 1.5;
@@ -164,16 +256,28 @@
       }
 
       /* JS Styling link */
+<<<<<<< HEAD
       .accordion .content-container.active .answer {
         height: 200px;
       }
 
       .accordion .content-container.active .question::after {
+=======
+      #product-details .accordion .content-container.active .answer {
+        height: 200px;
+      }
+
+      #product-details .accordion .content-container.active .question::after {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         content: "-";
         font-size: 20px;
       }
 
+<<<<<<< HEAD
       .accordion .content-container.active .question {
+=======
+      #product-details .accordion .content-container.active .question {
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
         color: orange;
       }
     </style>
@@ -181,7 +285,11 @@
 
   <body>
     <!--Content start-->
+<<<<<<< HEAD
     <div class="container product-detail-container-fluid my-5 pt-5">
+=======
+    <div id = "product-details" class="container product-detail-container-fluid my-5 pt-5">
+>>>>>>> 5a56d3e6ffab61ed62e7c2929fed2642dab3fca1
       <div class="row mt-5">
         <div class="col-lg-5 col-md-12 col-12">
           <img

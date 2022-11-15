@@ -12,7 +12,7 @@
 }
 
 
-.menu {
+.header .menu {
   background-color: #303030;
   text-align: right;
   height: 30px;
@@ -23,27 +23,27 @@
   padding-left: 0px;
   overflow: hidden;
 }
-.menu i {
+.header .menu i {
   padding-right: 3px;
   height: 30px;
 }
-.menu li {
+.header .menu li {
   display: inline-block;
   margin-left: 15px;
   text-shadow: 0 1px 2px rgb(255, 255, 255/30%);
 }
-.menu li a {
+.header .menu li a {
   font-size: 12px;
   color: #fff;
   display: inline-block;
 }
-.menu li a:hover {
+.header .menu li a:hover {
   color: var(--main-color)
 }
 /* Kết thúc menu */
 
 /* Bắt đầu navigation bar */
-.navbar {
+.header .my-navbar {
   height: 75px;
   display: flex;
   margin-bottom: 0px;
@@ -53,12 +53,12 @@
   position: relative;
 }
 
-.navbar .navbar-logo {
+.header .my-navbar .my-navbar-logo {
   padding-left: 65px;
   padding-top: 20px;
 }
 
-.navbar .navbar-logo img {
+.header .my-navbar .my-navbar-logo img {
   max-width: 80px;
   max-height: 125px;
   width: auto;
@@ -68,13 +68,13 @@
   justify-content: space-between;
 }
 
-.navbar .line {
+.header .my-navbar .line {
   border-right: #e3e2e2 2px solid;
   margin-top: 20px;
   height: 22px;
 }
 
-.navbar .navbar-center {
+.header .my-navbar .my-navbar-center {
   padding-left: 50px;
   padding-top: 20px;
   width: 100%;
@@ -82,7 +82,7 @@
   overflow: visible;
 }
 
-.navbar .navbar-center .dropdown, .line{
+.header .my-navbar .my-navbar-center .drop, .line{
   display: inline-block;
   padding: 0px 8px;
   width: auto;
@@ -92,12 +92,12 @@
 
 }
 
-.navbar-center .fa-angle-down {
+.header .my-navbar-center .fa-angle-down {
   padding-top: 0px;
   padding-left: 1px;
 }
 
-.dropdown-toggle {
+.header .drop-toggle {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 25px;
   color: black;
@@ -108,12 +108,12 @@
 
 }
 
-.navbar-center .dropdown:hover .dropdown-toggle{
+.header .my-navbar-center .drop:hover .drop-toggle{
   color: var(--main-color);
 
 }
 
-.navbar-center .dropdown:hover .fa-angle-down{
+.header .my-navbar-center .drop:hover .fa-angle-down{
   transform: rotateX(180deg);
   -webkit-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
@@ -122,7 +122,7 @@
   -moz-transform: rotateX(180deg);
   -o-transform: rotateX(180deg);
 }
-.navbar-center .mega-menu {
+.header .my-navbar-center .mega-menu {
   left: 0px;
   position: absolute;
   width: 100%;
@@ -130,14 +130,14 @@
   display:none;
   z-index: 1000;
 }
-.mega-menu .mega-content {
+.header .mega-menu .my-mega-content {
   background: #4c4c4c;
   display:flex;
   padding: 25px 20px;
   width: 100%;
 }
 
-.mega-content .mega-row {
+.header .my-mega-content .mega-row {
   padding-left: 6%;
   margin-right: 4%;
   width: 80%;
@@ -146,17 +146,17 @@
 
 }
 
-.mega-content .mega-row header {
+.header .my-mega-content .mega-row header {
   font-size: 20px;
   font-weight: 600;
   justify-content: space-between;
   padding-bottom: 15px;
 }
-.mega-content .mega-row header a {
+.header .my-mega-content .mega-row header a {
   color: #fff;
   position: relative;
 }
-.mega-content .mega-row header a:after {
+.header .my-mega-content .mega-row header a:after {
   content: "";
   position: absolute;
   background-color: #e3e2e2;
@@ -166,51 +166,51 @@
   opacity: 0.7;
   bottom: -6px;
 }
-.mega-content .mega-row .mega-links {
+.header .my-mega-content .mega-row .mega-links {
   border-left: solid rgb(255, 255, 255/30%);
   display: block;
 }
-nav .navbar-center .dropdown:hover .mega-menu {
+nav .my-navbar-center .drop:hover .mega-menu {
   display: flex;
   padding-top: 30px;
   background: transparent;
 }
 
-.mega-row .mega-links li {
+.header .mega-row .mega-links li {
   margin-top: -15px;
   display: block !important;
 }
-.mega-row .mega-links li a {
+.header .mega-row .mega-links li a {
   color: #d9d9d9;
   font-size: 17px;
 }
-.mega-row header:hover a{
+.header .mega-row header:hover a{
   color:var(--main-color);
 }
-.mega-row header:hover a:after {
+.header .mega-row header:hover a:after {
   background-color: var(--main-color);
 
 }
-.mega-links li:hover a{
+.header .mega-links li:hover a{
   color: var(--main-color);
 }
-.mega-row img {
+.header .mega-row img {
   width: 150px;
   height: 90px;
   overflow: visible;
   display: flex;
 }
-.mega-row.style1 a:after {
+.header .mega-row.style1 a:after {
   display:none;
 }
 
 /* Thanh tìm kiếm */
-.navbar-box{
+.header .my-navbar-box{
   max-width: 200px;
   width: 100%;
   margin-top: 28px;
 }
-.search-box{
+.header .search-box{
   position: relative;
   height: 50px;
   max-width: 50px;
@@ -218,10 +218,10 @@ nav .navbar-center .dropdown:hover .mega-menu {
   box-shadow: 0px 5px 10px -1px rbga(0, 0, 0, 0.25);
   transition: all 0.2s ease-in-out;
 }
-.search-box:hover {
+.header .search-box:hover {
   max-width: 380px;
 }
-.search-box input {
+.header .search-box input {
   cursor: text;
   position: absolute;
   width: 100%;
@@ -234,7 +234,7 @@ nav .navbar-center .dropdown:hover .mega-menu {
   background-color: rgb(0, 0, 0);
   color: #fff;
 }
-.search-box .icon {
+.header .search-box .icon {
   cursor: pointer;
   position: absolute;
   right: 0;

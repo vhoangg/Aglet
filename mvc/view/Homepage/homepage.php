@@ -6,12 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./mvc/view/Homepage/homepage.css">
+    <link rel="stylesheet" href="./mvc/view/homepage/homepage.css?v=<?php echo time(); ?>">
+    <script src="https://kit.fontawesome.com/d822126298.js" crossorigin="anonymous"></script>
+    <style>
+        #footer {
+            margin-top: 1400px;
+        }
+    </style>
+
 </head>
 
 <body>
-  <div class="container">
-  <div id="slider">
+    <div id="slider">
         <div class="row">
 
         </div>
@@ -20,7 +26,7 @@
     <div id="home-collection">
         <div class="row">
             <div class="col col-half hc1">
-                <img src="./img/hc1.jpg" alt="" class="hc-img img1">
+                <img src="./mvc/view/homepage/img/hc1.jpg" alt="" class="hc-img img1">
                 <div class="hc-content">
                     <a href="#">
                         <h3>ALL BLACK IN BLACK</h3>
@@ -31,7 +37,7 @@
             </div>
 
             <div class="col col-half hc2">
-                <img src="./img/hc2.jpg" alt="" class="hc-img img1">
+                <img src="./mvc/view/homepage/img/hc2.jpg" alt="" class="hc-img img1">
                 <div class="hc-content">
                     <a href="#">
                         <h3>OUTLET SALE</h3>
@@ -50,7 +56,7 @@
         <div class="row">
             <div class="col col-third ">
                 <div class="hm-background">
-                    <img src="./img/catalogy-1.jpg" alt="">
+                    <img src="./mvc/view/Homepage/img/catalogy-1.jpg" alt="">
                 </div>
                 <div class="hm-items">
                     <a href="#" class="title">GIÀY NAM</a>
@@ -61,7 +67,7 @@
             </div>
             <div class="col col-third ">
                 <div class="hm-background">
-                    <img src="./img/catalogy-2.jpg" alt="">
+                    <img src="./mvc/view/Homepage/img/catalogy-2.jpg" alt="">
                 </div>
                 <div class="hm-items">
                     <a href="#" class="title">GIÀY NỮ</a>
@@ -72,7 +78,7 @@
             </div>
             <div class="col col-third ">
                 <div class="hm-background">
-                    <img src="./img/catalogy-3.jpg" alt="">
+                    <img src="./mvc/view/Homepage/img/catalogy-3.jpg" alt="">
                 </div>
                 <div class="hm-items">
                     <a href="#" class="title">DÒNG SẢN PHẨM</a>
@@ -93,7 +99,7 @@
 
     <div id="banner">
         <div class="row">
-            <img src="./img/Banner_Clothing.jpg" alt="">
+            <img src="./mvc/view/Homepage/img/Banner_Clothing.jpg" alt="">
         </div>
     </div>
 
@@ -101,16 +107,14 @@
         <div class="row">
             <div class="col col-half hc1">
                 <h2>INSTAGRAM</h2>
-                <a href=#><img src="./img/ig_aglet.png" alt="" class="hc-img"></a>
+                <a href=#><img src="./mvc/view/Homepage/img/ig_aglet.png" alt="" class="hc-img"></a>
             </div>
             <div class="col col-half hc2">
                 <h2>FACEBOOK</h2>
-                <a href=#><img src="./img/fb_aglet.png" alt="" class="hc-img"></a>
+                <a href=#><img src="./mvc/view/Homepage/img/fb_aglet.png" alt="" class="hc-img"></a>
             </div>
         </div>
     </div>
-  </div>
-
 
 </body>
 

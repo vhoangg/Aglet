@@ -15,10 +15,6 @@ div {
     --main-color: #f15e2c;
 }
 
-.container{
-    height: auto;
-    display: block;
-}
 .row {}
 
 .col {
@@ -39,7 +35,7 @@ div {
 
 /* Slider */
 #slider {
-    margin-top: 100px;
+    margin-top: 60px;
     padding-top: 55%;
     background-image: url('./img/1.jpg');
     background-position: center;
@@ -54,8 +50,7 @@ div {
     max-width: 1200px;
     padding-top: 80px;
     margin: 0 auto;
-    height: auto;
-
+    height: 550px;
 }
 
 .hc1 {
