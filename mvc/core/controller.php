@@ -10,5 +10,11 @@ class controller{
 
   }
 
+
+  public function adminView($view, $data=[]){
+    require_once "./mvc/view/admin/".$view."/".$view.".php";
+
+  }
+
 }
 ?>

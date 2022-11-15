@@ -25,6 +25,7 @@
        //xu li params
        $this->params = $arr?array_values($arr):[];
 
+
         call_user_func_array([new $this->controller, "show"], $this->params);
 
     }
@@ -33,9 +34,10 @@
 
     function UrlProcess(){
       if(isset($_GET["url"])){
-
+        echo $_GET["url"];
         return explode("/", filter_var(trim($_GET["url"], "/")));
       }
+
       $temp[] = "home";
       return $temp;
 
