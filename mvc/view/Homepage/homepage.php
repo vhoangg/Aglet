@@ -59,7 +59,7 @@
                     <img src="./mvc/view/Homepage/img/catalogy-1.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">GIÀY NAM</a>
+                    <a href="product-list" class="title">GIÀY NAM</a>
                     <a href="#" class="sub">New Arrivals</a>
                     <a href="#" class="sub">Best Seller</a>
                     <a href="#" class="sub">Sale-off</a>
