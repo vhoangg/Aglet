@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="./mvc/view/shipping-information/shipping-information.css">
+  <link rel="stylesheet" href="./mvc/view/shipping-information/shipping-information.css?v=<?php echo time(); ?>">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  <div class="container">
+  <div id = "shipping-information" class="container">
     <div class="form">
     <form action="" id="orderForm">
       <div class ="form_title">THÔNG TIN GIAO HÀNG</div>

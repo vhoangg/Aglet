@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aglet Official Site</title>
-    <link rel="stylesheet" href="./mvc/view/order-tracker/ordertracker.css">
+    <link rel="stylesheet" href="./mvc/view/order-tracker/ordertracker.css?v=<?php echo time(); ?> ">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
         }
 
         .search-box .icon {
-            width: 5.125rem;
+            width: 5.125rem !important;
         }
     </style>
 
