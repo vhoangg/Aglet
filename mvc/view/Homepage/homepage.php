@@ -6,15 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./mvc/view/Homepage/homepage.css">
+    <link rel="stylesheet" href="./mvc/view/homepage/homepage.css?v=<?php echo time(); ?>">
     <script src="https://kit.fontawesome.com/d822126298.js" crossorigin="anonymous"></script>
     <style>
         #footer {
             margin-top: 1400px;
-        }
-
-        #slider {
-            margin-top: 60px;
         }
     </style>
 
@@ -30,7 +26,7 @@
     <div id="home-collection">
         <div class="row">
             <div class="col col-half hc1">
-                <img src="./mvc/view/Homepage/img/hc1.jpg" alt="" class="hc-img img1">
+                <img src="./mvc/view/homepage/img/hc1.jpg" alt="" class="hc-img img1">
                 <div class="hc-content">
                     <a href="#">
                         <h3>ALL BLACK IN BLACK</h3>
@@ -41,7 +37,7 @@
             </div>
 
             <div class="col col-half hc2">
-                <img src="./mvc/view/Homepage/img/hc2.jpg" alt="" class="hc-img img1">
+                <img src="./mvc/view/homepage/img/hc2.jpg" alt="" class="hc-img img1">
                 <div class="hc-content">
                     <a href="#">
                         <h3>OUTLET SALE</h3>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./mvc/view/layout/layout.css">
+    <link rel="stylesheet" href="./mvc/view/layout/layout.css?v=<?php echo time(); ?> ">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,15 +21,15 @@
                 <li><a href="#"> <i class="fa-solid fa-user"></i> Đăng nhập</a> </li>
                 <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> Giỏ hàng</a> </li>
             </ul>
-            <div class="navbar">
-                <div class="navbar-logo" title="Aglet Home">
+            <div class="my-navbar">
+                <div class="my-navbar-logo" title="Aglet Home">
                     <a href="http://localhost:8888/aglet/"><img src="./mvc/view/layout/img/logo.png" alt="logo"></a>
                 </div>
-                <ul class="navbar-center">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">NAM<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                <ul class="my-navbar-center">
+                    <li class="drop">
+                        <a href="#" class="drop-toggle">NAM<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
-                            <div class="mega-content">
+                            <div class="my-mega-content">
                                 <div class="mega-row">
                                     <header><a href="#">NỔI BẬT</a></header>
                                     <ul class="mega-links">
@@ -77,10 +77,10 @@
                         </div>
                     </li>
                     <li class="line"></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">NỮ<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                    <li class="drop">
+                        <a href="#" class="drop-toggle">NỮ<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
-                            <div class="mega-content">
+                            <div class="my-mega-content">
                                 <div class="mega-row">
                                     <header><a href="#">NỔI BẬT</a></header>
                                     <ul class="mega-links">
@@ -129,10 +129,10 @@
                         </div>
                     </li>
                     <li class="line"></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">TRẺ EM<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                    <li class="drop">
+                        <a href="#" class="drop-toggle">TRẺ EM<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
-                            <div class="mega-content">
+                            <div class="my-mega-content">
                                 <div class="mega-row">
                                     <header><a href="#">NỔI BẬT</a></header>
                                     <ul class="mega-links">
@@ -171,10 +171,10 @@
                         </div>
                     </li>
                     <li class="line"></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">THỂ THAO<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                    <li class="drop">
+                        <a href="#" class="drop-toggle">THỂ THAO<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
-                            <div class="mega-content">
+                            <div class="my-mega-content">
                                 <div class="mega-row style1">
                                     <header><a href="#">Bóng đá<img src="./mvc/view/Layout/img/bongda.jpg"></a></header>
                                     <ul class="mega-links">
@@ -211,11 +211,11 @@
                         </div>
                     </li>
                     <li class="line"></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">GIẢM GIÁ</a>
+                    <li class="drop">
+                        <a href="#" class="drop-toggle">GIẢM GIÁ</a>
                     </li>
                 </ul>
-                <div class="navbar-box">
+                <div class="my-navbar-box">
                     <div class="search-box">
                         <input class="search-txt" type="text" name="" placeholder="Tìm kiếm">
                         <label for="check" class="icon">

@@ -18,42 +18,42 @@
 
     <title>Document</title>
     <style>
-      .small-img-group {
+      #product-details .small-img-group {
         display: flex;
         justify-content: space-between;
       }
-      .small-img-col {
+      #product-details .small-img-col {
         flex-basis: 24%;
       }
-      .small-img {
+      #product-details .small-img {
         width: 100%;
         height: 80%;
         object-fit: cover;
         opacity: 0.3;
       }
-      .img-fluid {
+      #product-details .img-fluid {
         width: 600px;
         height: 600px;
         object-fit: cover;
       }
-      .active-img {
+      #product-details .active-img {
         opacity: 1;
       }
-      .product-detail-item-info {
+      #product-details .product-detail-item-info {
         display: flex;
         justify-content: space-between;
       }
-      .product-detail-item-info > * {
+      #product-details .product-detail-item-info > * {
         display: flex;
       }
 
-      .product-detail-right .divider {
+      #product-details .product-detail-right .divider {
         margin: 15px 0;
         height: 2px;
         background: url("https://ananas.vn/wp-content/themes/ananas/fe-assets/images/bg_divider.png")
           repeat-x 7px;
       }
-      .product-detail-right .divider1 {
+      #product-details .product-detail-right .divider1 {
         width: 100%;
         margin: 8px 0;
         height: 2px;
@@ -61,7 +61,7 @@
           repeat-x 7px;
       }
 
-      .product-detail-right .cb-color-fixed label {
+      #product-details .product-detail-right .cb-color-fixed label {
         padding: 3px 0px 0px 3px;
         width: 40px;
         height: 40px;
@@ -69,27 +69,27 @@
         margin: 4px;
         cursor: pointer;
       }
-      .product-detail-right .cb-color-fixed .bg-color {
+      #product-details .product-detail-right .cb-color-fixed .bg-color {
         width: 40px;
         height: 40px;
         z-index: 99;
         display: block;
       }
-      .row {
+      #product-details .row {
         margin-left: 3px;
         margin-right: -10px;
       }
-      .row > div {
+      #product-details .row > div {
         display: block;
         width: 50%;
       }
-      .my-3 {
+      #product-details .my-3 {
         height: 40px;
         width: 200px;
         font-size: 20px;
         border-radius: 6px;
       }
-      .btn-addcart {
+      #product-details .btn-addcart {
         width: 70%;
         background-color: orange;
         text-align: center;
@@ -97,7 +97,7 @@
         padding: 1em;
         height: 90px;
       }
-      .btn-favorite {
+      #product-details .btn-favorite {
         width: 27%;
         background-color: black;
         height: 90px;
@@ -107,17 +107,17 @@
         color: red;
         margin-left: 15px;
       }
-      .fa-heart {
+      #product-details .fa-heart {
         font-size: 30px;
         color: white;
       }
-      .btn-favorite .fa-heart:hover {
+      #product-details .btn-favorite .fa-heart:hover {
         color: red;
       }
-      .isFavorite {
+      #product-details .isFavorite {
         color: red;
       }
-      .btn-pay {
+      #product-details .btn-pay {
         margin-top: 0.5em;
         height: 4em;
         width: 100%;
@@ -126,7 +126,7 @@
         background-color: black;
         color: white;
       }
-      .btn-pay:hover {
+      #product-details .btn-pay:hover {
         color: red;
       }
 
@@ -136,7 +136,7 @@
         width: 100%;
       }
 
-      .accordion .content-container .question {
+      #product-details .accordion .content-container .question {
         font-weight: 700;
         font-size: 20px;
         padding: 15px 0;
@@ -147,13 +147,13 @@
         position: relative;
       }
 
-      .accordion .content-container .question::after {
+      #product-details .accordion .content-container .question::after {
         content: "+";
         position: absolute;
         right: 2px;
       }
 
-      .accordion .content-container .answer {
+      #product-details .accordion .content-container .answer {
         padding-top: 15px;
         font-size: 22px;
         line-height: 1.5;
@@ -164,16 +164,16 @@
       }
 
       /* JS Styling link */
-      .accordion .content-container.active .answer {
+      #product-details .accordion .content-container.active .answer {
         height: 200px;
       }
 
-      .accordion .content-container.active .question::after {
+      #product-details .accordion .content-container.active .question::after {
         content: "-";
         font-size: 20px;
       }
 
-      .accordion .content-container.active .question {
+      #product-details .accordion .content-container.active .question {
         color: orange;
       }
     </style>
@@ -181,7 +181,7 @@
 
   <body>
     <!--Content start-->
-    <div class="container product-detail-container-fluid my-5 pt-5">
+    <div id = "product-details" class="container product-detail-container-fluid my-5 pt-5">
       <div class="row mt-5">
         <div class="col-lg-5 col-md-12 col-12">
           <img
