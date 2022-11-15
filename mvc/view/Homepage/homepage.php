@@ -12,6 +12,10 @@
         #footer {
             margin-top: 1400px;
         }
+
+        #slider {
+            margin-top: 60px;
+        }
     </style>
 
 </head>

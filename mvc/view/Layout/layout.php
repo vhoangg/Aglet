@@ -176,7 +176,7 @@
                         <div class="mega-menu">
                             <div class="mega-content">
                                 <div class="mega-row style1">
-                                    <header><a href="#">Bóng đá<img src="./img/bongda.jpg"></a></header>
+                                    <header><a href="#">Bóng đá<img src="./mvc/view/Layout/img/bongda.jpg"></a></header>
                                     <ul class="mega-links">
                                         <li><a href="#">Quần áo</a></li>
                                         <li><a href="">Giày ống</a></li>
@@ -184,7 +184,7 @@
                                     </ul>
                                 </div>
                                 <div class="mega-row style1">
-                                    <header><a href="#">Chạy bộ<img src="./img/chaybo.jpg"></a></header>
+                                    <header><a href="#">Chạy bộ<img src="./mvc/view/Layout/img/chaybo.jpg"></a></header>
                                     <ul class="mega-links">
                                         <li><a href="#">Quần áo</a></li>
                                         <li><a href="">Giày</a></li>
@@ -192,7 +192,7 @@
                                     </ul>
                                 </div>
                                 <div class="mega-row style1">
-                                    <header><a href="#">Bóng rổ<img src="./img/bongro.jpg"></a></header>
+                                    <header><a href="#">Bóng rổ<img src="./mvc/view/Layout/img/bongro.jpg"></a></header>
                                     <ul class="mega-links">
                                         <li><a href="#">Quần áo</a></li>
                                         <li><a href="">Giày</a></li>
@@ -200,7 +200,7 @@
                                     </ul>
                                 </div>
                                 <div class="mega-row style1">
-                                    <header><a href="#">Quần vợt<img src="./img/quanvot.jpg"></a></header>
+                                    <header><a href="#">Quần vợt<img src="./mvc/view/Layout/img/quanvot.jpg"></a></header>
                                     <ul class="mega-links">
                                         <li><a href="#">Quần áo</a></li>
                                         <li><a href="">Giày</a></li>
