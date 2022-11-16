@@ -20,12 +20,23 @@
         .search-box .icon {
             width: 5.125rem !important;
         }
+
+        .menu {
+            font-size: 160%;
+
+        }
+
+        html {
+            color: #333;
+            font-size: 62.5%;
+            font-family: "Roboto", sans-serif;
+        }
     </style>
 
 </head>
 
 <body>
-    <div class="main">
+    <div id="order-tracker">
         <form action="" method="POST" class="form">
             <h2 class="heading">TRA CỨU ĐƠN HÀNG</h2>
             <div class="form-group">

@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./mvc/view/homepage/homepage.css?v=<?php echo time(); ?>">
-    <script src="https://kit.fontawesome.com/d822126298.js" crossorigin="anonymous"></script>
-    <style>
-        #footer {
-            margin-top: 1400px;
-        }
-    </style>
-
-</head>
+<style>
+    #footer {
+        margin-top: 1400px;
+    }
+</style>
 
 <body>
     <div id="slider">
