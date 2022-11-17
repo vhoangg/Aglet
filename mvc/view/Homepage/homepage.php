@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./mvc/view/homepage/homepage.css?v=<?php echo time(); ?>">
-    <script src="https://kit.fontawesome.com/d822126298.js" crossorigin="anonymous"></script>
-    <style>
-        #footer {
-            margin-top: 1400px;
-        }
-    </style>
-
-</head>
+<style>
+    #footer {
+        margin-top: 1400px;
+    }
+</style>
 
 <body>
     <div id="slider">
@@ -59,10 +47,10 @@
                     <img src="./mvc/view/Homepage/img/catalogy-1.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">GIÀY NAM</a>
-                    <a href="#" class="sub">New Arrivals</a>
-                    <a href="#" class="sub">Best Seller</a>
-                    <a href="#" class="sub">Sale-off</a>
+                    <a href="product_list" class="title">GIÀY NAM</a>
+                    <a href="product_list" class="sub">New Arrivals</a>
+                    <a href="product_list" class="sub">Best Seller</a>
+                    <a href="product_list" class="sub">Sale-off</a>
                 </div>
             </div>
             <div class="col col-third ">
@@ -70,10 +58,10 @@
                     <img src="./mvc/view/Homepage/img/catalogy-2.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">GIÀY NỮ</a>
-                    <a href="#" class="sub">New Arrivals</a>
-                    <a href="#" class="sub">Best Seller</a>
-                    <a href="#" class="sub">Sale-off</a>
+                    <a href="product_list" class="title">GIÀY NỮ</a>
+                    <a href="product_list" class="sub">New Arrivals</a>
+                    <a href="product_list" class="sub">Best Seller</a>
+                    <a href="product_list" class="sub">Sale-off</a>
                 </div>
             </div>
             <div class="col col-third ">
@@ -81,11 +69,11 @@
                     <img src="./mvc/view/Homepage/img/catalogy-3.jpg" alt="">
                 </div>
                 <div class="hm-items">
-                    <a href="#" class="title">DÒNG SẢN PHẨM</a>
-                    <a href="#" class="sub">Basas</a>
-                    <a href="#" class="sub">Vintas</a>
-                    <a href="#" class="sub">Urbas</a>
-                    <a href="#" class="sub">Pattas</a>
+                    <a href="product_list" class="title">DÒNG SẢN PHẨM</a>
+                    <a href="product_list" class="sub">Basas</a>
+                    <a href="product_list" class="sub">Vintas</a>
+                    <a href="product_list" class="sub">Urbas</a>
+                    <a href="product_list" class="sub">Pattas</a>
                 </div>
             </div>
         </div>

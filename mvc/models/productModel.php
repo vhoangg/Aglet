@@ -30,4 +30,3 @@ class productModel extends db{
     return mysqli_query($this->con, $qr);
   }
 }
-?>
