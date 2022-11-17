@@ -1,7 +1,9 @@
+<?php
+  $product = mysqli_fetch_array($data['pr']);
+
+
+?>
 <div class="container-xl px-4 mt-4">
-    <!-- Account page navigation-->
-
-
     <div class="row">
         <div class="col-xl-4">
             <!-- Profile picture card-->
@@ -26,14 +28,20 @@
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">Tên sản phẩm</label>
-                            <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username">
+
+                            <input class="form-control" id="inputUsername" type="text" value="<?php
+                                echo $product['name'];
+                            ?>">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">Giá</label>
-                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="<?php
+
+                                  echo $product['price'];
+                                ?>">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">

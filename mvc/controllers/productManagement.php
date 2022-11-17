@@ -1,8 +1,8 @@
 <?php
   class productManagement extends controller{
-    function show(){
+    function show($page = 1){
         $product = $this->model("productModel");
         echo $product->getProduct();
-        $this->adminView("adminLayout",["page"=>"productManagement","pr" => $product->product()]);
+        $this->adminView("adminLayout",["page"=>"productManagement","pr" => $product->paginationQuer($page), "numOfPr"=>$product->numOfProducts()]);
     }
   }
