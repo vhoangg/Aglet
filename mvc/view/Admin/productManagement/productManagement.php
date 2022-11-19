@@ -1,5 +1,4 @@
 
-
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -14,15 +13,20 @@
 			$i = 0;
 			$row = [];
 			while($row[$i] = mysqli_fetch_array($data["pr"])){
+                $str;
+                if($row[$i]['active'] == 1)
+                    $str = "Còn hàng";
+                else
+                    $str = "Hết hàng";
 				echo "
 				<tr>
 				<td>".$row[$i]['id']."</td>
 				<td>".$row[$i]['name']."</td>
 				<td>".$row[$i]['price']."</td>
-				<td>".$row[$i]['active']."</td>
+				<td>".$str."</td>
 				<td>
 					<ul>
-						<li><a href = ","http://localhost:8888/aglet/editProducts/". $row[$i]['id']."",">Sửa</a></li>
+						<li><a href = ","http://localhost/aglet/admin/editProducts/". $row[$i]['id']."",">Sửa</a></li>
 						<li>Xóa</li>
 					</ul>
 				</td>
@@ -39,27 +43,37 @@
     <nav class="pagination-outer" aria-label="Page navigation">
         <ul class="pagination">
             <li class="page-item">
-                <a href="#" class="page-link" aria-label="Previous">
+                <a href="<?php
+                $page = $data["resultPage"];
+                if($page[0] == 1)
+                    echo "http://localhost/aglet/admin/productManagement/".($page[0]);
+                else
+                    echo "http://localhost/aglet/admin/productManagement/".($page[0]-1);
+                ?>" class="page-link" aria-label="Previous">
                     <span aria-hidden="true">«</span>
                 </a>
             </li>
             <?php
 
                 $num = mysqli_fetch_array($data["numOfPr"]);
-                $per_page = 1;
+                $per_page = 10;
                 $pages = ceil($num[0] / $per_page);
                 $i = 1;
                 while($i <= $pages){
                     echo "
-                        <li class=","page-item","><a class=","page-link"," href= ","http://localhost:8888/aglet/productManagement/".$i.">".$i."</a></li>
+                        <li class=","page-item","><a class=","page-link"," href= ","http://localhost/aglet/admin/productManagement/".$i.">".$i."</a></li>
                     ";
                     $i++;
                 }
 
+
             ?>
 
             <li class="page-item">
-                <a href="#" class="page-link" aria-label="Next">
+                <a href="<?php
+                $page = $data["resultPage"];
+                echo "http://localhost/aglet/admin/productManagement/".($page[0]+1);
+                ?> " class="page-link" aria-label="Next">
                     <span aria-hidden="true">»</span>
                 </a>
             </li>

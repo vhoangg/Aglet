@@ -21,12 +21,14 @@
         <title>Aglet Admin</title>
         <link href="./mvc/view/admin/css/style.css" rel="stylesheet" />
         <link href="../mvc/view/admin/css/style.css" rel="stylesheet" />
+        <link href="../../mvc/view/admin/css/style.css" rel="stylesheet" />
+
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="http://localhost:8888/aglet/admin">Aglet Admin</a>
+            <a class="navbar-brand ps-3" href="http://localhost/aglet/admin">Aglet Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -39,7 +41,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="http://localhost:8888/aglet/logout">Logout</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/aglet/logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -54,7 +56,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Page Management
                             </a>
-                            <a class="nav-link" href="http://localhost:8888/aglet/productManagement/1">
+                            <a class="nav-link" href="http://localhost/aglet/admin/productManagement/1">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Product Management
                             </a>

@@ -15,9 +15,9 @@ class productModel extends db{
   }
 
   public function paginationQuer($page){
-    $total_records_per_page = 1;
-
-    $offset = ((int)$page - 1) * $total_records_per_page;
+    $total_records_per_page = 10;
+    $page--;
+    $offset = (   ((int)$page) * (int)$total_records_per_page);
 
 
     $qr = "SELECT * FROM PRODUCTS LIMIT " .$total_records_per_page. " offset ".$offset;
@@ -27,6 +27,11 @@ class productModel extends db{
 
   public function numOfProducts(){
     $qr = "SELECT COUNT(*) FROM PRODUCTS";
+    return mysqli_query($this->con, $qr);
+  }
+
+  public function update($name, $description, $menu_id, $price, $price_sale, $active, $thumb, $color, $size){
+    $qr = "UPDATE PRODUCTS SET name = $name, description = $description, menu_id = $menu_id, price = $price, price_sale = $price_sale, active = $active, thumb = $thumb, color = $color, size = $size ";
     return mysqli_query($this->con, $qr);
   }
 }
