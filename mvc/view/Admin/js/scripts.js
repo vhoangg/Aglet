@@ -10,3 +10,10 @@ for(let i = 0; i < page_item.length; i++ ){
   });
 
 }
+
+console.log("hello");
+function onFormSubmit() {
+  event.preventDefault();
+
+  // your Javascript code here
+}

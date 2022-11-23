@@ -21,7 +21,7 @@ class productModel extends db{
 
 
     $qr = "SELECT * FROM PRODUCTS LIMIT " .$total_records_per_page. " offset ".$offset;
-    echo $qr;
+
     return mysqli_query($this->con, $qr);
   }
 
@@ -30,8 +30,9 @@ class productModel extends db{
     return mysqli_query($this->con, $qr);
   }
 
-  public function update($name, $description, $menu_id, $price, $price_sale, $active, $thumb, $color, $size){
-    $qr = "UPDATE PRODUCTS SET name = $name, description = $description, menu_id = $menu_id, price = $price, price_sale = $price_sale, active = $active, thumb = $thumb, color = $color, size = $size ";
+  public function update($name, $description, $menu_id, $price, $price_sale, $qty, $active, $thumb, $color, $size, $id){
+    $qr = 'UPDATE PRODUCTS SET name = "'.$name.'", description = "'.$description.'", menu_id = '.$menu_id.', price = '.$price.', price_sale = '.$price_sale.',qty = '.$qty.', active = '.$active.', thumb = "'.$thumb.'", color = "'.$color.'", size = '.$size.' WHERE id = '.$id;
+
     return mysqli_query($this->con, $qr);
   }
 }

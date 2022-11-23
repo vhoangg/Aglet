@@ -49,8 +49,8 @@ class app
         return explode("/", filter_var(trim($_GET["url"], "/")));
       }
 
-      $temp[] = array("home","show");
-      return $temp;
+
+      return ["home","show"];
 
     }
   }

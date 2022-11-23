@@ -1,5 +1,9 @@
 <?php
-  $product = mysqli_fetch_array($data['pr']);
+  //$product = mysqli_fetch_array($data['pr']);
+  $pr = $data["product"];
+  $str = "";
+  $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
+
 
 
 ?>
@@ -24,12 +28,12 @@
             <div class="card mb-4">
                 <div class="card-header">Thông tin sản phẩm</div>
                 <div class="card-body">
-                    <form>
+                    <form method = "post"  class = "myForm" >
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">Tên sản phẩm</label>
 
-                            <input class="form-control" id="inputUsername" type="text" value="<?php
+                            <input class="form-control" id="inputUsername" name="name" type="text" value="<?php
                                 echo $product['name'];
                             ?>">
                         </div>
@@ -38,7 +42,7 @@
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">Giá</label>
-                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="<?php
+                                <input class="form-control" id="inputFirstName" type="text" name="price" placeholder="Enter your first name" value="<?php
 
                                   echo $product['price'];
                                 ?>">
@@ -46,7 +50,9 @@
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLastName">Giá khuyến mãi</label>
-                                <input class="form-control" id="inputLastName" type="text" placeholder="Nhập giá khuyến mãi" value="">
+                                <input class="form-control" id="inputLastName" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="<?php
+                                 echo $product['price_sale'];
+                                ?>">
                             </div>
                         </div>
                         <!-- Form Row        -->
@@ -54,32 +60,34 @@
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inlineFormCustomSelect">Size</label>
-                                    <select class="custom-select col-md-6" id="inlineFormCustomSelect">
-                                        <option selected>Choose...</option>
-                                        <option value="36">36</option>
-                                        <option value="37">37</option>
-                                        <option value="38">38</option>
-                                        <option value="39">39</option>
-                                        <option value="40">40</option>
-                                        <option value="41">41</option>
-                                        <option value="42">42</option>
-                                        <option value="43">43</option>
-                                        <option value="44">44</option>
-                                        <option value="45">45</option>
-                                        <option value="46">46</option>
+                                    <select class="custom-select col-md-6" name="size" id="inlineFormCustomSelect">
+                                        <?php
+                                            for($i = 36; $i <= 46; $i++){
+
+                                                if($product['size'] == $i){
+                                                    echo '<option selected value="'.$i.'">'.$i.'</option>';
+                                                }
+                                                else
+                                                     echo '<option value="'.$i.'">'.$i.'</option>';
+                                            }
+                                        ?>
+
                                     </select>
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inlineFormCustomSelect">Màu</label>
-                                    <select class="custom-select col-md-6" id="inlineFormCustomSelect">
-                                        <option selected>Choose...</option>
-                                        <option value="blue">Xanh</option>
-                                        <option value="red">Đỏ</option>
-                                        <option value="yellow">Vàng</option>
-                                        <option value="green">Xanh lá</option>
-                                        <option value="black">Đen</option>
-                                        <option value="white">Trắng</option>
+                                    <select class="custom-select col-md-6" name="color" id="inlineFormCustomSelect">
+                                        <?php
+                                            $color = ["Blue", "Red", "Yellow", "Green", "Black", "White" ];
+                                            for($i = 0; $i < 6; $i++){
+                                                if($product['color'] == $color[$i]){
+                                                    echo '<option selected value="'.$color[$i].'">'.$color[$i].'</option>';
+                                                }
+                                                else
+                                                  echo '<option value="'.$color[$i].'">'.$color[$i].'</option>';
+                                            }
+                                        ?>
                                     </select>
                             </div>
                         </div>
@@ -89,25 +97,65 @@
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Số lượng còn lại</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="" value="">
+                                <input class="form-control" id="inputPhone" name="qty" type="tel" placeholder="" value="<?php
+                                 echo $product['qty'];
+                                ?>">
                             </div>
                             <!-- Form Group (birthday)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputBirthday">Bộ sưu tập</label>
-                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="" value="">
+                                <input class="form-control" id="inputBirthday" type="text" name="menu_id" placeholder="" value="<?php
+                                 echo $product['menu_id'];
+                                ?>">
                             </div>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <label for="exampleFormControlTextarea1" class="form-label" >Mô tả</label>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"  ><?php
+                          echo $product['description'];
+                          ?>
+                          </textarea>
                         </div>
                         <!-- Form Row-->
 
                         <!-- Save changes button-->
-                        <button class="btn btn-primary" type="button">Lưu</button>
+                        <button class="btn btn-primary"  data-toggle="modal" data-target="#modalCookie1" type="submit" name="submit">Lưu</button>
+                        <?php
+                            $str="";
+                            if(isset($_POST['submit'])){
+                                if($pr->update($_POST['name'], $_POST['description'], $_POST['menu_id'], $_POST['price'], $_POST['price_sale'],$_POST['qty'], 1, "gege", $_POST['color'], $_POST['size'],$data['id'])){
+                                    $str = '<p class="pt-3 pr-2">Cập nhật thành công</p>';
+                                }
+
+                                else
+                                $str = '<p class="pt-3 pr-2">Cập nhật thất bại</p>';
+                                    echo '
+                                    <!--Modal: modalCookie-->
+                                    <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                    aria-hidden="true" data-backdrop="true">
+                                    <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <div class="row d-flex justify-content-center align-items-center">
+                                            '.$str.'
+                                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <!--/.Content-->
+                                    </div>
+                                    </div>
+                                    <!--Modal: modalCookie-->
+                                    ';
+
+                            }
+?>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

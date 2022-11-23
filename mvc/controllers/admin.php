@@ -16,6 +16,6 @@
     function editProducts($id){
       $product = $this->model("productModel");
       echo $product->getProduct();
-      $this->adminView("adminLayout",["page"=>"editProducts","pr" => $product->findProductWithId($id)]);
+      $this->adminView("adminLayout",["page"=>"editProducts","pr" => $product->findProductWithId($id),"product"=>$product, "id"=> $id]);
     }
   }
