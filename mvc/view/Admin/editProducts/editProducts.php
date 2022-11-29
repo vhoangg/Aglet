@@ -1,12 +1,33 @@
 <?php
   //$product = mysqli_fetch_array($data['pr']);
+
   $pr = $data["product"];
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
-
-
+  echo '<p>'.$data['id'].'</p>';
 
 ?>
+<div id="noti"style = "display: none">
+     <!--Modal: modalCookie-->
+     <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true" data-backdrop="true">
+          <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+              <!--Content-->
+              <div class="modal-content">
+              <!--Body-->
+              <div class="modal-body">
+                  <div class="row d-flex justify-content-center align-items-center" >
+                    <div id="message"></div>
+                  <a type="button" id="close" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
+                  </div>
+              </div>
+              </div>
+              <!--/.Content-->
+          </div>
+          </div>
+          <!--Modal: modalCookie-->
+
+</div>
 <div class="container-xl px-4 mt-4">
     <div class="row">
         <div class="col-xl-4">
@@ -28,7 +49,7 @@
             <div class="card mb-4">
                 <div class="card-header">Thông tin sản phẩm</div>
                 <div class="card-body">
-                    <form method = "post"  class = "myForm" >
+                    <form method = "post"  class = "myForm" id = "form">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">Tên sản phẩm</label>
@@ -107,6 +128,9 @@
                                 <input class="form-control" id="inputBirthday" type="text" name="menu_id" placeholder="" value="<?php
                                  echo $product['menu_id'];
                                 ?>">
+                                <input type="hidden" name='id' value="<?php
+                                 echo $data['id'];
+                                ?>">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -119,43 +143,30 @@
                         <!-- Form Row-->
 
                         <!-- Save changes button-->
-                        <button class="btn btn-primary"  data-toggle="modal" data-target="#modalCookie1" type="submit" name="submit">Lưu</button>
-                        <?php
-                            $str="";
-                            if(isset($_POST['submit'])){
-                                if($pr->update($_POST['name'], $_POST['description'], $_POST['menu_id'], $_POST['price'], $_POST['price_sale'],$_POST['qty'], 1, "gege", $_POST['color'], $_POST['size'],$data['id'])){
-                                    $str = '<p class="pt-3 pr-2">Cập nhật thành công</p>';
-                                }
+                        <button class="btn btn-primary" id ="button" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">Lưu</button>
 
-                                else
-                                $str = '<p class="pt-3 pr-2">Cập nhật thất bại</p>';
-                                    echo '
-                                    <!--Modal: modalCookie-->
-                                    <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                    aria-hidden="true" data-backdrop="true">
-                                    <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-                                        <!--Content-->
-                                        <div class="modal-content">
-                                        <!--Body-->
-                                        <div class="modal-body">
-                                            <div class="row d-flex justify-content-center align-items-center">
-                                            '.$str.'
-                                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <!--/.Content-->
-                                    </div>
-                                    </div>
-                                    <!--Modal: modalCookie-->
-                                    ';
-
-                            }
-?>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<script type="text/javascript">
+		$("#button").click(function(event){
+			$.ajax({
+				method: "POST",// phương thức dữ liệu được truyền đi
+				url: "../edit",// gọi đến file server show_data.php để xử lý
+				data: $("#form").serialize(),//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				success : function(response){//kết quả trả về từ server nếu gửi thành công
+                    $('#noti').fadeIn();
+                    $("#message").after(response);
+				}
+			});
+		});
+        $("#close").click(function(){
+            $("#message").empty();
+        });
+
+</script>

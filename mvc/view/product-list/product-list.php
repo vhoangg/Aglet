@@ -1,3 +1,9 @@
+<?php
+echo $_SERVER['gender'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
