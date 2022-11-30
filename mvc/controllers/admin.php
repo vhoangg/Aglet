@@ -15,18 +15,19 @@
 
     function edit(){
       $product = $this->model("productModel");
-
       $this->adminView("edit",["product"=>$product]);
     }
     function editProducts($id){
       $product = $this->model("productModel");
-
       $this->adminView("adminLayout",["page"=>"editProducts","product"=>$product, "id"=> $id]);
     }
 
     function addProduct(){
       $product = $this->model("productModel");
-
       $this->adminView("adminLayout",["page"=>"addProduct","product"=>$product]);
+    }
+
+    function add(){
+
     }
   }

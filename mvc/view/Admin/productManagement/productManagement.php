@@ -1,5 +1,16 @@
 
+<div class="input-group d-flex flex-row justify-content-center mt-3 mb-3">
+    <div class="col-md-4">
+        <input type="search" class="form-control  rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
 
+    </div>
+    <button type="button" class="btn btn-outline-primary">search</button>
+
+
+
+
+
+</div>
 
 <table class="table table-hover">
   <thead class="thead-light">

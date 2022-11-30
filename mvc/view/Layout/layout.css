@@ -555,7 +555,7 @@ div {
   padding: 1px 1px;
 }
 #cart {
-padding-top: 40px; 
+padding-top: 40px;
 padding-left: 100px;
 }
 #cart .product-info{
@@ -1149,3 +1149,4 @@ border: none;
   border: none;
 }
 /* END SHIPPING INFORMATION */
+
