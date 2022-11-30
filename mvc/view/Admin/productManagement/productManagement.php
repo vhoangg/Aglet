@@ -1,11 +1,16 @@
 
-<table class="table">
+
+
+<table class="table table-hover">
   <thead class="thead-light">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Tên sản phẩm</th>
       <th scope="col">Giá</th>
       <th scope="col">Tình trạng</th>
+      <th scope= "col">
+      <a href="http://localhost/aglet/admin/addProduct"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -18,20 +23,20 @@
                     $str = "Còn hàng";
                 else
                     $str = "Hết hàng";
-				echo "
+				echo '
 				<tr>
-				<td>".$row[$i]['id']."</td>
-				<td>".$row[$i]['name']."</td>
-				<td>".$row[$i]['price']."</td>
-				<td>".$str."</td>
+				<td>'.$row[$i]['id'].'</td>
+				<td>'.$row[$i]['name'].'</td>
+				<td>'.$row[$i]['price'].'</td>
+				<td>'.$str.'</td>
 				<td>
-					<ul>
-						<li><a href = ","http://localhost/aglet/admin/editProducts/". $row[$i]['id']."",">Sửa</a></li>
-						<li>Xóa</li>
-					</ul>
+                    <div class="d-flex flex-row">
+						<a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'">Sửa</a></li>
+						<h6>Xóa</h6>
+                    </div>
 				</td>
 				</tr>
-				";
+				';
 				$i++;
 			}
 		?>

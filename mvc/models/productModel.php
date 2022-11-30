@@ -30,9 +30,19 @@ class productModel extends db{
     return mysqli_query($this->con, $qr);
   }
 
-  public function update($name, $description, $menu_id, $price, $price_sale, $qty, $active, $thumb, $color, $size, $id){
-    $qr = 'UPDATE PRODUCTS SET name = "'.$name.'", description = "'.$description.'", menu_id = '.$menu_id.', price = '.$price.', price_sale = '.$price_sale.',qty = '.$qty.', active = '.$active.', thumb = "'.$thumb.'", color = "'.$color.'", size = '.$size.' WHERE id = '.$id;
+  public function update($name, $description, $menu_id, $price, $price_sale, $qty, $active, $thumb, $color, $size,$gender, $id){
+    $qr = 'UPDATE PRODUCTS SET name = "'.$name.'", description = "'.$description.'", menu_id = '.$menu_id.', price = '.$price.', price_sale = '.$price_sale.',qty = '.$qty.', active = '.$active.', thumb = "'.$thumb.'", color = "'.$color.'", size = '.$size.',gender = '.$gender.' WHERE id = '.$id;
 
+    return mysqli_query($this->con, $qr);
+  }
+
+  public function add($name,  $menu_id, $price, $price_sale){
+    $qr = 'INSERT INTO MENUS (name, parent_id, price, price_sale) values ("'.$name.'",0 ,'.$price.', '.$price_sale.');';
+    return mysqli_query($this->con, $qr);
+  }
+
+  public function findProductWithGender($gender){
+    $qr = "SELECT * FROM PRODUCTS WHERE gender = $gender";
     return mysqli_query($this->con, $qr);
   }
 }

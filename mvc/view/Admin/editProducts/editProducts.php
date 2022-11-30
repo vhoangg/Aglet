@@ -4,7 +4,7 @@
   $pr = $data["product"];
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
-  echo '<p>'.$data['id'].'</p>';
+
 
 ?>
 <div id="noti"style = "display: none">
@@ -81,7 +81,7 @@
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inlineFormCustomSelect">Size</label>
-                                    <select class="custom-select col-md-6" name="size" id="inlineFormCustomSelect">
+                                    <select class="custom-select col-md-12" name="size" id="inlineFormCustomSelect">
                                         <?php
                                             for($i = 36; $i <= 46; $i++){
 
@@ -98,7 +98,7 @@
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inlineFormCustomSelect">Màu</label>
-                                    <select class="custom-select col-md-6" name="color" id="inlineFormCustomSelect">
+                                    <select class="custom-select col-md-12" name="color" id="inlineFormCustomSelect">
                                         <?php
                                             $color = ["Blue", "Red", "Yellow", "Green", "Black", "White" ];
                                             for($i = 0; $i < 6; $i++){
@@ -107,6 +107,21 @@
                                                 }
                                                 else
                                                   echo '<option value="'.$color[$i].'">'.$color[$i].'</option>';
+                                            }
+                                        ?>
+                                    </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inlineFormCustomSelect">Giới tính</label>
+                                    <select class="custom-select col-md-12" name="gender" id="inlineFormCustomSelect">
+                                        <?php
+                                            $gender = ["Nam", "Nữ" ];
+                                            for($i = 0; $i < 2; $i++){
+                                                if($product['gender'] == $gender[$i]){
+                                                    echo '<option selected value="'.$i.'">'.$gender[$i].'</option>';
+                                                }
+                                                else
+                                                  echo '<option value="'.$i.'">'.$gender[$i].'</option>';
                                             }
                                         ?>
                                     </select>
@@ -155,18 +170,19 @@
 
 <script type="text/javascript">
 		$("#button").click(function(event){
+
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
+                data: {action: 'update'},
 				url: "../edit",// gọi đến file server show_data.php để xử lý
 				data: $("#form").serialize(),//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
                     $("#message").after(response);
+                    $("#message").remove();
 				}
 			});
 		});
-        $("#close").click(function(){
-            $("#message").empty();
-        });
+
 
 </script>

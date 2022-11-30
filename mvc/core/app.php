@@ -3,7 +3,7 @@ class app
 {
   protected $controller = "home";
   protected $action = "show";
-  protected $params = [];
+  protected $params = ["/"];
 
     function __construct()
     {
@@ -41,15 +41,23 @@ class app
 
     }
 
-
-
-    function UrlProcess(){
-      if(isset($_GET["url"])){
-
-        return explode("/", filter_var(trim($_GET["url"], "/")));
+    function getUrl(){
+      if(!empty($_SERVER['PATH_INFO'])){
+        $url = $_SERVER['PATH_INFO'];
+      }
+      else{
+        $url = '/';
       }
 
+      return $url;
+    }
 
+    function UrlProcess(){
+    $url = $this->getUrl();
+    $urlArr = explode("/", filter_var(trim($url, "/")));
+    if(!empty($urlArr[0])){
+      return $urlArr;
+    }
       return ["home","show"];
 
     }
