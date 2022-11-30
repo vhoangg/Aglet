@@ -1,15 +1,12 @@
 <?php
-  class home extends controller{
-    function show(){
+class home extends controller
+{
+  function show()
+  {
 
-        $product = $this->model("productModel");
-        echo $product->getProduct();
-        $this->view("layout",["page"=>"homepage"]);
-
-
-    }
-
-
-
+    $product = $this->model("productModel");
+    $this->view("layout", [
+      "page" => "homepage"
+    ]);
   }
-?>
+}

@@ -1,12 +1,10 @@
 <?php
-  class product_list extends controller{
-    function show(){
-      $product = $this->model("productModel");
+class product_list extends controller
+{
+  function show()
+  {
+    $product = $this->model("productModel");
 
-      $this->view("layout",["page"=>"product-list", "product"=> $product]);
-    }
-
-
-
+    $this->view("layout", ["page" => "product-list", "product" => $product->product()]);
   }
-?>
+}
