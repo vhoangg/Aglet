@@ -51,21 +51,21 @@
                     <form method = "post"  class = "myForm" id = "form">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputUsername">Tên sản phẩm</label>
+                            <label class="small mb-1" for="inputName">Tên sản phẩm</label>
 
-                            <input class="form-control" id="inputUsername" name="name" type="text" placeholder="Nhập tên" value="">
+                            <input class="form-control" id="inputName" name="name" type="text" placeholder="Nhập tên" value="">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputFirstName">Giá</label>
-                                <input class="form-control" id="inputFirstName" type="text" name="price" placeholder="Nhập giá" value="">
+                                <label class="small mb-1" for="inputPrice">Giá</label>
+                                <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Nhập giá" value="">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLastName">Giá khuyến mãi</label>
-                                <input class="form-control" id="inputLastName" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="">
+                                <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
+                                <input class="form-control" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="">
                             </div>
                         </div>
                         <!-- Form Row        -->
@@ -95,12 +95,14 @@
 
 <script type="text/javascript">
 		$("#button").click(function(event){
-
+            var name = $("#inputName").val();
+            var price = $("#inputPrice").val();
+            var priceSale = $("#inputPriceSale").val();
 			$.ajax({
+
 				method: "POST",// phương thức dữ liệu được truyền đi
-        data: {action: 'update'},
-				url: "../edit",// gọi đến file server show_data.php để xử lý
-				data: $("#form").serialize(),//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				url: "http://localhost/aglet/admin/add",// gọi đến file server show_data.php để xử lý
+				data: {action:"add", name:name, price:price, price_sale:priceSale},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
                     $("#message").after(response);

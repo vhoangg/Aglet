@@ -28,6 +28,13 @@
     }
 
     function add(){
-
+      $pr = $this->model("productModel");
+      $str="";
+      if($pr->add($_POST['name'],$_POST['price'],$_POST['price_sale'])){
+          $str = '<p class="pt-3 pr-2">Thêm thành công</p>';
+      }
+      else
+      $str = '<p class="pt-3 pr-2">Thêm thất bại</p>';
+          echo $str;
     }
   }

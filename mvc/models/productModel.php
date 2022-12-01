@@ -13,7 +13,8 @@ class productModel extends db
 
   public function findProductWithId($id)
   {
-    $qr = "SELECT * FROM PRODUCTS WHERE ID = $id";
+    $qr = "SELECT * FROM PRODUCTS A, MENUS B  WHERE B.id = $id AND A.menu_id = B.id";
+    echo $qr;
     return mysqli_query($this->con, $qr);
   }
 
@@ -24,7 +25,7 @@ class productModel extends db
     $offset = (((int)$page) * (int)$total_records_per_page);
 
 
-    $qr = "SELECT * FROM PRODUCTS LIMIT " . $total_records_per_page . " offset " . $offset;
+    $qr = "SELECT * FROM MENUS LIMIT " . $total_records_per_page . " offset " . $offset;
 
     return mysqli_query($this->con, $qr);
   }
@@ -42,9 +43,10 @@ class productModel extends db
     return mysqli_query($this->con, $qr);
   }
 
-  public function add($name,  $menu_id, $price, $price_sale)
+  public function add($name, $price, $price_sale)
   {
-    $qr = 'INSERT INTO MENUS (name, parent_id, price, price_sale) values ("' . $name . '",0 ,' . $price . ', ' . $price_sale . ');';
+    $qr = 'INSERT INTO MENUS (name, parent_id, price, price_sale) values ("' .$name. '",0 ,' . $price . ', ' . $price_sale . ');';
+
     return mysqli_query($this->con, $qr);
   }
 
