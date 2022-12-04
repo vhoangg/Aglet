@@ -73,6 +73,21 @@
                             <!-- Form Group (location)-->
 
                         <!-- Form Group (email address)-->
+                        <div class="col-md-6">
+                                <label class="small mb-1" for="inputColor">Màu</label>
+                                    <select class="custom-select col-md-12" name="color" id="inputColor">
+                                        <?php
+                                            $color = ["Blue", "Red", "Yellow", "Green", "Black", "White" ];
+                                            for($i = 0; $i < 6; $i++){
+                                                if($product['color'] == $color[$i]){
+                                                    echo '<option selected value="'.$color[$i].'">'.$color[$i].'</option>';
+                                                }
+                                                else
+                                                  echo '<option value="'.$color[$i].'">'.$color[$i].'</option>';
+                                            }
+                                        ?>
+                                    </select>
+                            </div>
 
 
                         <div class="mb-3">
@@ -98,11 +113,12 @@
             var name = $("#inputName").val();
             var price = $("#inputPrice").val();
             var priceSale = $("#inputPriceSale").val();
+            var color = $("#inputColor").val();
 			$.ajax({
 
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "http://localhost/aglet/admin/add",// gọi đến file server show_data.php để xử lý
-				data: {action:"add", name:name, price:price, price_sale:priceSale},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {action:"add", name:name, price:price, price_sale:priceSale, color:color},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
                     $("#message").after(response);

@@ -13,8 +13,14 @@ class productModel extends db
 
   public function findProductWithId($id)
   {
-    $qr = "SELECT * FROM PRODUCTS A, MENUS B  WHERE B.id = $id AND A.menu_id = B.id";
+    $qr = "SELECT A.id, A.name, A.description, A.menu_id, A.price, A.price_sale, A.color, A.qty, A.size, A.gender FROM PRODUCTS A, MENUS B  WHERE B.id = $id AND A.menu_id = B.id";
     echo $qr;
+    return mysqli_query($this->con, $qr);
+  }
+  public function query($color, $size, $gender)
+  {
+    $qr = 'SELECT * FROM PRODUCTS WHERE color = "'.$color.'" AND size = '.$size.' AND gender = '.$gender.';';
+
     return mysqli_query($this->con, $qr);
   }
 
@@ -39,13 +45,14 @@ class productModel extends db
   public function update($name, $description, $menu_id, $price, $price_sale, $qty, $active, $thumb, $color, $size, $gender, $id)
   {
     $qr = 'UPDATE PRODUCTS SET name = "' . $name . '", description = "' . $description . '", menu_id = ' . $menu_id . ', price = ' . $price . ', price_sale = ' . $price_sale . ',qty = ' . $qty . ', active = ' . $active . ', thumb = "' . $thumb . '", color = "' . $color . '", size = ' . $size . ',gender = ' . $gender . ' WHERE id = ' . $id;
-
+    echo $qr;
     return mysqli_query($this->con, $qr);
   }
 
-  public function add($name, $price, $price_sale)
+
+  public function add($name, $price, $price_sale, $color)
   {
-    $qr = 'INSERT INTO MENUS (name, parent_id, price, price_sale) values ("' .$name. '",0 ,' . $price . ', ' . $price_sale . ');';
+    $qr = 'INSERT INTO MENUS (name, parent_id, price, price_sale, color) values ("' .$name. '",0 ,' . $price . ', ' . $price_sale . ', "'.$color.'");';
 
     return mysqli_query($this->con, $qr);
   }

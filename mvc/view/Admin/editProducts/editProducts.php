@@ -6,6 +6,7 @@
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
 
 
+
 ?>
 <div id="noti"style = "display: none">
      <!--Modal: modalCookie-->
@@ -17,8 +18,8 @@
               <!--Body-->
               <div class="modal-body">
                   <div class="row d-flex justify-content-center align-items-center" >
-                    <div id="message"></div>
-                  <a type="button" id="close" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
+
+                    <a type="button" id="close" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
                   </div>
               </div>
               </div>
@@ -52,9 +53,8 @@
                     <form method = "post"  class = "myForm" id = "form">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputUsername">Tên sản phẩm</label>
-
-                            <input class="form-control" id="inputUsername" name="name" type="text" value="<?php
+                            <label class="small mb-1" for="inputName">Tên sản phẩm</label>
+                            <input class="form-control" id="inputName" name="name" type="text" value="<?php
                                 echo $product['name'];
                             ?>">
                         </div>
@@ -62,16 +62,16 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputFirstName">Giá</label>
-                                <input class="form-control" id="inputFirstName" type="text" name="price" placeholder="Enter your first name" value="<?php
+                                <label class="small mb-1" for="inputPrice">Giá</label>
+                                <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Enter your first name" value="<?php
 
                                   echo $product['price'];
                                 ?>">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLastName">Giá khuyến mãi</label>
-                                <input class="form-control" id="inputLastName" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="<?php
+                                <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
+                                <input class="form-control" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="<?php
                                  echo $product['price_sale'];
                                 ?>">
                             </div>
@@ -80,8 +80,8 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inlineFormCustomSelect">Size</label>
-                                    <select class="custom-select col-md-12" name="size" id="inlineFormCustomSelect">
+                                <label class="small mb-1" for="inputSize">Size</label>
+                                    <select class="custom-select col-md-12" name="size" id="inputSize">
                                         <?php
                                             for($i = 36; $i <= 46; $i++){
 
@@ -97,8 +97,8 @@
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inlineFormCustomSelect">Màu</label>
-                                    <select class="custom-select col-md-12" name="color" id="inlineFormCustomSelect">
+                                <label class="small mb-1" for="inputColor">Màu</label>
+                                    <select class="custom-select col-md-12" name="color" id="inputColor">
                                         <?php
                                             $color = ["Blue", "Red", "Yellow", "Green", "Black", "White" ];
                                             for($i = 0; $i < 6; $i++){
@@ -112,8 +112,8 @@
                                     </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inlineFormCustomSelect">Giới tính</label>
-                                    <select class="custom-select col-md-12" name="gender" id="inlineFormCustomSelect">
+                                <label class="small mb-1" for="inputGender">Giới tính</label>
+                                    <select class="custom-select col-md-12" name="gender" id="inputGender">
                                         <?php
                                             $gender = ["Nam", "Nữ" ];
                                             for($i = 0; $i < 2; $i++){
@@ -132,25 +132,25 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Số lượng còn lại</label>
-                                <input class="form-control" id="inputPhone" name="qty" type="tel" placeholder="" value="<?php
+                                <label class="small mb-1" for="inputQty">Số lượng còn lại</label>
+                                <input class="form-control" id="inputQty" name="qty" type="tel" placeholder="" value="<?php
                                  echo $product['qty'];
                                 ?>">
                             </div>
                             <!-- Form Group (birthday)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Bộ sưu tập</label>
-                                <input class="form-control" id="inputBirthday" type="text" name="menu_id" placeholder="" value="<?php
+                                <label class="small mb-1" for="inputMenuId">Bộ sưu tập</label>
+                                <input class="form-control" id="inputMenuId" type="text" name="menu_id" placeholder="" value="<?php
                                  echo $product['menu_id'];
                                 ?>">
-                                <input type="hidden" name='id' value="<?php
-                                 echo $data['id'];
+                                <input type="text" id="productId" name='id' value="<?php
+                                 echo $product['id'];
                                 ?>">
                             </div>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleFormControlTextarea1" class="form-label" >Mô tả</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"  ><?php
+                          <label for="inputDescription" class="form-label" >Mô tả</label>
+                          <textarea class="form-control" id="inputDescription" name="description" rows="3"  ><?php
                           echo $product['description'];
                           ?>
                           </textarea>
@@ -159,7 +159,7 @@
 
                         <!-- Save changes button-->
                         <button class="btn btn-primary" id ="button" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">Lưu</button>
-
+                        <button class="btn btn-danger" id ="deleteButton" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">xóa</button>
                     </form>
 
                 </div>
@@ -170,17 +170,73 @@
 
 <script type="text/javascript">
 		$("#button").click(function(event){
-
+            var name = $("#inputName").val();
+            var size = $("#inputSize").val();
+            var color = $("#inputColor").val();
+            var gender = $("#inputGender").val();
+            var price = $("#inputPrice").val();
+            var priceSale = $("#inputPriceSale").val();
+            var qty = $("#inputQty").val();
+            var menu_id = $("#inputMenuId").val();
+            var description = $("#inputDescription").val();
+            var id = $("#productId").val();
+            console.log(name);
+            console.log(id);
+            console.log(color);
+            console.log(gender);
+            console.log(qty);
+            console.log(description);
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
-                data: {action: 'update'},
 				url: "../edit",// gọi đến file server show_data.php để xử lý
-				data: $("#form").serialize(),//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
-				success : function(response){//kết quả trả về từ server nếu gửi thành công
+				data: {name:name, size:size, qty:qty, color:color, gender:gender, price:price, price_sale:priceSale, menu_id: menu_id, description: description, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				success : function(response){
+                    $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
-                    $("#message").after(response);
+                    $("#close").before(response);
+
+                    console.log(response);
+
+				},
+                error: function (data) {
+                    $('#noti').fadeIn();
+                    $("#close").before("LỖI!");
                     $("#message").remove();
-				}
+                }
+			});
+
+		});
+    	$("select").change(function(event){
+            var size = $("#inputSize").val();
+            var color = $("#inputColor").val();
+            var gender = $("#inputGender").val();
+            console.log(size);
+            console.log(gender);
+            console.log(color);
+			$.ajax({
+				method: "POST",// phương thức dữ liệu được truyền đi
+				url: "http://localhost/aglet/admin/query",// gọi đến file server show_data.php để xử lý
+                dataType: 'json',
+				data: {action:"query", "size":size, "color":color, "gender":gender},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				success : function(data){
+                   //kết quả trả về từ server nếu gửi thành công
+                    $("#inputPrice").val(data.price);
+                    $("#inputPriceSale").val(data.price_sale);
+                    $("#inputQty").val(data.qty);
+                    $("#inputMenuId").val(data.menu_id);
+                    $("#inputDescription").html(data.description);
+                    $("#productId").val(data.id);
+                    console.log(data);
+                    console.log($("#inputPrice"));
+				},
+                error: function (data) {
+                    $("#inputPrice").val("0");
+                    $("#inputPriceSale").val("0");
+                    $("#inputQty").val("0");
+                    $("#inputMenuId").val(data.menu_id);
+                    $("#inputDescription").html("");
+                    $("#productId").val(-1);;//always the same for refused and insecure responses.
+                }
 			});
 		});
 

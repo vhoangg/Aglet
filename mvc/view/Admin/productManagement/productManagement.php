@@ -41,9 +41,10 @@
 				<td>'.$row[$i]['price'].'</td>
 				<td>'.$str.'</td>
 				<td>
-                    <div class="d-flex flex-row">
-						<a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'">Sửa</a></li>
-						<h6>Xóa</h6>
+                    <div class="d-flex flex-row justify-content-around">
+                        <a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'"><i class="fa-solid fa-plus"></i></a></li>
+						<a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'"><i class="fa-regular fa-pen-to-square"></i></a></li>
+						<h6><i class="fa-solid fa-trash"></i></h6>
                     </div>
 				</td>
 				</tr>
