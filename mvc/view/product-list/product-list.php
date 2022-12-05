@@ -191,23 +191,40 @@ if (isset($_GET['gender'])) {
 
         <div class="product-list list">
           <?php
+          $gender;
+          if (isset($_GET['gender'])) {
+            if (strcmp(($_GET['gender']), "men") == 0) {
+              $gender = 0;
+            } else if (strcmp(($_GET['gender']), "women") == 0) {
+              $gender = 1;
+            } else {
+              //query all
+            }
+          }
+
           $rs = new stdClass();
+          $rs->idSP = array();
           $rs->tenSP = array();
           $rs->giaSP = array();
+          $rs->mauSP = array();
+          $rs->hinhSP = array();
           while ($sp = mysqli_fetch_array($data["product"])) {
+            array_push($rs->idSP, $sp[0]);
             array_push($rs->tenSP, $sp[1]);
-            array_push($rs->giaSP, $sp[5]);
+            array_push($rs->giaSP, $sp[9]);
+            array_push($rs->mauSP, $sp[11]);
+            array_push($rs->hinhSP, $sp[8]);
           };
           for ($i = 0; $i < count($rs->tenSP); $i++) {
             echo '
             <div class="product-list card">
             <div class="card-image">
-              <img src="https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg" alt="">
-              <div class="text">MUA NGAY</div>
+              <img src="' . $rs->hinhSP[$i] . '" alt="">
+              <div class="text"><a href="http://localhost/Aglet/product_details?id=' . $rs->idSP[$i] . '"MUA NGAY</a></div>
             </div>
             <div class="card-descr">
               <h3 class="name">' . $rs->tenSP[$i] . '</h3>
-              <h3 class="color">Dusty Blue</h3>
+              <h3 class="color">' . $rs->mauSP[$i] . '</h3>
               <h3 class="price">' . $rs->giaSP[$i] . ' VNĐ</h3>
             </div>
             </div>';

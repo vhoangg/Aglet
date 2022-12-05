@@ -16,11 +16,11 @@
     <nav>
         <div class="header">
             <ul class="menu">
-                <li><a href="order_tracker"><i class="fa-sharp fa-solid fa-truck-fast"> </i>Tra cứu đơn hàng</a> </li>
+                <li><a href="http://localhost/Aglet/order_tracker"><i class="fa-sharp fa-solid fa-truck-fast"> </i>Tra cứu đơn hàng</a> </li>
                 <li><a href="#"><i class="fa-solid fa-location-dot"></i> Tìm cửa hàng </a> </li>
                 <li><a href="#"><i class="fa-solid fa-heart"></i> Yêu thích</a> </li>
-                <li><a href="login"> <i class="fa-solid fa-user"></i> Đăng nhập</a> </li>
-                <li><a href="cart"><i class="fa-solid fa-bag-shopping"></i> Giỏ hàng</a> </li>
+                <li><a href="http://localhost/Aglet/login"> <i class="fa-solid fa-user"></i> Đăng nhập</a> </li>
+                <li><a href="http://localhost/Aglet/cart"><i class="fa-solid fa-bag-shopping"></i> Giỏ hàng</a> </li>
             </ul>
             <div class="my-navbar">
                 <div class="my-navbar-logo" title="Aglet Home">
@@ -28,7 +28,7 @@
                 </div>
                 <ul class="my-navbar-center">
                     <li class="drop">
-                        <a href="product_list?gender=men" class="drop-toggle">NAM<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                        <a href="http://localhost/Aglet/product_list?gender=men" class="drop-toggle">NAM<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
                             <div class="my-mega-content">
                                 <div class="mega-row">
@@ -79,7 +79,7 @@
                     </li>
                     <li class="line"></li>
                     <li class="drop">
-                        <a href="product_list/?gender=women" class="drop-toggle">NỮ<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                        <a href="http://localhost/Aglet/product_list/?gender=women" class="drop-toggle">NỮ<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
                             <div class="my-mega-content">
                                 <div class="mega-row">
@@ -241,7 +241,7 @@
         <div class="footer-items">
             <div class="rowF">
                 <div class="colF">
-                    <a href="#">SẢN PHẨM</a>
+                    <a href="http://localhost/Aglet/product_list">SẢN PHẨM</a>
                     <ul>
                         <li><a href="#">Giày nam</a></li>
                         <li><a href="#">Giày nữ</a></li>
