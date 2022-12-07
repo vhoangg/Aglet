@@ -29,6 +29,9 @@ class admin extends controller
     if (!filter_var(trim($_POST['price']), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]])) {
       echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5"> Giá không hợp lệ </p>';
     } else
+    if (!filter_var(trim($_POST['price_sale']), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]])) {
+      echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5"> Giá khuyến mãi không hợp lệ </p>';
+    } else
     if ($_POST['qty'] === '') {
       echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5">Vui lòng nhập số lượng</p>';
     } else
@@ -59,12 +62,25 @@ class admin extends controller
   function add()
   {
     $pr = $this->model("productModel");
-    $str = "";
-    if ($pr->add($_POST['name'], $_POST['price'], $_POST['price_sale'], $_POST['color'])) {
-      $str = '<p class="pt-3 pr-2">Thêm thành công</p>';
+    if (empty(trim(($_POST['name'])))) {
+      echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5">Vui lòng nhập tên</p>';
     } else
-      $str = '<p class="pt-3 pr-2">Thêm thất bại</p>';
-    echo $str;
+    if (empty($_POST['price'])) {
+      echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5">Vui lòng nhập giá</p>';
+    } else
+    if (!filter_var(trim($_POST['price']), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]])) {
+      echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5"> Giá không hợp lệ </p>';
+    } else
+    if (!filter_var(trim($_POST['price_sale']), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]])) {
+      echo '<p id= "message" class="pt-3 pr-2 mt-10 mb-5"> Giá khuyến mãi không hợp lệ </p>';
+    } else {
+      $str = "";
+      if ($pr->add($_POST['name'], $_POST['price'], $_POST['price_sale'], $_POST['color'])) {
+        $str = '<p class="pt-3 pr-2">Thêm thành công</p>';
+      } else
+        $str = '<p class="pt-3 pr-2">Thêm thất bại</p>';
+      echo $str;
+    }
   }
 
   function query()
