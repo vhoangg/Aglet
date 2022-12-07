@@ -190,29 +190,38 @@ if (isset($_GET['gender'])) {
         </div>
 
         <div class="product-list list">
+
           <?php
-          $rs = new stdClass();
-          $rs->tenSP = array();
-          $rs->giaSP = array();
-          while ($sp = mysqli_fetch_array($data["product"])) {
-            array_push($rs->tenSP, $sp[1]);
-            array_push($rs->giaSP, $sp[5]);
-          };
-          for ($i = 0; $i < count($rs->tenSP); $i++) {
-            echo '
-            <div class="product-list card">
-            <div class="card-image">
-              <img src="https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg" alt="">
-              <div class="text">MUA NGAY</div>
-            </div>
-            <div class="card-descr">
-              <h3 class="name">' . $rs->tenSP[$i] . '</h3>
-              <h3 class="color">Dusty Blue</h3>
-              <h3 class="price">' . $rs->giaSP[$i] . ' VNĐ</h3>
-            </div>
-            </div>';
+          $gender;
+          if (isset($_GET['gender'])) {
+            if (strcmp(($_GET['gender']), "men") == 0) {
+              $gender = 0;
+            } else if (strcmp(($_GET['gender']), "women") == 0) {
+              $gender = 1;
+            } else {
+              //query all
+            }
           }
 
+          $i = 0;
+          $row = [];
+          while ($row[$i] = mysqli_fetch_array($data["product"])) {
+
+            echo '
+              <div class="product-list card">
+              <div class="card-image">
+              <img src="' . $row[$i]['thumb'] . '" alt="">
+              <div class="text"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['id'] . '"MUA NGAY</a></div>
+              </div>
+              <div class="card-descr">
+              <h3 class="name">' . $row[$i]['name'] . '</h3>
+              <h3 class="color">' . $row[$i]['color'] . '</h3>
+              <h3 class="price">' . $row[$i]['price'] . ' VNĐ</h3>
+              </div>
+              </div>
+          ';
+            $i++;
+          }
           ?>
 
 
