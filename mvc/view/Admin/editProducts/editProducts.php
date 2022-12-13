@@ -1,9 +1,10 @@
 <?php
 //$product = mysqli_fetch_array($data['pr']);
 
-$pr = $data["product"];
-$str = "";
-$product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
+  $pr = $data["product"];
+  $str = "";
+  $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
+  echo $product['id'];
 
 
 
@@ -258,42 +259,5 @@ $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
 		});
 
 
-    $("select").change(function(event) {
-        var size = $("#inputSize").val();
-        var color = $("#inputColor").val();
-        var gender = $("#inputGender").val();
-        console.log(size);
-        console.log(gender);
-        console.log(color);
-        $.ajax({
-            method: "POST", // phương thức dữ liệu được truyền đi
-            url: "http://localhost/aglet/admin/query", // gọi đến file server show_data.php để xử lý
-            dataType: 'json',
-            data: {
-                action: "query",
-                "size": size,
-                "color": color,
-                "gender": gender
-            }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
-            success: function(data) {
-                //kết quả trả về từ server nếu gửi thành công
-                $("#inputPrice").val(data.price);
-                $("#inputPriceSale").val(data.price_sale);
-                $("#inputQty").val(data.qty);
-                $("#inputMenuId").val(data.menu_id);
-                $("#inputDescription").html(data.description);
-                $("#productId").val(data.id);
-                console.log(data);
-                console.log($("#inputPrice"));
-            },
-            error: function(data) {
-                $("#inputPrice").val("0");
-                $("#inputPriceSale").val("0");
-                $("#inputQty").val("0");
-                $("#inputMenuId").val(data.menu_id);
-                $("#inputDescription").html("");
-                $("#productId").val(-1);; //always the same for refused and insecure responses.
-            }
-        });
-    });
+
 </script>
