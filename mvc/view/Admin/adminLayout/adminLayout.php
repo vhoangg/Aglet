@@ -58,16 +58,18 @@
                             <div class="sb-sidenav-menu-heading">Management</div>
                             <a class="nav-link" href="pageManagement">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Page Management
+                                Quản lý bài đăng
                             </a>
+                            <a class="nav-link" href="http://localhost/aglet/admin/categoryManagement/1">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Quản lý danh mục
+                            </a>
+
                             <a class="nav-link" href="http://localhost/aglet/admin/productManagement/1">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Product Management
+                                Quản lý sản phẩm
                             </a>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Employees Management
-                            </a>
+
 
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">

@@ -5,6 +5,6 @@ class product_list extends controller
   {
     $product = $this->model("productModel");
 
-    $this->view("layout", ["page" => "product-list", "product" => $product->product()]);
+    $this->view("layout", ["page" => "product-list", "product" => $product]);
   }
 }

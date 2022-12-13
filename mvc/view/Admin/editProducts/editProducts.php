@@ -4,6 +4,7 @@
   $pr = $data["product"];
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
+  echo $product['id'];
 
 
 
@@ -53,8 +54,17 @@
                     <form method = "post"  class = "myForm" id = "form">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputName">Tên sản phẩm</label>
+                            <label class="small mb-1" for="inputName">Dòng sản phẩm</label>
                             <input class="form-control" id="inputName" name="name" type="text" value="<?php
+
+                                $qr = 'SELECT name from products where parent_id = 0 and id = '.$product['parent_id'];
+                                $name = mysqli_fetch_array($pr->customQuery($qr));
+                                echo $name[0];
+                            ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputDetailName">Tên chi tiết</label>
+                            <input class="form-control" id="inputDetailName" name="name" type="text" value="<?php
                                 echo $product['name'];
                             ?>">
                         </div>
@@ -106,7 +116,7 @@
                                                     echo '<option selected value="'.$color[$i].'">'.$color[$i].'</option>';
                                                 }
                                                 else
-                                                  echo '<option value="'.$color[$i].'">'.$color[$i].'</option>';
+                                                  echo '<option value = "'.$color[$i].'">'.$color[$i].'</option>';
                                             }
                                         ?>
                                     </select>
@@ -115,7 +125,8 @@
                                 <label class="small mb-1" for="inputGender">Giới tính</label>
                                     <select class="custom-select col-md-12" name="gender" id="inputGender">
                                         <?php
-                                            $gender = ["Nam", "Nữ" ];
+                                            $gender = ["Nữ", "Nam" ];
+
                                             for($i = 0; $i < 2; $i++){
                                                 if($product['gender'] == $gender[$i]){
                                                     echo '<option selected value="'.$i.'">'.$gender[$i].'</option>';
@@ -137,16 +148,20 @@
                                  echo $product['qty'];
                                 ?>">
                             </div>
-                            <!-- Form Group (birthday)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputMenuId">Bộ sưu tập</label>
-                                <input class="form-control" id="inputMenuId" type="text" name="menu_id" placeholder="" value="<?php
-                                 echo $product['menu_id'];
-                                ?>">
-                                <input type="text" id="productId" name='id' value="<?php
+
+                                <input class="form-control" id="productId" name="productId" type="hidden" placeholder="" value="<?php
                                  echo $product['id'];
                                 ?>">
                             </div>
+                            <div class="col-md-6">
+
+                                <input class="form-control" id="parentId" name="parentId" type="hidden" placeholder="" value="<?php
+                                 echo $product['parent_id'];
+                                ?>">
+                            </div>
+                            <!-- Form Group (birthday)-->
+
                         </div>
                         <div class="mb-3">
                           <label for="inputDescription" class="form-label" >Mô tả</label>
@@ -170,26 +185,28 @@
 
 <script type="text/javascript">
 		$("#button").click(function(event){
-            var name = $("#inputName").val();
+            var detailName = $("#inputDetailName").val();
             var size = $("#inputSize").val();
             var color = $("#inputColor").val();
             var gender = $("#inputGender").val();
             var price = $("#inputPrice").val();
             var priceSale = $("#inputPriceSale").val();
             var qty = $("#inputQty").val();
-            var menu_id = $("#inputMenuId").val();
+            var parent_id = $("#parentId").val();
             var description = $("#inputDescription").val();
             var id = $("#productId").val();
-            console.log(name);
+            var name = $("#inputName").val();
+            console.log(detailName);
             console.log(id);
             console.log(color);
             console.log(gender);
             console.log(qty);
             console.log(description);
+            console.log(name);
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "../edit",// gọi đến file server show_data.php để xử lý
-				data: {name:name, size:size, qty:qty, color:color, gender:gender, price:price, price_sale:priceSale, menu_id: menu_id, description: description, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {detail_name:detailName, name:name, size:size, qty:qty, color:color, gender:gender, price:price, price_sale:priceSale, parent_id:parent_id, description: description, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){
                     $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
@@ -199,6 +216,7 @@
 
 				},
                 error: function (data) {
+                    console.log(data);
                     $('#noti').fadeIn();
                     $("#close").before("LỖI!");
                     $("#message").remove();
@@ -210,32 +228,34 @@
             var size = $("#inputSize").val();
             var color = $("#inputColor").val();
             var gender = $("#inputGender").val();
+            var id = $("#productId").val();
             console.log(size);
             console.log(gender);
             console.log(color);
+            console.log(id);
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "http://localhost/aglet/admin/query",// gọi đến file server show_data.php để xử lý
                 dataType: 'json',
-				data: {action:"query", "size":size, "color":color, "gender":gender},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {action:"query", "size":size, "color":color, "gender":gender, "id":id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(data){
                    //kết quả trả về từ server nếu gửi thành công
                     $("#inputPrice").val(data.price);
                     $("#inputPriceSale").val(data.price_sale);
                     $("#inputQty").val(data.qty);
-                    $("#inputMenuId").val(data.menu_id);
                     $("#inputDescription").html(data.description);
                     $("#productId").val(data.id);
                     console.log(data);
                     console.log($("#inputPrice"));
 				},
                 error: function (data) {
+
+                    console.log(data);
                     $("#inputPrice").val("0");
                     $("#inputPriceSale").val("0");
                     $("#inputQty").val("0");
-                    $("#inputMenuId").val(data.menu_id);
                     $("#inputDescription").html("");
-                    $("#productId").val(-1);;//always the same for refused and insecure responses.
+                  //always the same for refused and insecure responses.
                 }
 			});
 		});

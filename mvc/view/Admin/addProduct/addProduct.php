@@ -3,7 +3,8 @@
 
   $pr = $data["product"];
   $str = "";
-
+  $id = $_GET['id'];
+  echo $id;
 
 
 ?>
@@ -46,6 +47,7 @@
         <div class="col-xl-8">
             <!-- Account details card-->
             <div class="card mb-4">
+
                 <div class="card-header">Thông tin sản phẩm</div>
                 <div class="card-body">
                     <form method = "post"  class = "myForm" id = "form">
@@ -73,7 +75,25 @@
                             <!-- Form Group (location)-->
 
                         <!-- Form Group (email address)-->
-                        <div class="col-md-6">
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputGender">Giới tính</label>
+                                    <select class="custom-select col-md-12" name="gender" id="inputGender">
+                                        <?php
+                                            $gender = ["Nam", "Nữ" ];
+                                            for($i = 0; $i < 2; $i++){
+                                                if($product['gender'] == $gender[$i]){
+                                                    echo '<option selected value="'.$i.'">'.$gender[$i].'</option>';
+                                                }
+                                                else
+                                                  echo '<option value="'.$i.'">'.$gender[$i].'</option>';
+                                            }
+                                        ?>
+                                    </select>
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
                                 <label class="small mb-1" for="inputColor">Màu</label>
                                     <select class="custom-select col-md-12" name="color" id="inputColor">
                                         <?php
@@ -89,10 +109,33 @@
                                     </select>
                             </div>
 
+                        </div>
+                        <!-- Form Group (email address)-->
 
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputQty">Số lượng còn lại</label>
+                                <input class="form-control" id="inputQty" name="qty" type="tel" placeholder="" value="<?php
+                                 echo $product['qty'];
+                                ?>">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputMenuId">Bộ sưu tập</label>
+                                <input class="form-control" id="inputMenuId" type="text" name="menu_id" placeholder="" value="<?php
+                                 echo $product['menu_id'];
+                                ?>">
+                                <input type="text" id="productId" name='id' value="<?php
+                                 echo $product['id'];
+                                ?>">
+                            </div>
+                        </div>
                         <div class="mb-3">
-                          <label for="exampleFormControlTextarea1" class="form-label" >Mô tả</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"  >
+                          <label for="inputDescription" class="form-label" >Mô tả</label>
+                          <textarea class="form-control" id="inputDescription" name="description" rows="3"  ><?php
+                          echo $product['description'];
+                          ?>
                           </textarea>
                         </div>
                         <!-- Form Row-->

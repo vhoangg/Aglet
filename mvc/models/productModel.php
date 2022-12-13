@@ -13,13 +13,13 @@ class productModel extends db
 
   public function findProductWithId($id)
   {
-    $qr = "SELECT A.id, A.name, A.description, A.menu_id, A.price, A.price_sale, A.color, A.qty, A.size, A.gender FROM PRODUCTS A, MENUS B  WHERE B.id = $id AND A.menu_id = B.id";
+    $qr = "SELECT B.id as id, name, color, size, qty, A.description as description , B.parent_id as parent_id, price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE B.parent_id = $id AND A.parent_id = B.id ";
     echo $qr;
     return mysqli_query($this->con, $qr);
   }
-  public function query($color, $size, $gender)
+  public function query($color, $size, $gender, $id)
   {
-    $qr = 'SELECT * FROM PRODUCTS WHERE color = "'.$color.'" AND size = '.$size.' AND gender = '.$gender.';';
+    $qr = 'SELECT B.id as id, qty, A.description as description , price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE A.parent_id = '.$id.' AND A.parent_id = B.id AND A.color ="'.$color.'"AND A.size = '.$size.' AND A.gender = '.$gender.';';
 
     return mysqli_query($this->con, $qr);
   }
@@ -31,7 +31,7 @@ class productModel extends db
     $offset = (((int)$page) * (int)$total_records_per_page);
 
 
-    $qr = "SELECT * FROM MENUS LIMIT " . $total_records_per_page . " offset " . $offset;
+    $qr = "SELECT * FROM PRODUCTS WHERE parent_id = 0  LIMIT " . $total_records_per_page . " offset " . $offset;
 
     return mysqli_query($this->con, $qr);
   }
@@ -42,24 +42,30 @@ class productModel extends db
     return mysqli_query($this->con, $qr);
   }
 
-  public function update($name, $description, $menu_id, $price, $price_sale, $qty, $active, $thumb, $color, $size, $gender, $id)
+  public function update($description,  $price, $price_sale, $qty, $color, $size, $gender)
   {
-    $qr = 'UPDATE PRODUCTS SET name = "' . $name . '", description = "' . $description . '", menu_id = ' . $menu_id . ', price = ' . $price . ', price_sale = ' . $price_sale . ',qty = ' . $qty . ', active = ' . $active . ', thumb = "' . $thumb . '", color = "' . $color . '", size = ' . $size . ',gender = ' . $gender . ' WHERE id = ' . $id;
+    $qr = 'UPDATE PRODUCT_DETAIL SET  description = "' . $description . '", price = ' . $price . ', price_sale = ' . $price_sale . ', qty = ' . $qty . ' WHERE color = "' . $color . '" AND size = '. $size .' AND gender = ' . $gender;
     echo $qr;
     return mysqli_query($this->con, $qr);
   }
 
 
-  public function add($name, $price, $price_sale, $color)
+  public function add($name, $type)
   {
-    $qr = 'INSERT INTO MENUS (name, parent_id, price, price_sale, color) values ("' .$name. '",0 ,' . $price . ', ' . $price_sale . ', "'.$color.'");';
-
+    $qr = 'INSERT INTO PRODUCTS (name, menu_id, parent_id) values ("' .$name. '", "'.$type.'", 0);';
+    ECHO $qr;
     return mysqli_query($this->con, $qr);
   }
 
   public function findProductWithGender($gender)
   {
     $qr = "SELECT * FROM PRODUCTS WHERE gender = $gender";
+    return mysqli_query($this->con, $qr);
+  }
+
+
+  public function customQuery($qr){
+
     return mysqli_query($this->con, $qr);
   }
 }

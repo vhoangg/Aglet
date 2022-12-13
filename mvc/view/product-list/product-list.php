@@ -194,7 +194,7 @@ if (isset($_GET['gender'])) {
           $rs = new stdClass();
           $rs->tenSP = array();
           $rs->giaSP = array();
-          while ($sp = mysqli_fetch_array($data["product"])) {
+          while ($sp = mysqli_fetch_array($data["product"]->findProductWithGender($gender))) {
             array_push($rs->tenSP, $sp[1]);
             array_push($rs->giaSP, $sp[5]);
           };

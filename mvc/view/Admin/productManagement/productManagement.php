@@ -20,7 +20,7 @@
       <th scope="col">Giá</th>
       <th scope="col">Tình trạng</th>
       <th scope= "col">
-      <a href="http://localhost/aglet/admin/addProduct"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+      <a href="http://localhost/aglet/admin/createProduct"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
       </th>
     </tr>
   </thead>
@@ -42,7 +42,7 @@
 				<td>'.$str.'</td>
 				<td>
                     <div class="d-flex flex-row justify-content-around">
-                        <a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'"><i class="fa-solid fa-plus"></i></a></li>
+                        <a href = "http://localhost/aglet/admin/addProduct?id='.$row[$i]["id"].'"><i class="fa-solid fa-plus"></i></a></li>
 						<a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'"><i class="fa-regular fa-pen-to-square"></i></a></li>
 						<h6><i class="fa-solid fa-trash"></i></h6>
                     </div>
