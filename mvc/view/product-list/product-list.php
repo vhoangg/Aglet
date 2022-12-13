@@ -190,6 +190,7 @@ if (isset($_GET['gender'])) {
         </div>
 
         <div class="product-list list">
+
           <?php
           $rs = new stdClass();
           $rs->tenSP = array();
@@ -213,6 +214,25 @@ if (isset($_GET['gender'])) {
             </div>';
           }
 
+          $i = 0;
+          $row = [];
+          while ($row[$i] = mysqli_fetch_array($data["product"])) {
+
+            echo '
+              <div class="product-list card">
+              <div class="card-image">
+              <img src="' . $row[$i]['thumb'] . '" alt="">
+              <div class="text"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['id'] . '"MUA NGAY</a></div>
+              </div>
+              <div class="card-descr">
+              <h3 class="name">' . $row[$i]['name'] . '</h3>
+              <h3 class="color">' . $row[$i]['color'] . '</h3>
+              <h3 class="price">' . $row[$i]['price'] . ' VNĐ</h3>
+              </div>
+              </div>
+          ';
+            $i++;
+          }
           ?>
 
 

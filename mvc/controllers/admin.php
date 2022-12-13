@@ -1,17 +1,21 @@
 <?php
-  class admin extends controller{
-    function show(){
-        $this->adminView("adminLayout",["page"=>"home"]);
-    }
+class admin extends controller
+{
+  function show()
+  {
+    $this->adminView("adminLayout", ["page" => "home"]);
+  }
 
-    function productManagement($page = 1){
-          $product = $this->model("productModel");
-          $this->adminView("adminLayout",[
-            "page"=>"productManagement",
-            "pr" => $product->paginationQuer($page),
-            "numOfPr"=>$product->numOfProducts(),
-            "resultPage"=>$page]);
-    }
+  function productManagement($page = 1)
+  {
+    $product = $this->model("productModel");
+    $this->adminView("adminLayout", [
+      "page" => "productManagement",
+      "pr" => $product->paginationQuer($page),
+      "numOfPr" => $product->numOfProducts(),
+      "resultPage" => $page
+    ]);
+  }
 
     function categoryManagement($page = 1){
       $product = $this->model("productModel");
@@ -109,3 +113,4 @@
 
     }
   }
+

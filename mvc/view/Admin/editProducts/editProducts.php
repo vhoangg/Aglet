@@ -1,33 +1,31 @@
 <?php
-  //$product = mysqli_fetch_array($data['pr']);
+//$product = mysqli_fetch_array($data['pr']);
 
-  $pr = $data["product"];
-  $str = "";
-  $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
-  echo $product['id'];
+$pr = $data["product"];
+$str = "";
+$product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
 
 
 
 ?>
-<div id="noti"style = "display: none">
-     <!--Modal: modalCookie-->
-     <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-          aria-hidden="true" data-backdrop="true">
-          <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-              <!--Content-->
-              <div class="modal-content">
-              <!--Body-->
-              <div class="modal-body">
-                  <div class="row d-flex justify-content-center align-items-center" >
+<div id="noti" style="display: none">
+    <!--Modal: modalCookie-->
+    <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="row d-flex justify-content-center align-items-center">
 
-                    <a type="button" id="close" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
-                  </div>
-              </div>
-              </div>
-              <!--/.Content-->
-          </div>
-          </div>
-          <!--Modal: modalCookie-->
+                        <a type="button" id="close" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Đóng</a>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalCookie-->
 
 </div>
 <div class="container-xl px-4 mt-4">
@@ -51,7 +49,7 @@
             <div class="card mb-4">
                 <div class="card-header">Thông tin sản phẩm</div>
                 <div class="card-body">
-                    <form method = "post"  class = "myForm" id = "form">
+                    <form method="post" class="myForm" id="form">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputName">Dòng sản phẩm</label>
@@ -75,15 +73,15 @@
                                 <label class="small mb-1" for="inputPrice">Giá</label>
                                 <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Enter your first name" value="<?php
 
-                                  echo $product['price'];
-                                ?>">
+                                                                                                                                                echo $product['price'];
+                                                                                                                                                ?>">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
                                 <input class="form-control" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="<?php
-                                 echo $product['price_sale'];
-                                ?>">
+                                                                                                                                                        echo $product['price_sale'];
+                                                                                                                                                        ?>">
                             </div>
                         </div>
                         <!-- Form Row        -->
@@ -91,19 +89,18 @@
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputSize">Size</label>
-                                    <select class="custom-select col-md-12" name="size" id="inputSize">
-                                        <?php
-                                            for($i = 36; $i <= 46; $i++){
+                                <select class="custom-select col-md-12" name="size" id="inputSize">
+                                    <?php
+                                    for ($i = 36; $i <= 46; $i++) {
 
-                                                if($product['size'] == $i){
-                                                    echo '<option selected value="'.$i.'">'.$i.'</option>';
-                                                }
-                                                else
-                                                     echo '<option value="'.$i.'">'.$i.'</option>';
-                                            }
-                                        ?>
-
-                                    </select>
+                                        if ($product['size'] == $i) {
+                                            echo '<option selected value="' . $i . '">' . $i . '</option>';
+                                        } else
+                                            echo '<option value="' . $i . '">' . $i . '</option>';
+                                    }
+                                    ?>
+                                    <!-- disable ="disable" -->
+                                </select>
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
@@ -145,8 +142,8 @@
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputQty">Số lượng còn lại</label>
                                 <input class="form-control" id="inputQty" name="qty" type="tel" placeholder="" value="<?php
-                                 echo $product['qty'];
-                                ?>">
+                                                                                                                        echo $product['qty'];
+                                                                                                                        ?>">
                             </div>
                             <div class="col-md-6">
 
@@ -164,17 +161,17 @@
 
                         </div>
                         <div class="mb-3">
-                          <label for="inputDescription" class="form-label" >Mô tả</label>
-                          <textarea class="form-control" id="inputDescription" name="description" rows="3"  ><?php
-                          echo $product['description'];
-                          ?>
+                            <label for="inputDescription" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="inputDescription" name="description" rows="3"><?php
+                                                                                                                echo $product['description'];
+                                                                                                                ?>
                           </textarea>
                         </div>
                         <!-- Form Row-->
 
                         <!-- Save changes button-->
-                        <button class="btn btn-primary" id ="button" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">Lưu</button>
-                        <button class="btn btn-danger" id ="deleteButton" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">xóa</button>
+                        <button class="btn btn-primary" id="button" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">Lưu</button>
+                        <button class="btn btn-danger" id="deleteButton" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">xóa</button>
                     </form>
 
                 </div>
@@ -261,4 +258,42 @@
 		});
 
 
+    $("select").change(function(event) {
+        var size = $("#inputSize").val();
+        var color = $("#inputColor").val();
+        var gender = $("#inputGender").val();
+        console.log(size);
+        console.log(gender);
+        console.log(color);
+        $.ajax({
+            method: "POST", // phương thức dữ liệu được truyền đi
+            url: "http://localhost/aglet/admin/query", // gọi đến file server show_data.php để xử lý
+            dataType: 'json',
+            data: {
+                action: "query",
+                "size": size,
+                "color": color,
+                "gender": gender
+            }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+            success: function(data) {
+                //kết quả trả về từ server nếu gửi thành công
+                $("#inputPrice").val(data.price);
+                $("#inputPriceSale").val(data.price_sale);
+                $("#inputQty").val(data.qty);
+                $("#inputMenuId").val(data.menu_id);
+                $("#inputDescription").html(data.description);
+                $("#productId").val(data.id);
+                console.log(data);
+                console.log($("#inputPrice"));
+            },
+            error: function(data) {
+                $("#inputPrice").val("0");
+                $("#inputPriceSale").val("0");
+                $("#inputQty").val("0");
+                $("#inputMenuId").val(data.menu_id);
+                $("#inputDescription").html("");
+                $("#productId").val(-1);; //always the same for refused and insecure responses.
+            }
+        });
+    });
 </script>

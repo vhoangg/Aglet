@@ -194,6 +194,30 @@
     }
   </style>
 </head>
+<?php
+
+$rs = new stdClass();
+$rs->idSP = array();
+$rs->tenSP = array();
+$rs->giaSP = array();
+$rs->mauSP = array();
+$rs->hinhSP = array();
+$rs->ttSP = array();
+$rs->ctSP = array();
+$rs->sizeSP = array();
+$rs->slSP = array();
+while ($sp = mysqli_fetch_array($data["product"])) {
+  array_push($rs->idSP, $sp[3]);
+  array_push($rs->tenSP, $sp[1]);
+  array_push($rs->giaSP, $sp[4]);
+  array_push($rs->ttSP, $sp[6]);
+  array_push($rs->mauSP, $sp[8]);
+  array_push($rs->hinhSP, $sp[7]);
+  array_push($rs->ctSP, $sp[2]);
+  array_push($rs->sizeSP, $sp[10]);
+  array_push($rs->slSP, $sp[9]);
+};
+?>
 
 <body>
   <!--Content start-->
@@ -218,28 +242,21 @@
       </div>
 
       <div class="col-lg-6 col-md-12 col-12 product-detail-right">
-        <h6>Home/Shoes</h6>
-        <h3>Shoes</h3>
+        <h3><?php echo $rs->tenSP[0] ?></h3>
         <div class="product-detail-item-info">
           <h6>
-            Mã sản phẩm: <span>&nbsp; <strong>KHÔNG</strong> </span>
+            Mã sản phẩm: <span>&nbsp; <strong><?php echo $rs->idSP[0] ?></strong> </span>
           </h6>
           <h6>
-            Tình trạng: <span>&nbsp; <strong>Còn hàng</strong> </span>
+            Tình trạng: <span>&nbsp; <strong><?php if ($rs->ttSP[0] == 1) echo 'Còn hàng';
+                                              else echo 'Hết hàng';  ?></strong> </span>
           </h6>
         </div>
-        <h3 class="product-detail-item-info">580.000đ</h3>
+        <h3 class="product-detail-item-info"><?php echo $rs->giaSP[0] ?></h3>
         <div class="divider"></div>
 
         <h6 class="product-detail-item-info">
-          Đánh dấu một bước trưởng thành nữa, Basas Bumper Gum NE (New
-          Episode) ra đời với những cải tiến nhẹ nhàng nhưng đủ tạo được sự
-          thay đổi trong cảm nhận khi trải nghiệm. Vẫn giữ ngoại hình gần như
-          không thay để phát huy đặc tính ứng dụng cao của dòng Basas vốn đã
-          được chứng minh, phần đế màu Gum thú vị và /Foxing thân/ mới làm nền
-          cho phần chất liệu Upper được nâng cấp. Đây được xem là một trong
-          những phiên bản được chúng tôi kì vọng có thể bền vững vượt qua thời
-          gian và không gian, chắc chắn đáng để thử.
+          <?php echo $rs->ctSP[0] ?>
         </h6>
         <div class="divider"></div>
         <div class="color-picker">

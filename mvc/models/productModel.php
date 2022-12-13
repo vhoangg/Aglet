@@ -11,6 +11,12 @@ class productModel extends db
     return mysqli_query($this->con, $qr);
   }
 
+  public function menu()
+  {
+    $qr = "SELECT * FROM menus";
+    return mysqli_query($this->con, $qr);
+  }
+
   public function findProductWithId($id)
   {
     $qr = "SELECT B.id as id, name, color, size, qty, A.description as description , B.parent_id as parent_id, price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE B.parent_id = $id AND A.parent_id = B.id ";
@@ -59,7 +65,7 @@ class productModel extends db
 
   public function findProductWithGender($gender)
   {
-    $qr = "SELECT * FROM PRODUCTS WHERE gender = $gender";
+    $qr = "SELECT * FROM MENUS WHERE gender = $gender";
     return mysqli_query($this->con, $qr);
   }
 
