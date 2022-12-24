@@ -5,10 +5,12 @@
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
   echo $product['id'];
+  echo $_POST['id'];
 
 
 
 ?>
+
 <div id="noti" style="display: none">
     <!--Modal: modalCookie-->
     <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
@@ -45,6 +47,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-xl-8">
             <!-- Account details card-->
             <div class="card mb-4">
@@ -63,6 +66,12 @@
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1" for="inputDetailName">Tên chi tiết</label>
+                            <input class="form-control" id="inputDetailName" name="name" type="text" value="<?php
+                                echo $product['name'];
+                            ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputDetailName">Trạng thái dòng sản phẩm</label>
                             <input class="form-control" id="inputDetailName" name="name" type="text" value="<?php
                                 echo $product['name'];
                             ?>">

@@ -1,4 +1,4 @@
-<?php
+    <?php
   class admin extends controller{
     function show(){
         $this->adminView("adminLayout",["page"=>"home"]);
@@ -10,7 +10,9 @@
             "page"=>"productManagement",
             "pr" => $product->paginationQuer($page),
             "numOfPr"=>$product->numOfProducts(),
-            "resultPage"=>$page]);
+            "resultPage"=>$page,
+            "model"=>$product
+          ]);
     }
 
     function categoryManagement($page = 1){
@@ -57,9 +59,9 @@
       $this->adminView("adminLayout",["page"=>"createProduct","product"=>$product]);
     }
 
-    function addProduct(){
+    function addProduct($id){
       $product = $this->model("productModel");
-      $this->adminView("adminLayout",["page"=>"addProduct","product"=>$product]);
+      $this->adminView("adminLayout",["page"=>"addProduct","product"=>$product, "id"=>$id]);
     }
 
     function createNewProduct(){
@@ -76,14 +78,30 @@
 
     function add(){
       $pr = $this->model("productModel");
-      $str="";
-      if($pr->add($_POST['name'],$_POST['price'],$_POST['price_sale'],$_POST['type'])){
-          $str = '<p class="pt-3 pr-2">Thêm thành công</p>';
-      }
-      else
-       $str = '<p class="pt-3 pr-2">Thêm thất bại</p>';
-          echo $str;
+      $sql1='INSERT INTO PRODUCTS (name, menu_id, active, parent_id) values("'.$_POST['detail_name'].'", '.$_POST['type'].', 1, '.$_POST['parent_id'].')';
 
+      if($pr->customQuery($sql1))
+        echo "Thành công";
+      else {
+        echo "thất bại";
+      }
+
+      $id = $pr->customQuery('SELECT ID FROM PRODUCTS WHERE NAME = "'.$_POST['detail_name'].'"');
+      $str = '';
+      $shoe_size = $_POST['size'];
+
+
+
+      foreach ($shoe_size as $size => $value) {
+        $sql2 = 'INSERT INTO PRODUCT_DETAIL (color, size, qty, active, parent_id, price, price_sale, description, gender) values ("'.$_POST['color'].'", '.$value.' 0, 1, '.$id.', '.$_POST['price'].', '.$_POST['price_sale'].', "'.$_POST['descriptione'].'", '.$_POST['gender'].')';
+
+        if($pr->customQuery($sql2))
+          echo "Thêm thành công";
+        else
+          echo "Thất bại";
+
+      }
+      echo "Đã thêm";
     }
 
     function query(){

@@ -37,7 +37,7 @@ class productModel extends db
     $offset = (((int)$page) * (int)$total_records_per_page);
 
 
-    $qr = "SELECT * FROM PRODUCTS WHERE parent_id = 0  LIMIT " . $total_records_per_page . " offset " . $offset;
+    $qr = 'SELECT * FROM PRODUCTS WHERE PRODUCTS.parent_id = 0  LIMIT ' . $total_records_per_page . ' offset ' . $offset;
 
     return mysqli_query($this->con, $qr);
   }
@@ -75,4 +75,5 @@ class productModel extends db
 
     return mysqli_query($this->con, $qr);
   }
+
 }

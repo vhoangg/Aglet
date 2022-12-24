@@ -17,9 +17,10 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Tên sản phẩm</th>
-      <th scope="col">Giá</th>
+      <th scope="col">Trạng thái</th>
       <th scope="col">Tình trạng</th>
       <th scope= "col">
+
       <a href="http://localhost/aglet/admin/createProduct"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
       </th>
     </tr>
@@ -29,20 +30,31 @@
 			$i = 0;
 			$row = [];
 			while($row[$i] = mysqli_fetch_array($data["pr"])){
+                $sql = 'SELECT SUM(product_detail.QTY), product_detail.parent_id FROM products, product_detail WHERE products.parent_id =  '.$row[$i]['id'].' AND products.id = product_detail.parent_id group by product_detail.parent_id';
+                $qty = mysqli_fetch_array($data['model']->customQuery($sql));
                 $str;
-                if($row[$i]['active'] == 1)
+                $isActive;
+                if($qty > 0)
                     $str = "Còn hàng";
                 else
                     $str = "Hết hàng";
+                if($row[$i]['active'] == 0){
+                    $isActive = "Ngừng hoạt động";
+
+                }
+
+                else {
+                    $isActive = "Đang hoạt dộng";
+                }
 				echo '
 				<tr>
 				<td>'.$row[$i]['id'].'</td>
 				<td>'.$row[$i]['name'].'</td>
-				<td>'.$row[$i]['price'].'</td>
+				<td>'.$isActive.'</td>
 				<td>'.$str.'</td>
 				<td>
                     <div class="d-flex flex-row justify-content-around">
-                        <a href = "http://localhost/aglet/admin/addProduct?id='.$row[$i]["id"].'"><i class="fa-solid fa-plus"></i></a></li>
+                        <a href = "http://localhost/aglet/admin/addProduct/'.$row[$i]["id"].'"><i class="fa-solid fa-plus"></i></a></li>
 						<a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'"><i class="fa-regular fa-pen-to-square"></i></a></li>
 						<h6><i class="fa-solid fa-trash"></i></h6>
                     </div>

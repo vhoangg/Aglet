@@ -42,22 +42,7 @@
 
                             <input class="form-control" id="inputName" name="name" type="text" placeholder="Nhập tên" value="">
                         </div>
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (first name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPrice">Giá</label>
-                                <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Nhập giá" value="">
-                            </div>
-                            <!-- Form Group (last name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
-                                <input class="form-control" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="">
-                            </div>
-                        </div>
-                        <!-- Form Row        -->
 
-                            <!-- Form Group (location)-->
 
                         <!-- Form Group (email address)-->
                         <div class="col-md-6">
