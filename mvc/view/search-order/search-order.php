@@ -50,19 +50,6 @@
             <button class="form-submit">TRA CỨU ĐƠN HÀNG</button>
         </form>
     </div>
-    <script src="./ordertracker.js"></script>
-    <script>
-        Validator({
-            form: '.form',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-                Validator.isRequired('#madonhang', 'Vui lòng nhập mã đơn hàng'),
-                Validator.isRequired('#ttlienlac', 'Vui lòng nhập email/số điện thoại'),
-            ]
-        });
-    </script>
-
 </body>
 
 </html>

@@ -16,7 +16,7 @@
     <nav>
         <div class="header">
             <ul class="menu">
-                <li><a href="http://localhost/Aglet/order_tracker"><i class="fa-sharp fa-solid fa-truck-fast"> </i>Tra cứu đơn hàng</a> </li>
+                <li><a href="http://localhost/Aglet/search_order"><i class="fa-sharp fa-solid fa-truck-fast"> </i>Tra cứu đơn hàng</a> </li>
                 <li><a href="#"><i class="fa-solid fa-location-dot"></i> Tìm cửa hàng </a> </li>
                 <li><a href="#"><i class="fa-solid fa-heart"></i> Yêu thích</a> </li>
                 <li><a href="http://localhost/Aglet/login"> <i class="fa-solid fa-user"></i> Đăng nhập</a> </li>
