@@ -285,7 +285,7 @@ $row[$i] = mysqli_fetch_array($data["product"])
           </div>
         </div>
         <div class="row group-btn-1">
-          <button href="javascript:void(0)" class="btn btn-addcart">
+          <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php echo $row[0]['parent_id'] ?>)">
             Thêm vào giỏ hàng
           </button>
           <a href="javascript:void(0)" class="btn btn-favorite"><i class="fa-solid fa-heart" id="favorite-item"></i></a>
@@ -336,6 +336,13 @@ $row[$i] = mysqli_fetch_array($data["product"])
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="./product-details/app.js"></script>
+  <script>
+    function addCart(id) {
+      $.post("../Cart/cart.php", function(data, status) {
+        alert("Data: " + data + "\nStatus: " + status);
+      });
+    }
+  </script>
 </body>
 
 </html>

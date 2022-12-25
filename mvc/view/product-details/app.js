@@ -16,7 +16,8 @@ function addToFavList(){
     }
     else favoriteList.pop("Hello");
 }
- 
+
+
 
 //Handle FYI
 const accordian = document.getElementsByClassName('content-container')

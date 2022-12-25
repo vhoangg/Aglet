@@ -79,7 +79,7 @@
                     </li>
                     <li class="line"></li>
                     <li class="drop">
-                        <a href="http://localhost/Aglet/product_list/?gender=women" class="drop-toggle">NỮ<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                        <a href="http://localhost/Aglet/product_list?gender=women" class="drop-toggle">NỮ<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
                             <div class="my-mega-content">
                                 <div class="mega-row">
@@ -324,6 +324,7 @@
         </div>
         <div class="clear"></div>
     </div>
+
 </body>
 
 </html>

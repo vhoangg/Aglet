@@ -1,8 +1,13 @@
 <style>
     #footer {
-        margin-top: 1800px;
+        height: 100%;
+        margin: 0;
+        clear: both;
+        width: 100%;
+        /* position: relative; */
     }
 </style>
+
 
 <body>
     <div id="slider">
