@@ -12,8 +12,14 @@
 :root{
   --main-color:#f15e2c;
 }
-
-
+.sale-off {
+  font-weight: 400;
+  font-size: 16px;
+  color: #303030;
+  font-style: oblique;
+  text-decoration-line:line-through;
+  padding-left: 10px;
+}
 .header .menu {
   background-color: #303030;
   text-align: right;
@@ -1030,6 +1036,7 @@ border: none;
 .card-descr .price{
   margin-top: 10px;
 }
+
 /* END PRODUCT-LIST CSS */
 
 /* SHIPPING INFORMATION */

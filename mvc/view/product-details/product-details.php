@@ -220,13 +220,17 @@ $row[$i] = mysqli_fetch_array($data["product"])
                                               else echo 'Hết hàng';  ?></strong> </span>
           </h6>
         </div>
-        <h3 class="product-detail-item-info"><?php echo $row[$i]['price'] ?></h3>
+        <h3 style="justify-content: flex-start;" class="product-detail-item-info orange"><?php echo $row[$i]['price'] ?> VNĐ
+          <span style="padding-top: 10px" class="sale-off"> <?php echo $row[$i]['price'] ?> VNĐ
+        </h3>
         <div class="divider"></div>
-
+        <?php if ($row[$i]['description'] !== "") echo '
         <h6 class="product-detail-item-info">
-          <?php echo $row[$i]['description'] ?>
+         ' . $row[$i]['description'] . '
         </h6>
         <div class="divider"></div>
+        '
+        ?>
         <div class="color-picker">
           <ul class="nav tree">
 

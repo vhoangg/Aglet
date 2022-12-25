@@ -201,12 +201,12 @@ if (isset($_GET['gender'])) {
               <div class="product-list card">
               <div class="card-image">
               <img src="' . $row[$i]['thumb'] . '" alt="">
-              <div class="text"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '"MUA NGAY</a></div>
+              <div class="text"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '">MUA NGAY</a></div>
               </div>
               <div class="card-descr">
               <h3 class="name">' . $row[$i]['name'] . '</h3>
               <h3 class="color">' . $row[$i]['color'] . '</h3>
-              <h3 class="price">' . $row[$i]['price'] . ' VNĐ</h3>
+              <h3 class="price">' . $row[$i]['price'] . ' VNĐ  <span class = "sale-off"> ' . $row[$i]['price'] . ' VNĐ </span> </h3>
               </div>
               </div>
           ';
