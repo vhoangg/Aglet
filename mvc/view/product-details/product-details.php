@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -194,29 +191,14 @@
     }
   </style>
 </head>
+
 <?php
 
-$rs = new stdClass();
-$rs->idSP = array();
-$rs->tenSP = array();
-$rs->giaSP = array();
-$rs->mauSP = array();
-$rs->hinhSP = array();
-$rs->ttSP = array();
-$rs->ctSP = array();
-$rs->sizeSP = array();
-$rs->slSP = array();
-while ($sp = mysqli_fetch_array($data["product"])) {
-  array_push($rs->idSP, $sp[3]);
-  array_push($rs->tenSP, $sp[1]);
-  array_push($rs->giaSP, $sp[4]);
-  array_push($rs->ttSP, $sp[6]);
-  array_push($rs->mauSP, $sp[8]);
-  array_push($rs->hinhSP, $sp[7]);
-  array_push($rs->ctSP, $sp[2]);
-  array_push($rs->sizeSP, $sp[10]);
-  array_push($rs->slSP, $sp[9]);
-};
+$i = 0;
+$row = [];
+$row[$i] = mysqli_fetch_array($data["product"])
+
+
 ?>
 
 <body>
@@ -224,82 +206,64 @@ while ($sp = mysqli_fetch_array($data["product"])) {
   <div id="product-details" class="container product-detail-container-fluid my-5 pt-5">
     <div class="row mt-5">
       <div class="col-lg-5 col-md-12 col-12">
-        <img class="img-fluid w-100 pb-1" src="https://images.unsplash.com/photo-1664546899810-a729ae77b1bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" id="featured-img" />
-        <div class="small-img-group">
-          <div class="small-img-col">
-            <img src="https://images.unsplash.com/photo-1664546899810-a729ae77b1bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" width="100%" class="small-img active-img" alt="" />
-          </div>
-          <div class="small-img-col">
-            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80" width="100%" class="small-img" alt="" />
-          </div>
-          <div class="small-img-col">
-            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1112&q=80" width="100%" class="small-img" alt="" />
-          </div>
-          <div class="small-img-col">
-            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" width="100%" class="small-img" alt="" />
-          </div>
-        </div>
+        <img class="img-fluid w-100 pb-1" src="<?php echo $row[$i]['thumb'] ?>" alt="" id="featured-img" />
       </div>
 
       <div class="col-lg-6 col-md-12 col-12 product-detail-right">
-        <h3><?php echo $rs->tenSP[0] ?></h3>
+        <h3><?php echo $row[$i]['name'] ?></h3>
         <div class="product-detail-item-info">
           <h6>
-            Mã sản phẩm: <span>&nbsp; <strong><?php echo $rs->idSP[0] ?></strong> </span>
+            Mã sản phẩm: <span>&nbsp; <strong><?php echo $row[$i]['id'] ?></strong> </span>
           </h6>
           <h6>
-            Tình trạng: <span>&nbsp; <strong><?php if ($rs->ttSP[0] == 1) echo 'Còn hàng';
+            Tình trạng: <span>&nbsp; <strong><?php if ($row[$i]['active'] == 1) echo 'Còn hàng';
                                               else echo 'Hết hàng';  ?></strong> </span>
           </h6>
         </div>
-        <h3 class="product-detail-item-info"><?php echo $rs->giaSP[0] ?></h3>
+        <h3 class="product-detail-item-info"><?php echo $row[$i]['price'] ?></h3>
         <div class="divider"></div>
 
         <h6 class="product-detail-item-info">
-          <?php echo $rs->ctSP[0] ?>
+          <?php echo $row[$i]['description'] ?>
         </h6>
         <div class="divider"></div>
         <div class="color-picker">
           <ul class="nav tree">
-            <li class="cb-color-fixed">
-              <label data-link="">
-                <span class="bg-color" style="background-color: blue"></span>
-                <input name="cbColor" type="checkbox" value="0" hidden="" />
-              </label>
-            </li>
-            <li class="cb-color-fixed">
-              <label data-link="">
-                <span class="bg-color" style="background-color: red"></span>
-                <input name="cbColor" type="checkbox" value="0" hidden="" />
-              </label>
-            </li>
-            <li class="cb-color-fixed">
-              <label data-link="">
-                <span class="bg-color" style="background-color: yellow"></span>
-                <input name="cbColor" type="checkbox" value="0" hidden="" />
-              </label>
-            </li>
-            <li class="cb-color-fixed">
-              <label data-link="">
-                <span class="bg-color" style="background-color: blue"></span>
-                <input name="cbColor" type="checkbox" value="0" hidden="" />
-              </label>
-            </li>
+
+            <?php
+
+            $i = 0;
+            $row = [];
+            while ($row[$i] = mysqli_fetch_array($data["color"])) {
+              echo '
+              <li class="cb-color-fixed">
+                <label data-link="">
+                  <a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '" class="bg-color" style="background-color: ' . $row[$i]['color'] . '"></a>
+                  <input name="cbColor" type="checkbox" value="0" hidden="" />
+                </label>
+              </li> ';
+              $i++;
+            }
+            ?>
           </ul>
         </div>
+
         <div class="divider"></div>
+
         <div class="row">
           <div class="col-xs-12">
             <h3>SIZE</h3>
             <select class="my-3" name="" id="">
               <option value="">Chọn size giày</option>
-              <option value="">30</option>
-              <option value="">31</option>
-              <option value="">32</option>
-              <option value="">33</option>
-              <option value="">34</option>
-              <option value="">35</option>
-              <option value="">36</option>
+              <?php
+              $i = 0;
+              $row = [];
+              while ($row[$i] = mysqli_fetch_array($data["size"])) {
+                echo '
+                  <option value="">' . $row[$i]['size'] . '</option>';
+                $i++;
+              }
+              ?>
             </select>
           </div>
           <div class="col-xs-12">

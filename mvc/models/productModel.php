@@ -19,10 +19,24 @@ class productModel extends db
 
   public function findProductWithId($id)
   {
-    $qr = "SELECT B.id as id, name, color, size, qty, A.description as description , B.parent_id as parent_id, price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE B.parent_id = $id AND A.parent_id = B.id ";
-    echo $qr;
+    $qr = "SELECT B.id as id, name, color, size, qty, A.active, A.description as description , B.parent_id as parent_id, price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE A.parent_id = $id AND A.parent_id = B.id ";
     return mysqli_query($this->con, $qr);
   }
+
+  public function getProductColor($id)
+  {
+    $qr = "SELECT color, A.parent_id as parent_id FROM PRODUCTS B, PRODUCT_DETAIL A WHERE A.parent_id = B.id GROUP BY color, B.parent_id";
+    return mysqli_query($this->con, $qr);
+  }
+
+  public function getProductSize($id)
+  {
+    $qr = "SELECT * FROM `product_detail` WHERE parent_id = $id;
+    ";
+
+    return mysqli_query($this->con, $qr);
+  }
+
   public function query($color, $size, $gender, $id)
   {
     $qr = 'SELECT B.id as id, qty, A.description as description , price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE A.parent_id = ' . $id . ' AND A.parent_id = B.id AND A.color ="' . $color . '"AND A.size = ' . $size . ' AND A.gender = ' . $gender . ';';
@@ -72,8 +86,6 @@ class productModel extends db
 
   public function customQuery($qr)
   {
-
     return mysqli_query($this->con, $qr);
   }
-
 }
