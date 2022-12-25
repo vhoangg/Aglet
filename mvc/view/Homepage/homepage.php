@@ -1,5 +1,6 @@
 <style>
     #footer {
+        /* margin-top: 20px; */
         height: 100%;
         margin: 0;
         clear: both;

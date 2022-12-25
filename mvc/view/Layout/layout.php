@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d822126298.js" crossorigin="anonymous"></script>
 
-    <title>Document</title>
+    <title>Aglet Store</title>
+    <style>
+    </style>
 </head>
 
 <body>
@@ -27,6 +29,57 @@
                     <a href="home"><img src="./mvc/view/layout/img/logo.png" alt="logo"></a>
                 </div>
                 <ul class="my-navbar-center">
+                    <li class="drop">
+                        <a href="http://localhost/Aglet/product_list?gender=all" class="drop-toggle">TẤT CẢ<i class="fa-solid fa-angle-down fa-xs"></i></a>
+                        <div class="mega-menu">
+                            <div class="my-mega-content">
+                                <div class="mega-row">
+                                    <header><a href="product_list">NỔI BẬT</a></header>
+                                    <ul class="mega-links">
+                                        <li><a href="product_list">Hàng mới về</a></li>
+                                        <li><a href="product_list">Best-seller</a></li>
+                                        <li><a href="product_list">Sale-off</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-row">
+                                    <header><a href="product_list">GIÀY </a></header>
+                                    <ul class="mega-links">
+                                        <li><a href="product_list">Bóng đá</a></li>
+                                        <li><a href="product_list">Chạy bộ</a></li>
+                                        <li><a href="product_list">Bóng rổ</a></li>
+                                        <li><a href="product_list">Quần vợt</a></li>
+                                        <li><a href="product_list">Slip on</a></li>
+                                        <li><a href="product_list">High top</a></li>
+                                        <li><a href="product_list">Low top</a></li>
+                                        <li><a href="product_list">Dép</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-row">
+                                    <header><a href="product_list">QUẦN ÁO</a></header>
+                                    <ul class="mega-links">
+                                        <li><a href="product_list">Jackets</a></li>
+                                        <li><a href="product_list">Bộ đồ thể thao</a></li>
+                                        <li><a href="product_list">Hoddie</a></li>
+                                        <li><a href="product_list">Sweater</a></li>
+                                        <li><a href="product_list">Áo thun</a></li>
+                                        <li><a href="product_list">Quần</a></li>
+                                        <li><a href="product_list">Quần bó</a></li>
+                                        <li><a href="product_list">Quần sóoc</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-row">
+                                    <header><a href="product_list">PHỤ KIỆN</a></header>
+                                    <ul class="mega-links">
+                                        <li><a href="product_list">Túi & Ba lô</a></li>
+                                        <li><a href="product_list">Tất</a></li>
+                                        <li><a href="product_list">Mũ </a></li>
+                                        <li><a href="product_list">Dây giày</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="line"></li>
                     <li class="drop">
                         <a href="http://localhost/Aglet/product_list?gender=men" class="drop-toggle">NAM<i class="fa-solid fa-angle-down fa-xs"></i></a>
                         <div class="mega-menu">
@@ -124,48 +177,6 @@
                                         <li><a href="product_list">Tất</a></li>
                                         <li><a href="product_list">Mũ </a></li>
                                         <li><a href="product_list">Dây giày</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="line"></li>
-                    <li class="drop">
-                        <a href="#" class="drop-toggle">TRẺ EM<i class="fa-solid fa-angle-down fa-xs"></i></a>
-                        <div class="mega-menu">
-                            <div class="my-mega-content">
-                                <div class="mega-row">
-                                    <header><a href="#">NỔI BẬT</a></header>
-                                    <ul class="mega-links">
-                                        <li><a href="#">Hàng mới về</a></li>
-                                        <li><a href="#">Best-seller</a></li>
-                                        <li><a href="#">Sale-off</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-row">
-                                    <header><a href="#">TRẺ NHỎ (1-4)</a></header>
-                                    <ul class="mega-links">
-                                        <li><a href="#">Quần áo</a></li>
-                                        <li><a href="">Giày dép</a></li>
-
-                                    </ul>
-                                </div>
-                                <div class="mega-row">
-                                    <header><a href="#">TRẺ EM (4-8)</a></header>
-                                    <ul class="mega-links">
-                                        <li><a href="#">Quần áo bé trai</a></li>
-                                        <li><a href="">Quần áo bé gái</a></li>
-                                        <li><a href="">Giày bé trai</a></li>
-                                        <li><a href="">Giày bé gái</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-row">
-                                    <header><a href="#">THANH THIẾU NIÊN</a></header>
-                                    <ul class="mega-links">
-                                        <li><a href="#">Quần áo bé trai</a></li>
-                                        <li><a href="">Quần áo bé gái</a></li>
-                                        <li><a href="">Giày bé trai</a></li>
-                                        <li><a href="">Giày bé gái</a></li>
                                     </ul>
                                 </div>
                             </div>

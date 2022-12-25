@@ -20,7 +20,7 @@
                     </a>
 
                     <h5 class="price">
-                      <span class="sale-off">
+                      <span class="sale-off1">
                         <strong>Giá</strong>
                         <p>520.000VNĐ</p>
                       </span>
@@ -92,7 +92,7 @@
                     </a>
 
                     <h5 class="price">
-                      <span class="sale-off">
+                      <span class="sale-off1">
                         <strong>Giá</strong>
                         <p>520.000VNĐ</p>
                       </span>
