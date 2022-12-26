@@ -667,9 +667,6 @@ div {
   margin-left: -5px;
 }
 
-#cart .media-body .bottom h5{
-#cart .media-body .bottom h5{
-}
 
 #cart .selectpicker {
   width: 70px;
@@ -691,6 +688,7 @@ div {
 #cart .media-right .status {
   font-style: italic;
   margin-right: -10px;
+}
 #cart .media-right {
   width: 30%;
 }
