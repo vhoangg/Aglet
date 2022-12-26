@@ -59,6 +59,20 @@
       $this->adminView("adminLayout",["page"=>"chart", "pr"=>$product]);
     }
 
+    function orderDetail(){
+      $inv= $this->model("invoiceModel");
+      $rs= [];
+      $i = 0;
+      $id = $_GET['id'];
+      $this->adminView("adminLayout",["page"=>"orderDetail", "inv"=>$inv, "product"=>$inv->getProducts($id)]);
+    }
+
+
+    function orderManagement($page){
+      $inv = $this->model("invoiceModel");
+      $this->adminView("adminLayout",["page"=>"orderManagement", "invocie"=>$inv,"pg"=>$page, "inv"=>$inv->paginationQuer($page),"num"=>$inv->numOfInvoice()]);
+    }
+
     function createProduct(){
       $product = $this->model("productModel");
       $this->adminView("adminLayout",["page"=>"createProduct","product"=>$product]);
@@ -142,6 +156,11 @@
       echo "Đã xóa sản phẩm";
     }
 
+    function orderDetailProcess(){
+      $sql = 'UPDATE invoice SET status = 1, confirm_at  = "'.$_POST['date'].'" WHERE id '.$_POST['id'] ;
+      $invoice = $this->model("invoiceModel");
+      $invoice->customQuery($sql);
+    }
 
 
   }

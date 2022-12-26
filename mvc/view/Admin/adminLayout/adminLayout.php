@@ -74,7 +74,7 @@ if (!$_SESSION["username"]) {
                             Quản lý danh mục
                         </a>
 
-                        <a class="nav-link" href="http://localhost/aglet/admin/productManagement/1">
+                        <a class="nav-link" href="http://localhost/aglet/admin/orderManagement/1">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Quản lý đơn hàng
                         </a>
