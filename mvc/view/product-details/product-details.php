@@ -213,7 +213,7 @@ $row[$i] = mysqli_fetch_array($data["product"])
         <h3><?php echo $row[$i]['name'] ?></h3>
         <div class="product-detail-item-info">
           <h6>
-            Mã sản phẩm: <span>&nbsp; <strong><?php echo $row[$i]['id'] ?></strong> </span>
+            Mã sản phẩm: <span>&nbsp; <strong id="pd_id"><?php echo $row[$i]['id'] ?></strong> </span>
           </h6>
           <h6>
             Tình trạng: <span>&nbsp; <strong><?php if ($row[$i]['active'] == 1) echo 'Còn hàng';
@@ -285,7 +285,7 @@ $row[$i] = mysqli_fetch_array($data["product"])
           </div>
         </div>
         <div class="row group-btn-1">
-          <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php echo $row[0]['parent_id'] ?>)">
+          <button href="javascript:void(0)" class="btn btn-addcart">
             Thêm vào giỏ hàng
           </button>
           <a href="javascript:void(0)" class="btn btn-favorite"><i class="fa-solid fa-heart" id="favorite-item"></i></a>
@@ -332,16 +332,27 @@ $row[$i] = mysqli_fetch_array($data["product"])
   </div>
 
   <!--Scripts-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="./product-details/app.js"></script>
   <script>
-    function addCart(id) {
-      $.post("../Cart/cart.php", function(data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
+    $(".btn-addcart").click(function(event) {
+      var id = $("#pd_id").html();
+      console.log(id);
+      $.ajax({
+        method: "POST", // phương thức dữ liệu được truyền đi
+        url: "http://localhost/Aglet/cart", // gọi đến file server show_data.php để xử lý
+        data: {
+          id: id
+        }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+        success: function(response) {
+
+
+        },
+        error: function(data) {}
       });
-    }
+
+    });
   </script>
 </body>
 
