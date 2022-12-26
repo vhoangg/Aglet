@@ -79,6 +79,10 @@
       display: block;
     }
 
+    #product-details .product-detail-item-info.desc {
+      font-weight: 400;
+    }
+
     #product-details .row {
       margin-left: 3px;
       margin-right: -10px;
@@ -202,6 +206,20 @@
     #product-details .btn.btn-pay:hover a {
       color: black;
     }
+
+    #product-details .item-name {
+      font-weight: 700 !important;
+    }
+
+    #product-details .col-xs-12 h3 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .product-detail-item-info {
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
   </style>
 </head>
 
@@ -224,7 +242,7 @@ $row[$i] = mysqli_fetch_array($data["product"]);
       </div>
 
       <div class="col-lg-6 col-md-12 col-12 product-detail-right">
-        <h3><?php echo $row[$i]['name'] ?></h3>
+        <h3> <span class="item-name"><?php echo $row[$i]['name'] ?> </span></h3>
         <div class="product-detail-item-info">
           <h6>
             Mã sản phẩm: <span>&nbsp; <strong id="pd_id"><?php echo $row[$i]['id'] ?></strong> </span>
@@ -239,7 +257,7 @@ $row[$i] = mysqli_fetch_array($data["product"]);
         </h3>
         <div class="divider"></div>
         <?php if ($row[$i]['description'] !== "") echo '
-        <h6 class="product-detail-item-info">
+        <h6 class="product-detail-item-info desc">
          ' . $row[$i]['description'] . '
         </h6>
         <div class="divider"></div>
