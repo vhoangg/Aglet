@@ -234,8 +234,8 @@ $row[$i] = mysqli_fetch_array($data["product"]);
                                               else echo 'Hết hàng';  ?></strong> </span>
           </h6>
         </div>
-        <h3 style="justify-content: flex-start;" class="product-detail-item-info orange"><?php echo $row[$i]['price'] ?> VNĐ
-          <span style="padding-top: 10px" class="sale-off"> <?php echo $row[$i]['price'] ?> VNĐ
+        <h3 style="justify-content: flex-start;" class="product-detail-item-info orange"><?php echo number_format($row[$i]['price'], 0, ",", ".") ?> VNĐ
+          <span style="padding-top: 10px" class="sale-off"> <?php echo number_format($row[$i]['price_sale'], 0, ",", ".") ?> VNĐ
         </h3>
         <div class="divider"></div>
         <?php if ($row[$i]['description'] !== "") echo '
@@ -294,7 +294,6 @@ $row[$i] = mysqli_fetch_array($data["product"]);
               <option value="4">4</option>
               <option value="5">5</option>
               <option value="6">6</option>
-              <option value="7">7</option>
             </select>
           </div>
         </div>

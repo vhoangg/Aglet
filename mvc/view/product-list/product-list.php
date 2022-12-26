@@ -172,9 +172,8 @@
               </div>
               <div class="card-descr">
               <h3 class="name"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '">' . $row[$i]['name'] . ' </a></h3>
-              <h3 class="color">' . $row[$i]['color'] . '</h3>
-              <h3 class="price">' . $row[$i]['price'] . ' VNĐ 
-              <span class = "sale-off"> ' . $row[$i]['price_sale'] . ' VNĐ </span>
+              <h3 class="price">' . number_format($row[$i]['price'], 0, ",", ".") . ' VNĐ 
+              <span class = "sale-off"> ' . number_format($row[$i]['price_sale'], 0, ",", ".") . ' VNĐ </span>
               </h3>
               </div>
               </div>

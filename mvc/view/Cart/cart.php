@@ -52,7 +52,7 @@ $sum = 0;
               </div>
               <div class="col col-third item-2-1 media-right">
                 <div class="price orange">
-                  <h4><?php echo $value['price'] ?> VNĐ</h4>
+                  <h4><?php echo number_format($value['price'], 0, ",", ".") ?> VNĐ</h4>
                 </div>
                 <div class="status orange">Còn hàng</div>
                 <div class="button btnDelete" data-id="<?php echo $value['id'] ?>">
@@ -83,7 +83,7 @@ $sum = 0;
         <li class="divider-dashed"></li>
         <li class="group_item total small">
           <span>Đơn hàng</span>
-          <span id="price"><?php echo $sum ?> VNĐ</span>
+          <span id="price"><?php echo number_format($sum, 0, ",", ".") ?> VNĐ</span>
         </li>
         <li class="group_item discount small">
           <span>Giảm giá</span>
@@ -92,7 +92,7 @@ $sum = 0;
         <li class="divider-dashed"></li>
         <li class="group_item total">
           <span class="black">TẠM TÍNH</span>
-          <span id="price" class="black"><?php echo $sum ?> VNĐ</span>
+          <span id="price" class="black"><?php echo number_format($sum, 0, ",", ".") ?> VNĐ</span>
         </li>
         <li class="group_item">
           <input type="submit" value="TIẾP TỤC THANH TOÁN" class="submitBtn">
@@ -110,7 +110,7 @@ $sum = 0;
       method: 'POST',
       url: 'http://localhost/Aglet/cart/delete',
       data: {
-        id: id
+        id: id,
       },
       success: function(data) {
         $('#row_' + id).remove();
