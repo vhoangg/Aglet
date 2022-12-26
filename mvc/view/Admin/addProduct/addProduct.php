@@ -161,7 +161,7 @@
 
                         <!-- Form Group (email address)-->
 
-                        <div class="row gx-3 mb-3">
+                        <div class="row gx-5 mb-3">
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputQty">Số lượng còn lại</label>
@@ -229,13 +229,14 @@
             var parent_id = $("#parentId").val();
             var description = $("#inputDescription").val();
             console.log(size);
-
             console.log(detailName);
             console.log(color);
             console.log(gender);
             console.log(qty);
             console.log(description);
-            console.log(name);
+            console.log(priceSale);
+            console.log(price);
+
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "../add",// gọi đến file server show_data.php để xử lý

@@ -4,8 +4,9 @@
   $pr = $data["product"];
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
-  echo $product['id'];
-  echo $_POST['id'];
+
+
+
 
 
 
@@ -55,43 +56,69 @@
                 <div class="card-body">
                     <form method="post" class="myForm" id="form">
                         <!-- Form Group (username)-->
-                        <div class="mb-3">
+                        <div class=" mb-3">
                             <label class="small mb-1" for="inputName">Dòng sản phẩm</label>
                             <input class="form-control" id="inputName" name="name" type="text" value="<?php
-
-                                $qr = 'SELECT name from products where parent_id = 0 and id = '.$product['parent_id'];
+                                $qr = 'SELECT name from products where parent_id = 0 and id = '.$data['id'];
                                 $name = mysqli_fetch_array($pr->customQuery($qr));
                                 echo $name[0];
                             ?>">
                         </div>
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputDetailName">Tên chi tiết</label>
-                            <input class="form-control" id="inputDetailName" name="name" type="text" value="<?php
-                                echo $product['name'];
-                            ?>">
+                            <label class="small mb-1" for="inputDetailName">Trạng thái dòng sản phẩm</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultCheck" >
+                                    <label class="custom-control-label" for="defaultCheck">Hoạt động</label>
+                                 </div>
+
+                                <!-- Checked checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" >
+                                    <label class="custom-control-label" for="defaultUncheckedDisabled2">Ngừng hoạt động</label>
+                                </div>
+
                         </div>
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputDetailName">Trạng thái dòng sản phẩm</label>
-                            <input class="form-control" id="inputDetailName" name="name" type="text" value="<?php
-                                echo $product['name'];
-                            ?>">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputSize">Sản phẩm</label>
+                                <div id="edit"> <i class="fa-regular fa-pen-to-square" >sd</i></div>
+
+                                <select class="custom-select col-md-12" name="size" id="inputDetailName">
+                                    <?php
+                                    while($row = mysqli_fetch_array($data['names'])){
+                                        echo '<option value="' . $row['name']. '">' .$row['name'] . '</option>';
+                                    }
+
+                                    ?>
+                                    <!-- disable ="disable" -->
+                                </select>
+                            </div>
+
+
                         </div>
+                        <div class=" col-md-6">
+                            <label class="small mb-1" for="inputNewName">Tên mới</label>
+                            <input class="form-control" id="inputNewName" name="name" type="text" value="">
+                        </div>
+
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
+
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPrice">Giá</label>
-                                <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Enter your first name" value="<?php
-
-                                                                                                                                                echo $product['price'];
-                                                                                                                                                ?>">
+                                <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Nhập giá" value="<?php
+                                    if(isset($product))
+                                        echo $product['price'];
+                                    ?>">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
                                 <input class="form-control" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="<?php
-                                                                                                                                                        echo $product['price_sale'];
-                                                                                                                                                        ?>">
+                                    if(isset($product))
+                                    echo $product['price_sale'];
+                                ?>">
                             </div>
                         </div>
                         <!-- Form Row        -->
@@ -151,19 +178,22 @@
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputQty">Số lượng còn lại</label>
-                                <input class="form-control" id="inputQty" name="qty" type="tel" placeholder="" value="<?php
+                                <input class="form-control" id="inputQty" name="qty" type="tel" placeholder="Nhập số lượng" value="<?php
+                                     if(isset($product))
                                                                                                                         echo $product['qty'];
                                                                                                                         ?>">
                             </div>
                             <div class="col-md-6">
 
                                 <input class="form-control" id="productId" name="productId" type="hidden" placeholder="" value="<?php
+                                if(isset($product))
                                  echo $product['id'];
                                 ?>">
                             </div>
                             <div class="col-md-6">
 
                                 <input class="form-control" id="parentId" name="parentId" type="hidden" placeholder="" value="<?php
+                                     if(isset($product))
                                  echo $product['parent_id'];
                                 ?>">
                             </div>
@@ -173,6 +203,7 @@
                         <div class="mb-3">
                             <label for="inputDescription" class="form-label">Mô tả</label>
                             <textarea class="form-control" id="inputDescription" name="description" rows="3"><?php
+                                 if(isset($product))
                                                                                                                 echo $product['description'];
                                                                                                                 ?>
                           </textarea>
@@ -191,6 +222,11 @@
 </div>
 
 <script type="text/javascript">
+       $('#edit').click(function(){
+
+                $("$inputNewName").attr("type", 'hidden') ;
+
+        });
 		$("#button").click(function(event){
             var detailName = $("#inputDetailName").val();
             var size = $("#inputSize").val();
@@ -236,16 +272,19 @@
             var color = $("#inputColor").val();
             var gender = $("#inputGender").val();
             var id = $("#productId").val();
+            var name = $("#inputDetailName").val();
             console.log(size);
             console.log(gender);
             console.log(color);
             console.log(id);
+            console.log(name);
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "http://localhost/aglet/admin/query",// gọi đến file server show_data.php để xử lý
                 dataType: 'json',
-				data: {action:"query", "size":size, "color":color, "gender":gender, "id":id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {action:"query","name":name, "size":size, "color":color, "gender":gender, "id":id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(data){
+
                    //kết quả trả về từ server nếu gửi thành công
                     $("#inputPrice").val(data.price);
                     $("#inputPriceSale").val(data.price_sale);
@@ -267,6 +306,42 @@
 			});
 		});
 
+
+        $("#deleteButton").click(function(event){
+
+            var size = $("#inputSize").val();
+            var color = $("#inputColor").val();
+            var gender = $("#inputGender").val();
+            var id = $("#productId").val();
+
+            console.log(detailName);
+            console.log(id);
+            console.log(color);
+            console.log(gender);
+            console.log(qty);
+            console.log(description);
+            console.log(name);
+			$.ajax({
+				method: "POST",// phương thức dữ liệu được truyền đi
+				url: "../edit",// gọi đến file server show_data.php để xử lý
+				data: {detail_name:detailName, name:name, size:size, qty:qty, color:color, gender:gender, price:price, price_sale:priceSale, parent_id:parent_id, description: description, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				success : function(response){
+                    $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
+                    $('#noti').fadeIn();
+                    $("#close").before(response);
+
+                    console.log(response);
+
+				},
+                error: function (data) {
+                    console.log(data);
+                    $('#noti').fadeIn();
+                    $("#close").before("LỖI!");
+                    $("#message").remove();
+                }
+			});
+
+		});
 
 
 </script>

@@ -29,6 +29,7 @@ if (!$_SESSION["username"]) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -62,7 +63,7 @@ if (!$_SESSION["username"]) {
                         <div class="sb-sidenav-menu-heading">Management</div>
                         <a class="nav-link" href="pageManagement">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Page Management
+                             Quản lý bài đăng
                         </a>
                         <a class="nav-link" href="http://localhost/aglet/admin/productManagement/1">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -71,6 +72,11 @@ if (!$_SESSION["username"]) {
                         <a class="nav-link" href="index.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Quản lý danh mục
+                        </a>
+
+                        <a class="nav-link" href="http://localhost/aglet/admin/productManagement/1">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Quản lý đơn hàng
                         </a>
 
 
@@ -101,9 +107,9 @@ if (!$_SESSION["username"]) {
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Statistical</div>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="http://localhost/aglet/admin/chart">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Charts
+                            Biểu đồ
                         </a>
                         <a class="nav-link" href="tables.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
