@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -196,7 +198,8 @@
 
 $i = 0;
 $row = [];
-$row[$i] = mysqli_fetch_array($data["product"])
+$row[$i] = mysqli_fetch_array($data["product"]);
+
 
 
 ?>
@@ -285,7 +288,9 @@ $row[$i] = mysqli_fetch_array($data["product"])
           </div>
         </div>
         <div class="row group-btn-1">
-          <button href="javascript:void(0)" class="btn btn-addcart">
+          <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php
+            echo $row[0]['parent_id'];
+          ?>)">
             Thêm vào giỏ hàng
           </button>
           <a href="javascript:void(0)" class="btn btn-favorite"><i class="fa-solid fa-heart" id="favorite-item"></i></a>
@@ -336,23 +341,12 @@ $row[$i] = mysqli_fetch_array($data["product"])
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="./product-details/app.js"></script>
   <script>
-    $(".btn-addcart").click(function(event) {
-      var id = $("#pd_id").html();
-      console.log(id);
-      $.ajax({
-        method: "POST", // phương thức dữ liệu được truyền đi
-        url: "http://localhost/Aglet/cart", // gọi đến file server show_data.php để xử lý
-        data: {
-          id: id
-        }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
-        success: function(response) {
 
-
-        },
-        error: function(data) {}
-      });
-
-    });
+    function addCart(id) {
+     $.post("http://localhost/aglet/cart/process?id="+ id, function (data, status) {
+       alert(data);
+     })
+    }
   </script>
 </body>
 

@@ -314,17 +314,15 @@
             var gender = $("#inputGender").val();
             var id = $("#productId").val();
 
-            console.log(detailName);
+
             console.log(id);
             console.log(color);
             console.log(gender);
-            console.log(qty);
-            console.log(description);
-            console.log(name);
+
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
-				url: "../edit",// gọi đến file server show_data.php để xử lý
-				data: {detail_name:detailName, name:name, size:size, qty:qty, color:color, gender:gender, price:price, price_sale:priceSale, parent_id:parent_id, description: description, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				url: "../delete",// gọi đến file server show_data.php để xử lý
+				data: {size:size, qty:qty, color:color, gender:gender, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){
                     $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();

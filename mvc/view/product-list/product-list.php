@@ -1,15 +1,15 @@
 <?php
 
 
-if (isset($_GET['gender'])) {
-  $gender;
-  if (strcmp(($_GET['gender']), "men") == 0) {
-    $gender = 0;
-  } else if (strcmp(($_GET['gender']), "women") == 0) {
-    $gender = 1;
-  } else {
-    //query all
-  }
+  if (isset($_GET['gender'])) {
+    $gender;
+    if (strcmp(($_GET['gender']), "men") == 0) {
+      $gender = 0;
+    } else if (strcmp(($_GET['gender']), "women") == 0) {
+      $gender = 1;
+    } else {
+      //query all
+    }
 }
 ?>
 <!DOCTYPE html>
