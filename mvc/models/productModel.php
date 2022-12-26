@@ -25,7 +25,7 @@ class productModel extends db
 
   public function getProductColor($id)
   {
-    $qr = "SELECT color, PD.parent_id as parent_id FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE PD.parent_id = P.id GROUP BY color, P.parent_id";
+    $qr = "SELECT color, PD.parent_id as parent_id FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE PD.parent_id = P.id GROUP BY color, P.parent_id HAVING P.parent_id = (SELECT parent_id FROM products WHERE id = $id);";
     return mysqli_query($this->con, $qr);
   }
 
