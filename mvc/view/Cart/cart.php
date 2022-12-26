@@ -1,7 +1,5 @@
 <?php
-if (isset($_POST["id"])) {
-  echo $_POST["id"];
-}
+print_r($_SESSION['cart']);
 ?>
 
 <section id="cart" class="main-cart container-fluid">
