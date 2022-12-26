@@ -582,7 +582,10 @@ div {
 
 /* CART CSS */
 #cart .col-half {
-  width: 63%;
+  width: 65%;
+}
+#cart  .col-big {
+  width: 80%;
 }
 #cart * {
   margin: 3px 5px;
@@ -591,7 +594,6 @@ div {
 
 #cart {
   padding-top: 40px;
-  padding-left: 100px;
 }
 
 #cart .product-info {
@@ -600,23 +602,28 @@ div {
 }
 
 .main-cart .title-1 {
-  color: #000;
-  background-color: #f1f1f1;
-  font-family: GeometricExtraBold;
-  font-size: 23px;
-  margin: 20px 0px 20px 0px;
-  padding: 5px 20px 5px 20px;
+  color: rgb(0, 0, 0);
+  background-color: #f1f1f1; 
+  height: 40px;
+  /* margin: 20px 10px 20px 0px; */
+  /* padding: 5px 20px 5px 20px; */
 }
-
+#cart .title-1 h3 {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  font-weight: 600;
+  padding-left: 20px;
+  letter-spacing: 1.5px;
+}
+#cart .allCart {
+  margin-left: -25px;
+  padding-top: 10px;
+}
 #cart .media-left,
 .media-body,
 .media-right {
   display: table-cell;
   vertical-align: top;
-}
-
-#cart .media-left {
-  padding-right: 20px;
 }
 
 #cart .media .media-left .media-object {
@@ -625,8 +632,8 @@ div {
 }
 
 #cart .product-info {
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 #cart a {
@@ -635,30 +642,25 @@ div {
 }
 
 #cart .media-heading {
-  margin-top: -10px;
-}
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: -20px;
 
-#cart .media-body .price {
-  padding-left: -10px;
 }
 
 #cart .main-cart-left .item-2 .price {
   color: #808080;
-  font-family: NunitoSanRegular;
-  margin-top: 10px;
 }
 
-#cart .media-body {
-  width: 300px;
-}
 
 #cart .media-body .row {
   display: flex;
   flex: 50%;
+  padding-top: 15px;
+  margin-left: -5px;
 }
 
-#cart .media-body .bottom {
-  margin-top: -15px;
+#cart .media-body .bottom h5{
 }
 
 #cart .selectpicker {
@@ -672,22 +674,30 @@ div {
 .quanPicker {
   margin-right: 50px;
 }
+#cart .media-right {
+  width: 30%;
+}
+#cart .media-right .price {
+  font-size: 23px;
+}
+#cart .media-right .status {
+  font-style: italic;
+  margin-right: -10px;
 
+}
 #cart .media-right .button {
+  /* right:0; */
   width: 100px;
   height: 40px;
   background-color: black;
   color: white;
   text-align: center;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 #cart .media-right .button .fa-trash {
   margin-top: 10px;
-}
-
-#cart .media-right h4 {
-  margin-top: -10px;
 }
 
 .main-cart>.row {
@@ -717,7 +727,9 @@ div {
   padding-bottom: 20px;
   border-bottom: 2px black solid;
 }
-
+#cart .normal {
+  font-weight: 400;
+}
 #cart .group_title {
 
   width: 100%;
