@@ -1,17 +1,3 @@
-<?php
-
-
-  if (isset($_GET['gender'])) {
-    $gender;
-    if (strcmp(($_GET['gender']), "men") == 0) {
-      $gender = 0;
-    } else if (strcmp(($_GET['gender']), "women") == 0) {
-      $gender = 1;
-    } else {
-      //query all
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -187,7 +173,9 @@
               <div class="card-descr">
               <h3 class="name"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '">' . $row[$i]['name'] . ' </a></h3>
               <h3 class="color">' . $row[$i]['color'] . '</h3>
-              <h3 class="price">' . $row[$i]['price'] . ' VNĐ  <span class = "sale-off"> ' . $row[$i]['price'] . ' VNĐ </span> </h3>
+              <h3 class="price">' . $row[$i]['price'] . ' VNĐ 
+              <span class = "sale-off"> ' . $row[$i]['price'] . ' VNĐ </span>
+              </h3>
               </div>
               </div>
           ';

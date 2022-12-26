@@ -87,7 +87,7 @@ $sum = 0;
         </li>
         <li class="group_item discount small">
           <span>Giảm giá</span>
-          <span id="price">0 VNĐ</span>
+          <span id="price" class="normal">0 VNĐ</span>
         </li>
         <li class="divider-dashed"></li>
         <li class="group_item total">

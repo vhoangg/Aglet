@@ -4,6 +4,7 @@ var arrow = document.querySelectorAll(".fa-solid.fa-angle-up")
 var icon = document.querySelectorAll(".icon");
 var tmp = window.location.search;
 console.log(tmp);
+tmp = tmp.split("=");
 var gender = '.'+ tmp[1];
 console.log(arrow[0].classList.contains("fa-angle-down"));
 for(let i = 0; i < toggle.length; i++){

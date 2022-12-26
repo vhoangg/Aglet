@@ -7,24 +7,7 @@
         <input type="text" class="info" placeholder="Số điện thoại">
         <input type="text" class="info" placeholder="Email">
         <input type="text" class="info" placeholder="Địa chỉ">
-        <select name="customerCity" id="customerCity">
-          <option value="0">Tỉnh/ Thành phố</option>
-          <option value="1">Hà Nội</option>
-          <option value="2">Đà Nẵng</option>
-          <option value="3">TP.HCM</option>
-        </select>
-        <select name="customerDistrict" id="customerDistrict">
-          <option value="0">Quận/ Huyện</option>
-          <option value="1">Hà Nội</option>
-          <option value="2">Đà Nẵng</option>
-          <option value="3">TP.HCM</option>
-        </select>
-        <select name="customerWard" id="customerWard">
-          <option value="0">Phường/ Xã</option>
-          <option value="1">Hà Nội</option>
-          <option value="2">Đà Nẵng</option>
-          <option value="3">TP.HCM</option>
-        </select>
+
         <div class="info-holder">
           <input type="checkbox" name="" id="getInfo" class="checkBox">
           <h4>Cập nhật các thông tin mới nhất về chương trình từ Aglet</h4>
@@ -32,7 +15,7 @@
         <div class="form_title">PHƯƠNG THỨC GIAO HÀNG</div>
         <div class="info-holder">
           <input type="checkbox" name="" id="shippingType" class="checkBox">
-          <h4>Tốc độ tiêu chuẩn (2-5 tuần)</h4>
+          <h4>Tốc độ tiêu chuẩn (từ 2 - 5 ngày làm việc)</h4>
         </div>
         <div class="form_title">PHƯƠNG THỨC THANH TOÁN</div>
         <div class="info-holder">
@@ -53,7 +36,19 @@
       <ul class="bill">
         <li class="group_title">ĐƠN HÀNG</li>
         <li class="divider"></li>
-        <li class="group_item">asdasdasdsad</li>
+        <li class="group_item">
+          <div class="item-information">
+            <h4>Tên sản phẩm <span class="right normal">Giá VND</span></h4>
+            <h4 class="normal">Size: <span class="mid normal"> x1 </span></h4>
+          </div>
+        </li>
+        <li class="divider-dashed"></li>
+        <li class="group_item fee">
+          <h4>Đơn hàng <span class="right">Giá VND</span></h4>
+          <h4>Giảm <span class="right normal">Giá VND</span></h4>
+          <h4 class="fee-black">Phí vận chuyển <span class="right normal">Giá VND</span></h4>
+          <h4 class="fee-black">Phí thanh toán <span class="right normal">Giá VND</span></h4>
+        </li>
         <li class="divider-dashed"></li>
         <li class="group_item total">
           <span>TỔNG CỘNG</span>
