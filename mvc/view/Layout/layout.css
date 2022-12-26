@@ -581,6 +581,9 @@ div {
 /* END HOMEPAGE CSS */
 
 /* CART CSS */
+#cart .col-half {
+  width: 63%;
+}
 #cart * {
   margin: 3px 5px;
   padding: 1px 1px;
@@ -719,15 +722,15 @@ div {
 
   width: 100%;
   height: 50px;
-  color: red;
-
-  font-weight: bold;
-  font-size: 23px;
+  color: black;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 1.5px;
   background-color: #f1f1f1;
 }
 
 #cart .group_item {
-  margin: 20px 0 20px 0;
+  margin: 5px 0 5px 0;
 }
 
 #cart .divider {
@@ -736,25 +739,31 @@ div {
 }
 
 #cart .divider-dashed {
-  border-bottom: 2px black dashed;
+  margin-top: 20px;
+  border-bottom: 2px rgb(172, 170, 170) dashed;
 }
-
+#cart .group_item.total {
+  margin-top: 30px;
+}
 #cart .total,
 .discount {
   display: flex;
   justify-content: space-between;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: bold;
+  color: #999999;
 }
 
 #cart .promotion h4 {
+  padding-top: 20px;
   font-size: 18px;
 }
-
-#cart #price {
-  color: orangered;
+#cart .group_item.total .black {
+  color: #000;
 }
-
+#cart .group_item.small {
+  font-size: 18px;
+}
 #cart li {
   list-style: none;
 }
@@ -768,8 +777,23 @@ div {
   height: 60px;
   margin-top: 10px;
   border: none;
+  cursor: pointer;
 }
-
+#cart .bill .promotion input {
+  width: 60%;
+  height: 40px;
+  
+}
+#cart .bill .promotion button {
+  width: 30%;
+  height: 40px;
+  background-color: orangered;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
 /* END CART CSS */
 
 /* ORDER-TRACKER CSS */
@@ -900,8 +924,12 @@ div {
   width: 300px;
   justify-content: center;
   margin: 0 30px 0 0px;
-}
 
+}
+.sidebar .tree-toggle {
+  cursor: pointer;
+  font-size: 24px;
+}
 .tab {
   padding: 10px;
   display: flex;
@@ -913,7 +941,9 @@ div {
   height: 22px;
   list-style: none;
 }
-
+.sidebar .type .tab .orange a {
+  color: var(--main-color);
+}
 .item {
   box-sizing: border-box;
   margin: 0px 2px 0 0;
@@ -1005,8 +1035,6 @@ div {
   height: auto;
 }
 
-
-
 .product-list .list {
   width: 100%;
   display: flex;
@@ -1022,7 +1050,15 @@ div {
   background-color: white;
 
 }
-
+.product-list .card .text a{
+  color: white;
+}
+.product-list .card .name a{
+  color:black;
+}
+.product-list .card .name a:hover{
+  color: var(--main-color);
+}
 .card-image {
 
   position: relative;

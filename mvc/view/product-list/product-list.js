@@ -2,9 +2,10 @@ var toggle = document.querySelectorAll(".nav-header")
 var display = document.querySelectorAll(".nav .tree")
 var arrow = document.querySelectorAll(".fa-solid.fa-angle-up")
 var icon = document.querySelectorAll(".icon");
-
+var tmp = window.location.search;
+console.log(tmp);
+var gender = '.'+ tmp[1];
 console.log(arrow[0].classList.contains("fa-angle-down"));
-
 for(let i = 0; i < toggle.length; i++){
   toggle[i].addEventListener('click',()=>{
 
@@ -26,59 +27,6 @@ for(let i = 0; i < toggle.length; i++){
 
 
       }
-
-
-
   });
 }
-
-
-var productList =[
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  },
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  },
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  },
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  },
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  },
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  },
-  {
-    name: "Urbas SC - Mule",
-    color: "Dusty Blue",
-    price: 620000,
-    img: "https://ananas.vn/wp-content/uploads/Pro_AV00202_1-500x500.jpg"
-  }
-];
-
-
-productList.forEach(i => {
-
-});
+document.querySelector(gender).classList.add('orange');

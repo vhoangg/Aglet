@@ -12,9 +12,6 @@ if (isset($_GET['gender'])) {
   }
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,11 +33,11 @@ if (isset($_GET['gender'])) {
       <div class="sidebar">
         <div class="sidebar type">
           <ul class="tab">
-            <li class="item"><a href="#">TẤT CẢ</a></li>
+            <li class="item all"><a href="#">TẤT CẢ</a></li>
             <li class="item-divider"></li>
-            <li class="item"><a href="#">NAM</a></li>
+            <li class="item men"><a href="#">NAM</a></li>
             <li class="item-divider"></li>
-            <li class="item"><a href="#">NỮ</a></li>
+            <li class="item women"><a href="#">NỮ</a></li>
           </ul>
         </div>
         <div class="row-divider"></div>
@@ -164,22 +161,6 @@ if (isset($_GET['gender'])) {
                 <li>New Arrival</li>
               </ul>
             </li>
-            <li class="nav-divider"></li>
-            <li class="nav element">
-              <label label-default class="tree-toggle nav-header orange">
-                TRẠNG THÁI
-              </label>
-              <span class="icon orange"><i class="fa-solid fa-angle-up"></i></span>
-              <ul class="nav tree" display="block">
-                <li>Limited Edition</li>
-                <li>Online Only</li>
-                <li>Sale Off</li>
-                <li>Best Seller</li>
-                <li>New Arrival</li>
-              </ul>
-            </li>
-            <li class="nav-divider"></li>
-
           </ul>
         </div>
 
@@ -204,7 +185,7 @@ if (isset($_GET['gender'])) {
               <div class="text"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '">MUA NGAY</a></div>
               </div>
               <div class="card-descr">
-              <h3 class="name">' . $row[$i]['name'] . '</h3>
+              <h3 class="name"><a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '">' . $row[$i]['name'] . ' </a></h3>
               <h3 class="color">' . $row[$i]['color'] . '</h3>
               <h3 class="price">' . $row[$i]['price'] . ' VNĐ  <span class = "sale-off"> ' . $row[$i]['price'] . ' VNĐ </span> </h3>
               </div>
