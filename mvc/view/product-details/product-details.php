@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -260,14 +258,14 @@ $row[$i] = mysqli_fetch_array($data["product"]);
         <div class="row">
           <div class="col-xs-12">
             <h3>SIZE</h3>
-            <select class="my-3" name="" id="">
+            <select class="my-3" name="" id="size">
               <option value="">Chọn size giày</option>
               <?php
               $i = 0;
               $row = [];
               while ($row[$i] = mysqli_fetch_array($data["size"])) {
                 echo '
-                  <option value="">' . $row[$i]['size'] . '</option>';
+                  <option value="' . $row[$i]['size'] . '">' . $row[$i]['size'] . '</option>';
                 $i++;
               }
               ?>
@@ -275,22 +273,22 @@ $row[$i] = mysqli_fetch_array($data["product"]);
           </div>
           <div class="col-xs-12">
             <h3>SỐ LƯỢNG</h3>
-            <select class="my-3" name="" id="">
+            <select class="my-3" name="" id="soluong">
               <option value="">Chọn số lượng</option>
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-              <option value="">6</option>
-              <option value="">7</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
             </select>
           </div>
         </div>
         <div class="row group-btn-1">
           <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php
-            echo $row[0]['parent_id'];
-          ?>)">
+                                                                                      echo $row[0]['id'];
+                                                                                      ?>)">
             Thêm vào giỏ hàng
           </button>
           <a href="javascript:void(0)" class="btn btn-favorite"><i class="fa-solid fa-heart" id="favorite-item"></i></a>
@@ -341,11 +339,12 @@ $row[$i] = mysqli_fetch_array($data["product"]);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="./product-details/app.js"></script>
   <script>
-
     function addCart(id) {
-     $.post("http://localhost/aglet/cart/process?id="+ id, function (data, status) {
-       alert(data);
-     })
+      var sl = $('#soluong').val();
+      var size = $('#size').val();
+      $.post("http://localhost/aglet/cart/process?id=" + id + "&sl=" + sl + "&size=" + size, function(data, status) {
+        alert(data);
+      })
     }
   </script>
 </body>
