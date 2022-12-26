@@ -36,9 +36,9 @@
       else{
         $str="";
         $updateName = 'UPDATE PRODUCTS SET name = "'.$_POST['name'].'" WHERE parent_id = 0 AND id = '.$_POST['parent_id'];
-        $updateDetailName = 'UPDATE  PRODUCTS SET name = "'.$_POST['detail_name'].'" WHERE parent_id = '.$_POST['parent_id'];
+        $updateDetailName = 'UPDATE  PRODUCTS SET name = "'.$_POST['detail_name'].'" WHERE id = '.$_POST['id'];
 
-        if( $pr->customQuery($updateName) && $pr->customQuery($updateDetailName) && $pr->update( $_POST['description'], $_POST['price'], $_POST['price_sale'],$_POST['qty'], $_POST['color'], $_POST['size'], $_POST['gender'] )){
+        if( $pr->customQuery($updateName) && $pr->customQuery($updateDetailName) && $pr->update( $_POST['description'], $_POST['price'], $_POST['price_sale'],$_POST['qty'], $_POST['color'], $_POST['size'], $_POST['gender'], $_POST['id'])){
             $str = '<p id = "message" class="pt-3 pr-2 mt-10 mb-5">Cập nhật thành công</p>';
         }
         else
@@ -51,7 +51,12 @@
 
     function editProducts($id){
       $product = $this->model("productModel");
-      $this->adminView("adminLayout",["page"=>"editProducts","product"=>$product, "id"=> $id]);
+      $this->adminView("adminLayout",["page"=>"editProducts","product"=>$product, "id"=> $id, "names"=>$product->customQuery1($id)]);
+    }
+
+    function chart(){
+      $product = $this->model("productModel");
+      $this->adminView("adminLayout",["page"=>"chart", "pr"=>$product]);
     }
 
     function createProduct(){
@@ -86,28 +91,33 @@
         echo "thất bại";
       }
 
-      $id = $pr->customQuery('SELECT ID FROM PRODUCTS WHERE NAME = "'.$_POST['detail_name'].'"');
+      $id = mysqli_fetch_array( $pr->customQuery('SELECT ID FROM PRODUCTS WHERE NAME = "'.$_POST['detail_name'].'"'));
+
       $str = '';
       $shoe_size = $_POST['size'];
 
 
+      $sql2 = '';
 
-      foreach ($shoe_size as $size => $value) {
-        $sql2 = 'INSERT INTO PRODUCT_DETAIL (color, size, qty, active, parent_id, price, price_sale, description, gender) values ("'.$_POST['color'].'", '.$value.' 0, 1, '.$id.', '.$_POST['price'].', '.$_POST['price_sale'].', "'.$_POST['descriptione'].'", '.$_POST['gender'].')';
+      for($i = 0; $i < count($shoe_size); $i++) {
+        $s = $shoe_size[$i];
+        $sql2 = 'INSERT INTO PRODUCT_DETAIL (color, size, qty, active, parent_id, price, price_sale, description, gender) values ("'.$_POST['color'].'", '.$s.', 0, 1, '.$id[0].', '.$_POST['price'].', '.$_POST['price_sale'].', "'.$_POST['description'].'", '.$_POST['gender'].')';
 
-        if($pr->customQuery($sql2))
-          echo "Thêm thành công";
-        else
-          echo "Thất bại";
+        $pr->customQuery($sql2);
 
       }
-      echo "Đã thêm";
+
     }
 
     function query(){
       $pr = $this->model("productModel");
-      $str = "";
-      $rs = mysqli_fetch_array($pr->query($_POST['color'], $_POST['size'], $_POST['gender'], $_POST['id']));
+      $str = 'SELECT ID FROM PRODUCTS WHERE NAME = "'.$_POST['name'].'"';
+      $id = mysqli_fetch_array($pr->customQuery($str));
+      if(!isset($id)){
+        $id = -1;
+      }
+
+      $rs = mysqli_fetch_array($pr->query($_POST['color'], $_POST['size'], $_POST['gender'], $id[0]));
       $success = array(
       "id"=>$rs['id'],
       "description"=>$rs['description'],
@@ -123,7 +133,15 @@
           );
       }
 
-
-
     }
+
+    function delete(){
+      $pr = $this->model("productModel");
+      $sql = 'DELETE FROM PRODUCT_DETAIL WHERE PARENT_ID = "'.$_POST['id'].'", AND SIZE = '.$_POST['size'].' AND COLOR = "'.$_POST['color'].'" AND GENDER = '.$_POST['gender'];
+      mysqli_fetch_array($pr->customQuery($sql));
+      echo "Đã xóa sản phẩm";
+    }
+
+
+
   }
