@@ -29,7 +29,7 @@ $sum = 0;
                       <h4 class="media-heading"><?php echo $value['name'] ?></h4>
                     </a>
                     <h4 class="price">
-                      Giá: <?php echo $value['price'] ?>VNĐ
+                      Giá: <span class="normal"><?php echo $value['price'] ?>VNĐ</span>
                     </h4>
                     <div class="row bottom">
                       <div class="sizePicker">

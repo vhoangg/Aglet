@@ -98,11 +98,20 @@
 
     #product-details .btn-addcart {
       width: 70%;
-      background-color: orange;
+      background-color: black;
       text-align: center;
       font-size: 25px;
       padding: 1em;
       height: 90px;
+      font-weight: 600;
+    }
+
+    #product-details .btn-addcart {
+      color: white;
+    }
+
+    #product-details .btn-addcart:hover {
+      color: #f15e2c;
     }
 
     #product-details .btn-favorite {
@@ -135,12 +144,8 @@
       width: 100%;
       font-size: 25px;
       font-weight: 600;
-      background-color: black;
+      background-color: #f15e2c;
       color: white;
-    }
-
-    #product-details .btn-pay:hover {
-      color: red;
     }
 
     .product-detail-right>.accordion {
@@ -188,6 +193,14 @@
 
     #product-details .accordion .content-container.active .question {
       color: orange;
+    }
+
+    #product-details .btn.btn-pay a {
+      color: white;
+    }
+
+    #product-details .btn.btn-pay:hover a {
+      color: black;
     }
   </style>
 </head>
@@ -259,7 +272,7 @@ $row[$i] = mysqli_fetch_array($data["product"]);
           <div class="col-xs-12">
             <h3>SIZE</h3>
             <select class="my-3" name="" id="size">
-              <option value="">Chọn size giày</option>
+              <option value="" disabled selected>Chọn size giày</option>
               <?php
               $i = 0;
               $row = [];
@@ -289,44 +302,29 @@ $row[$i] = mysqli_fetch_array($data["product"]);
           <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php
                                                                                       echo $row[0]['id'];
                                                                                       ?>)">
-            Thêm vào giỏ hàng
+            THÊM VÀO GIỎ HÀNG
           </button>
           <a href="javascript:void(0)" class="btn btn-favorite"><i class="fa-solid fa-heart" id="favorite-item"></i></a>
         </div>
         <div class="row group-btn-1">
-          <button class="btn btn-pay">Thanh toán</button>
+          <button class="btn btn-pay"><a href='cart'>THANH TOÁN </a></button>
         </div>
         <div class="accordion">
           <div class="content-container">
             <div class="question">THÔNG TIN SẢN PHẨM</div>
-            <div class="answer">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab
-              ullam corporis sit rem repellendus porro pariatur molestias
-              adipisci recusandae esse blanditiis officia laboriosam, nihil
-              sed corrupti quisquam aut animi id?
-            </div>
+
           </div>
           <div class="divider1"></div>
 
           <div class="content-container">
             <div class="question">QUY ĐỊNH ĐỔI SẢN PHẨM</div>
-            <div class="answer">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab
-              ullam corporis sit rem repellendus porro pariatur molestias
-              adipisci recusandae esse blanditiis officia laboriosam, nihil
-              sed corrupti quisquam aut animi id?
-            </div>
+
           </div>
           <div class="divider1"></div>
 
           <div class="content-container">
             <div class="question">BẢO HÀNH THẾ NÀO ?</div>
-            <div class="answer">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab
-              ullam corporis sit rem repellendus porro pariatur molestias
-              adipisci recusandae esse blanditiis officia laboriosam, nihil
-              sed corrupti quisquam aut animi id?
-            </div>
+
           </div>
           <div class="divider1"></div>
         </div>

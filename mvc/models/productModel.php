@@ -78,7 +78,7 @@ class productModel extends db
 
   public function findProductWithGender($gender)
   {
-    $qr = "SELECT thumb, PD.parent_id, name, price, color FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE P.id = PD.parent_id and gender = $gender GROUP BY parent_id;
+    $qr = "SELECT thumb, PD.parent_id, name, price, price_sale, color FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE P.id = PD.parent_id and gender = $gender GROUP BY parent_id;
     ";
     return mysqli_query($this->con, $qr);
   }
