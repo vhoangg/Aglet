@@ -1,6 +1,7 @@
 <?php
 $cart = $_SESSION['cart'];
 $sum = 0;
+
 // session_unset();
 ?>
 <section id="cart" class="main-cart container-fluid">
@@ -56,6 +57,7 @@ $sum = 0;
                 </div>
                 <div class="status orange">Còn hàng</div>
                 <div class="button btnDelete" data-id="<?php echo $value['id'] ?>">
+                  <?php echo $value['id'] ?>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
@@ -105,7 +107,9 @@ $sum = 0;
   $('body').on('click', '.btnDelete', function(e) {
     e.preventDefault();
     var id = $(this).data('id');
-    // Adding ajax 
+    console.log(id);
+
+    // Adding ajax
     $.ajax({
       method: 'POST',
       url: 'http://localhost/Aglet/cart/delete',

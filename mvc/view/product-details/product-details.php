@@ -299,7 +299,7 @@ $row[$i] = mysqli_fetch_array($data["product"]);
         </div>
         <div class="row group-btn-1">
           <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php
-                                                                                      echo $row[0]['id'];
+                                                                                      echo $row[0]['parent_id'];
                                                                                       ?>)">
             THÊM VÀO GIỎ HÀNG
           </button>
