@@ -19,14 +19,13 @@ class productModel extends db
 
   public function findProductWithId($id)
   {
-    $qr = "SELECT P.id as id, name,color_code, size, qty, PD.active, P.description as description, price, price_sale, thumb FROM PRODUCTS P, PRODUCT_DETAIL PD  WHERE P.parent_id = $id AND PD.parent_id = P.id ";
-
+    $qr = "SELECT P.id as id, name, color_code as color, size, qty, PD.active, P.description as description, price, price_sale, thumb FROM PRODUCTS P, PRODUCT_DETAIL PD  WHERE PD.parent_id = $id AND PD.parent_id = P.id ";
     return mysqli_query($this->con, $qr);
   }
 
   public function getProductColor($id)
   {
-    $qr = "SELECT color, PD.parent_id as parent_id FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE PD.parent_id = P.id GROUP BY color, P.parent_id HAVING P.parent_id = (SELECT parent_id FROM products WHERE id = $id);";
+    $qr = "SELECT color_code as color, PD.parent_id as parent_id FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE PD.parent_id = P.id GROUP BY color_code, P.parent_id HAVING P.parent_id = (SELECT parent_id FROM products WHERE id = $id);";
     return mysqli_query($this->con, $qr);
   }
 
@@ -36,7 +35,7 @@ class productModel extends db
     return mysqli_query($this->con, $qr);
   }
 
-  public function query( $size, $gender, $id)
+  public function query($size, $gender, $id)
   {
 
     $qr = 'SELECT A.id as id, A.active, qty, price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE A.parent_id = ' . $id . ' AND A.parent_id = B.id AND A.size = ' . $size . ' AND A.gender = ' . $gender . ';';
@@ -65,7 +64,7 @@ class productModel extends db
 
   public function getQty($id)
   {
-    $qr = 'select sum(qty) from product_detail where parent_id ='.$id.' GROUP by parent_id';
+    $qr = 'select sum(qty) from product_detail where parent_id =' . $id . ' GROUP by parent_id';
     return mysqli_query($this->con, $qr);
   }
 
@@ -73,7 +72,7 @@ class productModel extends db
 
   public function update($size, $qty, $gender, $id)
   {
-    $qr = 'UPDATE PRODUCT_DETAIL SET   qty = ' . $qty . ' WHERE  gender = ' . $gender . ' AND size = '.$size.' AND parent_id = ' . $id;
+    $qr = 'UPDATE PRODUCT_DETAIL SET   qty = ' . $qty . ' WHERE  gender = ' . $gender . ' AND size = ' . $size . ' AND parent_id = ' . $id;
     echo $qr;
     return mysqli_query($this->con, $qr);
   }
@@ -88,7 +87,7 @@ class productModel extends db
 
   public function findProductWithGender($gender)
   {
-    $qr = "SELECT thumb, PD.parent_id, name, price, price_sale, color FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE P.id = PD.parent_id and gender = $gender GROUP BY parent_id;
+    $qr = "SELECT thumb, PD.parent_id, name, price, price_sale, color_code as color FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE P.id = PD.parent_id and gender = $gender GROUP BY parent_id;
     ";
     return mysqli_query($this->con, $qr);
   }
