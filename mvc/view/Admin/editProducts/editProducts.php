@@ -1,3 +1,4 @@
+
 <?php
 //$product = mysqli_fetch_array($data['pr']);
 
@@ -5,13 +6,11 @@
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
 
-
-
+echo $product['id'];
 
 
 
 ?>
-
 <div id="noti" style="display: none">
     <!--Modal: modalCookie-->
     <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
@@ -32,15 +31,112 @@
     <!--Modal: modalCookie-->
 
 </div>
-<div class="container-xl px-4 mt-4">
-    <div class="row">
-        <div class="col-xl-4">
-            <!-- Profile picture card-->
-            <div class="card mb-4 mb-xl-0">
-                <div class="card-header">Ảnh sản phẩm</div>
+
+<div class="container-xl ">
+    <form action="">
+        <div class="row">
+            <div class="col-xl-4 mt-4">
+                <div class="card">
+                    <div class="card-header">Dòng sản phẩm</div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 mt-4" for="name">Tên dòng sản phẩm</label>
+                        <input class="form-control mb-3" id="inputName" type="text" name="name" placeholder="Nhập tên" value="<?php
+                                $qr = 'SELECT name from products where parent_id = 0 and id = '.$data['id'];
+                                $name = mysqli_fetch_array($pr->customQuery($qr));
+                                echo $name[0];?>">
+
+                    </div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1" for="inputGender">Sản phẩm</label>
+
+                            <select class="form-control col-md-12 mb-3" name="gender" id="detailName" >
+                                <option value="" disabled selected>Chọn sản phẩm</option>
+                                <?php
+                                    while($row = mysqli_fetch_array($data['names'])){
+                                        echo '<option value="' . $row['name']. '">' .$row['name'] . '</option>';
+                                    }
+
+                                ?>
+                            </select>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-4 mt-4">
+                <div class="card">
+                    <div class="card-header">Chi tiết sản phẩm</div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 mt-4" for="name">Tên sản phẩm</label>
+                        <input class="form-control mb-3" id="inputDetailName" type="text" name="price" placeholder="Nhập tên" value="">
+                    </div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 " for="name">Size</label>
+                        <select class="form-control col-md-12 mb-3" name="gender" id="inputSize">
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                            </select>
+                    </div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 " for="name">Giới tính</label>
+                         <select class="form-control col-md-12 mb-3" name="gender" id="inputGender">
+                                <option value="0">Nữ</option>
+                                <option value="1">Nam</option>
+                        </select>
+                    </div>
+
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 " for="name">Mã màu</label>
+                        <input class="form-control mb-3" id="color_code" type="color" name="price"  value="">
+                    </div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 " for="name">Số lượng</label>
+                        <input class="form-control mb-3" id="inputQty" type="text" name="price" placeholder="Nhập số lượng" value="">
+                    </div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 " for="name">Giá</label>
+                        <input class="form-control mb-3" id="inputPrice" type="text" name="price" placeholder="Nhập giá" value="">
+                    </div>
+                    <div class="row-md-6 mx-3">
+                        <label class="small mb-1 " for="name">Giá khuyến mãi</label>
+                        <input class="form-control mb-3" id="inputPriceSale" type="text" name="price" placeholder="Nhập giá" value="">
+                    </div>
+                    <div class="row-md-6 mx-3 mb-4">
+                        <label class="small mb-1" >Trạng thái</label>
+                                 <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="cbActive" value = "1" >
+                                    <label class="custom-control-label" for="defaultCheckedDisabled2">Hoạt động</label>
+                                 </div>
+
+                                <!-- Checked checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="cbUnactive" value = "0">
+                                    <label class="custom-control-label" for="defaultUncheckedDisabled2">Ngừng hoạt động</label>
+                                </div>
+                    </div>
+                    <div class="row-md-6 mx-3 mb-4">
+                     <input class="form-control" id="productId" name="productId" type="text" placeholder="" value="<?php
+
+                                 echo $product['id'];
+                                ?>">
+                     <input class="form-control" id="parentId" name="parentId" type="text" placeholder="" value="<?php
+
+                                    echo $data['id'];
+                                ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mt-4">
+            <div class="card-header">Ảnh sản phẩm</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile square mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img class="img-account-profile square mb-2" id="thumb" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG hoặc PNG nhẹ hơn 5MB</div>
                     <!-- Profile picture upload button-->
@@ -48,177 +144,18 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-5 mb-5">
+            <div class="car-xl-10">
+                <div class="card-header">Mô tả</div>
 
-        <div class="col-xl-8">
-            <!-- Account details card-->
-            <div class="card mb-4">
-                <div class="card-header">Thông tin sản phẩm</div>
-                <div class="card-body">
-                    <form method="post" class="myForm" id="form">
-                        <!-- Form Group (username)-->
-                        <div class=" mb-3">
-                            <label class="small mb-1" for="inputName">Dòng sản phẩm</label>
-                            <input class="form-control" id="inputName" name="name" type="text" value="<?php
-                                $qr = 'SELECT name from products where parent_id = 0 and id = '.$data['id'];
-                                $name = mysqli_fetch_array($pr->customQuery($qr));
-                                echo $name[0];
-                            ?>">
-                        </div>
-                        <div class="mb-3">
-                            <label class="small mb-1" for="inputDetailName">Trạng thái dòng sản phẩm</label>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultCheck" >
-                                    <label class="custom-control-label" for="defaultCheck">Hoạt động</label>
-                                 </div>
-
-                                <!-- Checked checkbox -->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" >
-                                    <label class="custom-control-label" for="defaultUncheckedDisabled2">Ngừng hoạt động</label>
-                                </div>
-
-                        </div>
-                        <div class="mb-3">
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputSize">Sản phẩm</label>
-                                <div id="edit"> <i class="fa-regular fa-pen-to-square" >sd</i></div>
-
-                                <select class="custom-select col-md-12" name="size" id="inputDetailName">
-                                    <?php
-                                    while($row = mysqli_fetch_array($data['names'])){
-                                        echo '<option value="' . $row['name']. '">' .$row['name'] . '</option>';
-                                    }
-
-                                    ?>
-                                    <!-- disable ="disable" -->
-                                </select>
-                            </div>
-
-
-                        </div>
-                        <div class=" col-md-6">
-                            <label class="small mb-1" for="inputNewName">Tên mới</label>
-                            <input class="form-control" id="inputNewName" name="name" type="text" value="">
-                        </div>
-
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-
-                            <!-- Form Group (first name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPrice">Giá</label>
-                                <input class="form-control" id="inputPrice" type="text" name="price" placeholder="Nhập giá" value="<?php
-                                    if(isset($product))
-                                        echo $product['price'];
-                                    ?>">
-                            </div>
-                            <!-- Form Group (last name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
-                                <input class="form-control" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="<?php
-                                    if(isset($product))
-                                    echo $product['price_sale'];
-                                ?>">
-                            </div>
-                        </div>
-                        <!-- Form Row        -->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (organization name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputSize">Size</label>
-                                <select class="custom-select col-md-12" name="size" id="inputSize">
-                                    <?php
-                                    for ($i = 36; $i <= 46; $i++) {
-
-                                        if ($product['size'] == $i) {
-                                            echo '<option selected value="' . $i . '">' . $i . '</option>';
-                                        } else
-                                            echo '<option value="' . $i . '">' . $i . '</option>';
-                                    }
-                                    ?>
-                                    <!-- disable ="disable" -->
-                                </select>
-                            </div>
-                            <!-- Form Group (location)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputColor">Màu</label>
-                                    <select class="custom-select col-md-12" name="color" id="inputColor">
-                                        <?php
-                                            $color = ["Blue", "Red", "Yellow", "Green", "Black", "White" ];
-                                            for($i = 0; $i < 6; $i++){
-                                                if($product['color'] == $color[$i]){
-                                                    echo '<option selected value="'.$color[$i].'">'.$color[$i].'</option>';
-                                                }
-                                                else
-                                                  echo '<option value = "'.$color[$i].'">'.$color[$i].'</option>';
-                                            }
-                                        ?>
-                                    </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputGender">Giới tính</label>
-                                    <select class="custom-select col-md-12" name="gender" id="inputGender">
-                                        <?php
-                                            $gender = ["Nữ", "Nam" ];
-
-                                            for($i = 0; $i < 2; $i++){
-                                                if($product['gender'] == $gender[$i]){
-                                                    echo '<option selected value="'.$i.'">'.$gender[$i].'</option>';
-                                                }
-                                                else
-                                                  echo '<option value="'.$i.'">'.$gender[$i].'</option>';
-                                            }
-                                        ?>
-                                    </select>
-                            </div>
-                        </div>
-                        <!-- Form Group (email address)-->
-
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (phone number)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputQty">Số lượng còn lại</label>
-                                <input class="form-control" id="inputQty" name="qty" type="tel" placeholder="Nhập số lượng" value="<?php
-                                     if(isset($product))
-                                                                                                                        echo $product['qty'];
-                                                                                                                        ?>">
-                            </div>
-                            <div class="col-md-6">
-
-                                <input class="form-control" id="productId" name="productId" type="hidden" placeholder="" value="<?php
-                                if(isset($product))
-                                 echo $product['id'];
-                                ?>">
-                            </div>
-                            <div class="col-md-6">
-
-                                <input class="form-control" id="parentId" name="parentId" type="hidden" placeholder="" value="<?php
-                                     if(isset($product))
-                                 echo $product['parent_id'];
-                                ?>">
-                            </div>
-                            <!-- Form Group (birthday)-->
-
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputDescription" class="form-label">Mô tả</label>
-                            <textarea class="form-control" id="inputDescription" name="description" rows="3"><?php
-                                 if(isset($product))
-                                                                                                                echo $product['description'];
-                                                                                                                ?>
-                          </textarea>
-                        </div>
-                        <!-- Form Row-->
-
-                        <!-- Save changes button-->
-                        <button class="btn btn-primary" id="button" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">Lưu</button>
-                        <button class="btn btn-danger" id="deleteButton" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">xóa</button>
-                    </form>
-
-                </div>
+                <textarea class="form-control" id="inputDescription" name="description" rows="20"></textarea>
             </div>
         </div>
-    </div>
+    </form>
+
+        <button type="button" id="btnUpdate" class="btn btn-success float-sm-right">Cập nhật</button>
+        <button type="button" id="btnDelete" class="btn btn-danger float-sm-right">Xóa</button>
+
 </div>
 
 <script type="text/javascript">
@@ -227,10 +164,9 @@
                 $("$inputNewName").attr("type", 'hidden') ;
 
         });
-		$("#button").click(function(event){
+		$("#btnUpdate").click(function(event){
             var detailName = $("#inputDetailName").val();
             var size = $("#inputSize").val();
-            var color = $("#inputColor").val();
             var gender = $("#inputGender").val();
             var price = $("#inputPrice").val();
             var priceSale = $("#inputPriceSale").val();
@@ -239,6 +175,8 @@
             var description = $("#inputDescription").val();
             var id = $("#productId").val();
             var name = $("#inputName").val();
+            var color = $("#color_code").val();
+            var active = $("input[type='checkbox']:checked").val()
             console.log(detailName);
             console.log(id);
             console.log(color);
@@ -246,10 +184,24 @@
             console.log(qty);
             console.log(description);
             console.log(name);
+            console.log(active);
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "../edit",// gọi đến file server show_data.php để xử lý
-				data: {detail_name:detailName, name:name, size:size, qty:qty, color:color, gender:gender, price:price, price_sale:priceSale, parent_id:parent_id, description: description, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {
+                    detail_name:detailName,
+                    active:active,
+                    name:name,
+                    size:size,
+                    qty:qty,
+                    color:color,
+                    gender:gender,
+                    price:price,
+                    price_sale:priceSale,
+                    parent_id:parent_id,
+                    description: description,
+                    id:id
+                },//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){
                     $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
@@ -269,20 +221,18 @@
 		});
     	$("select").change(function(event){
             var size = $("#inputSize").val();
-            var color = $("#inputColor").val();
             var gender = $("#inputGender").val();
             var id = $("#productId").val();
-            var name = $("#inputDetailName").val();
+            var name = $("#detailName").val();
             console.log(size);
             console.log(gender);
-            console.log(color);
             console.log(id);
-            console.log(name);
+            $("#inputDetailName").val(name);
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "http://localhost/aglet/admin/query",// gọi đến file server show_data.php để xử lý
                 dataType: 'json',
-				data: {action:"query","name":name, "size":size, "color":color, "gender":gender, "id":id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {action:"query","name":name, "size":size, "gender":gender, "id":id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(data){
 
                    //kết quả trả về từ server nếu gửi thành công
@@ -291,11 +241,21 @@
                     $("#inputQty").val(data.qty);
                     $("#inputDescription").html(data.description);
                     $("#productId").val(data.id);
+                    $("#thumb"),prop('checked', true);
+                    if(data.status == 1){
+                        $('#cbActive').prop('src', data.thumb);
+                        $('#cbUnactive').prop('checked', false);
+                    }
+                    else{
+                        $('#cbActive').prop('checked', false);
+                        $('#cbUnactive').prop('checked', true);
+                    }
+
                     console.log(data);
                     console.log($("#inputPrice"));
 				},
                 error: function (data) {
-
+                    alert("Sản phẩm không tồn tại");
                     console.log(data);
                     $("#inputPrice").val("0");
                     $("#inputPriceSale").val("0");
@@ -307,22 +267,24 @@
 		});
 
 
-        $("#deleteButton").click(function(event){
+        $("#btnDelete").click(function(event){
 
-            var size = $("#inputSize").val();
-            var color = $("#inputColor").val();
-            var gender = $("#inputGender").val();
+
             var id = $("#productId").val();
-
+            var parent_id = $("#parentId").val();
+            var gender = $("#inputGender").val();
 
             console.log(id);
-            console.log(color);
-            console.log(gender);
+            console.log(parent_id);
 
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "../delete",// gọi đến file server show_data.php để xử lý
-				data: {size:size, qty:qty, color:color, gender:gender, id:id},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {
+                     gender:gender,
+                     id:id,
+                     parent_id:parent_id
+                    },//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){
                     $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();

@@ -19,7 +19,8 @@ class productModel extends db
 
   public function findProductWithId($id)
   {
-    $qr = "SELECT P.id as id, name, color, size, qty, PD.active, P.description as description, price, price_sale, thumb FROM PRODUCTS P, PRODUCT_DETAIL PD  WHERE PD.parent_id = $id AND PD.parent_id = P.id ";
+    $qr = "SELECT P.id as id, name,color_code, size, qty, PD.active, P.description as description, price, price_sale, thumb FROM PRODUCTS P, PRODUCT_DETAIL PD  WHERE P.parent_id = $id AND PD.parent_id = P.id ";
+
     return mysqli_query($this->con, $qr);
   }
 
@@ -35,10 +36,11 @@ class productModel extends db
     return mysqli_query($this->con, $qr);
   }
 
-  public function query($color, $size, $gender, $id)
+  public function query( $size, $gender, $id)
   {
 
-    $qr = 'SELECT B.id as id, qty, A.description as description , price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE A.parent_id = ' . $id . ' AND A.parent_id = B.id AND A.color ="' . $color . '"AND A.size = ' . $size . ' AND A.gender = ' . $gender . ';';
+    $qr = 'SELECT A.id as id, A.active, qty, price, price_sale, thumb FROM PRODUCTS B, PRODUCT_DETAIL A  WHERE A.parent_id = ' . $id . ' AND A.parent_id = B.id AND A.size = ' . $size . ' AND A.gender = ' . $gender . ';';
+
 
     return mysqli_query($this->con, $qr);
   }
@@ -69,9 +71,9 @@ class productModel extends db
 
 
 
-  public function update($description,  $price, $price_sale, $qty, $color, $size, $gender, $id)
+  public function update($size, $qty, $gender, $id)
   {
-    $qr = 'UPDATE PRODUCT_DETAIL SET  description = "' . $description . '", price = ' . $price . ', price_sale = ' . $price_sale . ', qty = ' . $qty . ' WHERE color = "' . $color . '" AND size = ' . $size . ' AND gender = ' . $gender . ' AND parent_id = ' . $id;
+    $qr = 'UPDATE PRODUCT_DETAIL SET   qty = ' . $qty . ' WHERE  gender = ' . $gender . ' AND size = '.$size.' AND parent_id = ' . $id;
     echo $qr;
     return mysqli_query($this->con, $qr);
   }
@@ -94,6 +96,7 @@ class productModel extends db
 
   public function customQuery($qr)
   {
+
     return mysqli_query($this->con, $qr);
   }
 

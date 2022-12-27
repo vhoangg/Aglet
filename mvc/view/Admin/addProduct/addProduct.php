@@ -81,80 +81,24 @@
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPrice">Giá</label>
-                                <input class="form-control mb-3" id="inputPrice" type="text" name="price" placeholder="Enter your first name" value="">
+                                <input class="form-control mb-3" id="inputPrice" type="text" name="price" placeholder="Nhập giá" value="">
+
+                                <label class="small mb-1" for="inputGender">Giới tính</label>
+                                <select class="custom-select col-md-12 mb-3" name="gender" id="inputGender">
+                                    <option value="0">Nữ</option>
+                                    <option value="1">Nam</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
                                 <label class="small mb-1" for="inputPriceSale">Giá khuyến mãi</label>
                                 <input class="form-control mb-3" id="inputPriceSale" name="price_sale" type="text" placeholder="Nhập giá khuyến mãi" value="">
-                                <label class="small mb-1" for="inputColor">Màu</label>
-                                    <select class="custom-select col-md-12 mb-3" name="color" id="inputColor">
-                                        <?php
-                                            $color = ["Blue", "Red", "Yellow", "Green", "Black", "White" ];
-                                            for($i = 0; $i < 6; $i++){
-                                                if($product['color'] == $color[$i]){
-                                                    echo '<option selected value="'.$color[$i].'">'.$color[$i].'</option>';
-                                                }
-                                                else
-                                                  echo '<option value = "'.$color[$i].'">'.$color[$i].'</option>';
-                                            }
-                                        ?>
-                                    </select>
-                                    <label class="small mb-1" for="inputGender">Giới tính</label>
-                                    <select class="custom-select col-md-12 mb-3" name="gender" id="inputGender">
-                                        <option value="0">Nữ</option>
-                                        <option value="1">Nam</option>
-                                    </select>
                             </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
 
-                            <div class="card col-md-6">
-
-                                <div class="form-check ml-5">
-                                    <input class="form-check-input" type="checkbox" value="0" id="selectAll" />
-                                    <label class="form-check-label" for="flexCheckDefault">All</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="36" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">36</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="37" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">37</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="38" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">38</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="39" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">39</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="40" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">40</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="41" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">41</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="42" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">42</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="43" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">43</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="44" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">44</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="45" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">45</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="46" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">46</label>
-                                </div>
-
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="colorCode">Mã màu</label>
+                                <input class="form-control mb-3" id="colorCode" type="color" name="colorCode" value="">
                             </div>
                         </div>
                         <!-- Form Row        -->
@@ -192,7 +136,7 @@
                         </div>
 
                         <button class="btn btn-primary" id="button" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">Lưu</button>
-                        <button class="btn btn-primary" id="button1" data-toggle="modal" data-target="#modalCookie1" type="button" name="submit">test</button>
+
                     </form>
 
                 </div>
@@ -202,25 +146,13 @@
 </div>
 
 <script type="text/javascript">
-        $("#button1").click(function (event) {
-            var getSize = $('input[id = "flexCheckDefault"]:checked');
-            var size = [];
-            for(let i = 0 ; i < getSize.length; i++){
-                size[i] = getSize[i].getAttribute("value");
-                console.log(size[i]);
-            }
 
-        })
 		$("#button").click(function(event){
             var detailName = $("#inputDetailName").val();
             var active = 1;
-            var getSize = $('input[id = "flexCheckDefault"]:checked');
-            var size = [];
-            for(let i = 0 ; i < getSize.length; i++){
-                size[i] = getSize[i].getAttribute("value");
-            }
 
-            var color = $("#inputColor").val();
+
+
             var gender = $("#inputGender").val();
             var type = $("#type").val();
             var price = $("#inputPrice").val();
@@ -228,19 +160,21 @@
             var qty = $("#inputQty").val();
             var parent_id = $("#parentId").val();
             var description = $("#inputDescription").val();
-            console.log(size);
+            var color_code = $("#colorCode").val();
+
             console.log(detailName);
-            console.log(color);
+
             console.log(gender);
             console.log(qty);
             console.log(description);
             console.log(priceSale);
             console.log(price);
+            console.log(color_code);
 
 			$.ajax({
 				method: "POST",// phương thức dữ liệu được truyền đi
 				url: "../add",// gọi đến file server show_data.php để xử lý
-				data: {detail_name:detailName, size:size, qty:qty, type:type, color:color, gender:gender, price:price, price_sale:priceSale, parent_id:parent_id, description: description},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+				data: {detail_name:detailName, color_code:color_code, qty:qty, type:type, gender:gender, price:price, price_sale:priceSale, parent_id:parent_id, description: description},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
 				success : function(response){
                     $("#message").remove("#message");//kết quả trả về từ server nếu gửi thành công
                     $('#noti').fadeIn();
