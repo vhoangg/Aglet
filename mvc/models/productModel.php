@@ -31,7 +31,7 @@ class productModel extends db
 
   public function getProductSize($id)
   {
-    $qr = "SELECT * FROM `product_detail` WHERE parent_id = $id;";
+    $qr = "SELECT * FROM `product_detail` WHERE parent_id = $id and qty > 0 order by size asc";
     return mysqli_query($this->con, $qr);
   }
 
@@ -60,6 +60,14 @@ class productModel extends db
     $qr = "SELECT COUNT(*) FROM PRODUCTS";
     return mysqli_query($this->con, $qr);
   }
+
+  public function getQty($id)
+  {
+    $qr = 'select sum(qty) from product_detail where parent_id ='.$id.' GROUP by parent_id';
+    return mysqli_query($this->con, $qr);
+  }
+
+
 
   public function update($description,  $price, $price_sale, $qty, $color, $size, $gender, $id)
   {

@@ -228,7 +228,7 @@
 $i = 0;
 $row = [];
 $row[$i] = mysqli_fetch_array($data["product"]);
-
+$qty = mysqli_fetch_array($data['qty']);
 
 
 ?>
@@ -236,7 +236,7 @@ $row[$i] = mysqli_fetch_array($data["product"]);
 <body>
   <!--Content start-->
   <div id="product-details" class="container product-detail-container-fluid my-5 pt-5">
-    <div class="row mt-5">
+    <div class="row mt-5"> hàng
       <div class="col-lg-5 col-md-12 col-12">
         <img class="img-fluid w-100 pb-1" src="<?php echo $row[$i]['thumb'] ?>" alt="" id="featured-img" />
       </div>
@@ -248,7 +248,7 @@ $row[$i] = mysqli_fetch_array($data["product"]);
             Mã sản phẩm: <span>&nbsp; <strong id="pd_id"><?php echo $row[$i]['id'] ?></strong> </span>
           </h6>
           <h6>
-            Tình trạng: <span>&nbsp; <strong><?php if ($row[$i]['active'] == 1) echo 'Còn hàng';
+            Tình trạng: <span>&nbsp; <strong><?php if ($qty[0] > 0) echo 'Còn hàng';
                                               else echo 'Hết hàng';  ?></strong> </span>
           </h6>
         </div>
@@ -304,27 +304,61 @@ $row[$i] = mysqli_fetch_array($data["product"]);
           </div>
           <div class="col-xs-12">
             <h3>SỐ LƯỢNG</h3>
-            <select class="my-3" name="" id="soluong">
-              <option value="">Chọn số lượng</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
+            <?php
+              if($qty[0] > 0)
+              echo'
+              <select class="my-3" name="" id="soluong">
+                <option value="">Chọn số lượng</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>';
+              else {
+                echo'
+                <select class="my-3" name="" id="soluong" disabled = "disabled">
+                  <option value="">Chọn số lượng</option>
+                </select>';
+              }
+            ?>
+
           </div>
         </div>
         <div class="row group-btn-1">
-          <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(<?php
-                                                                                      echo $row[0]['parent_id'];
-                                                                                      ?>)">
-            THÊM VÀO GIỎ HÀNG
-          </button>
+          <?php
+            if($qty[0] > 0){
+              echo'
+              <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart('.$row[0]['parent_id'].' )">
+                THÊM VÀO GIỎ HÀNG
+              </button>
+              ';
+            }
+              else {
+                echo'
+                 <button  class="btn btn-addcart" disabled>
+                   THÊM VÀO GIỎ HÀNG
+                  </button>';
+              }
+
+          ?>
+
           <a href="javascript:void(0)" class="btn btn-favorite"><i class="fa-solid fa-heart" id="favorite-item"></i></a>
         </div>
         <div class="row group-btn-1">
-          <button class="btn btn-pay"><a href='cart'>THANH TOÁN </a></button>
+          <?php
+            if($qty[0] > 0){
+              echo'
+                <button class="btn btn-pay"><a href="cart">THANH TOÁN </a></button>
+              ';
+            }else {
+              echo'
+              <button class="btn btn-pay" disabled>THANH TOÁN</button>
+            ';
+            }
+          ?>
+
         </div>
         <div class="accordion">
           <div class="content-container">
