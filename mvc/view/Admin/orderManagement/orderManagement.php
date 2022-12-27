@@ -15,6 +15,7 @@
       <th scope="col">Email</th>
       <th scope="col">Ngày tạo</th>
       <th scope="col">Trạng thái</th>
+      <th scope="col">gege</th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +49,12 @@
 				<td>'.$row[$i]['email'].'</td>
 				<td>'.$row[$i]['created_at'].'</td>
         <td>'.$str.'</td>
+        <td>
+        <div class="d-flex flex-row justify-content-around">
+          <a href = "http://localhost/aglet/admin/orderDetail?id='.$row[$i]["id"].'"><i class="fa-regular fa-circle-info"></i></a></li>
+
+    </div>
+        </td>
 				';
 				$i++;
 			}
