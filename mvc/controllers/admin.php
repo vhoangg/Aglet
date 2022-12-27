@@ -157,9 +157,25 @@
     }
 
     function orderDetailProcess(){
-      $sql = 'UPDATE invoice SET status = 1, confirm_at  = "'.$_POST['date'].'" WHERE id '.$_POST['id'] ;
-      $invoice = $this->model("invoiceModel");
-      $invoice->customQuery($sql);
+      if(!strcasecmp($_POST['status'],"confirm")){
+        $sql = 'UPDATE invoice SET status = 1, confirm_at  = "'.$_POST['date'].'" WHERE id = '.$_POST['id'] ;
+        $invoice = $this->model("invoiceModel");
+        $invoice->customQuery($sql);
+        echo "thành công";
+      }
+      else if(!strcasecmp($_POST['status'],"cancel")){
+        $sql = 'UPDATE invoice SET status = -1, cancel_at  = "'.$_POST['date'].'" WHERE id = '.$_POST['id'] ;
+        $invoice = $this->model("invoiceModel");
+        $invoice->customQuery($sql);
+        echo "thành công";
+      }
+      else if(!strcasecmp($_POST['status'],"print")){
+        require_once __DIR__ . '/../../vendor/vendor.php';
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML('<h1>Hello world!</h1>');
+        $mpdf->Output();
+      }
+
     }
 
 

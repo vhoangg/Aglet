@@ -34,7 +34,7 @@
           case 2:
             $str = "Đang giao";
             break;
-          case 2:
+          case 3:
             $str = "Đã nhận hàng";
             break;
 

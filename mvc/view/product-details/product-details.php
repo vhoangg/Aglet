@@ -236,7 +236,7 @@ $qty = mysqli_fetch_array($data['qty']);
 <body>
   <!--Content start-->
   <div id="product-details" class="container product-detail-container-fluid my-5 pt-5">
-    <div class="row mt-5"> hàng
+    <div class="row mt-5">
       <div class="col-lg-5 col-md-12 col-12">
         <img class="img-fluid w-100 pb-1" src="<?php echo $row[$i]['thumb'] ?>" alt="" id="featured-img" />
       </div>
