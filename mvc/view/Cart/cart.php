@@ -30,7 +30,7 @@ $sum = 0;
                       <h4 class="media-heading"><?php echo $value['name'] ?></h4>
                     </a>
                     <h4 class="price">
-                      Giá: <span class="normal"><?php echo $value['price'] ?>VNĐ</span>
+                      Giá: <span class="normal"><?php echo number_format($value['price'], 0, ",", ".") ?>VNĐ</span>
                     </h4>
                     <div class="row bottom">
                       <div class="sizePicker">
@@ -57,7 +57,6 @@ $sum = 0;
                 </div>
                 <div class="status orange">Còn hàng</div>
                 <div class="button btnDelete" data-id="<?php echo $value['id'] ?>">
-                  <?php echo $value['id'] ?>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
@@ -97,7 +96,8 @@ $sum = 0;
           <span id="price" class="black"><?php echo number_format($sum, 0, ",", ".") ?> VNĐ</span>
         </li>
         <li class="group_item">
-          <input type="submit" value="TIẾP TỤC THANH TOÁN" class="submitBtn">
+          <a href="shipping_information"><button class="submitBtn">TIẾP TỤC THANH TOÁN</button></a>
+
         </li>
       </ul>
     </div>
@@ -107,8 +107,6 @@ $sum = 0;
   $('body').on('click', '.btnDelete', function(e) {
     e.preventDefault();
     var id = $(this).data('id');
-    console.log(id);
-
     // Adding ajax
     $.ajax({
       method: 'POST',

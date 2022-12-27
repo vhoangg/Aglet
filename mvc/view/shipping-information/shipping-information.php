@@ -12,7 +12,7 @@ $sum = 0;
         <div class="form_title">THÔNG TIN GIAO HÀNG</div>
         <input type="text" class="info" id="name" placeholder="Họ Tên">
         <input type="text" class="info" id="phone" placeholder="Số điện thoại">
-        <input type="text" class="info" id="email"  placeholder="Email">
+        <input type="text" class="info" id="email" placeholder="Email">
         <input type="text" class="info" id="addr" placeholder="Địa chỉ">
 
         <div class="info-holder">
@@ -44,23 +44,23 @@ $sum = 0;
         <li class="group_title">ĐƠN HÀNG</li>
         <li class="divider"></li>
         <?php
-          foreach ($cart as $item => $value) {
-            $sum += $value['price'] * $value['sl'];
-            echo'
+        foreach ($cart as $item => $value) {
+          $sum += $value['price'] * $value['sl'];
+          echo '
             <li class="group_item">
               <div class="item-information">
-                <h4>'.$value['name'].'<span class="right normal">'.$value['price'].' VND</span></h4>
-                <h4 class="normal">Size:'.$value['size'].' <span class="mid normal"> x'.$value['sl'].' </span></h4>
+                <h4>' . $value['name'] . '<span class="right normal">' . number_format($value['price'], 0, ",", ".") . ' VND</span></h4>
+                <h4 class="normal">Size:' . $value['size'] . ' <span class="mid normal"> x' . $value['sl'] . ' </span></h4>
               </div>
             </li>';
-          }
+        }
         ?>
 
         <li class="divider-dashed"></li>
         <li class="group_item fee">
           <h4>Đơn hàng <span class="right"><?php
-            echo $sum;
-          ?> VND</span></h4>
+                                            echo number_format($sum, 0, ",", ".");
+                                            ?> VND</span></h4>
           <h4>Giảm <span class="right normal">Giá VND</span></h4>
           <h4 class="fee-black">Phí vận chuyển <span class="right normal">Giá VND</span></h4>
           <h4 class="fee-black">Phí thanh toán <span class="right normal">Giá VND</span></h4>
@@ -69,14 +69,13 @@ $sum = 0;
         <li class="group_item total">
           <span>TỔNG CỘNG</span>
           <span id="price"><?php
-           echo $sum;
-          ?> VND</span>
+                            echo number_format($sum, 0, ",", ".");
+                            ?> VND</span>
         </li>
         <li class="group_item">
-          <input type="submit" value="HOÀN TẤT ĐẶT HÀNG" class="submitBtn">
+          <a href="home"><button class="submitBtn"> HOÀN TẤT ĐẶT HÀNG</button></a>
         </li>
       </ul>
-
     </div>
 
   </div>
@@ -84,30 +83,35 @@ $sum = 0;
 
 
 <script type="text/javascript">
-		$(".submitBtn").click(function(event){
-            alert("helu");
-            var name = $("#name").val();
-            var phone= $("#phone").val();
-            var email = $("#email").val();
-            var address = $("#addr").val();
-            var d = new Date();
-            var createDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
-            console.log(name);
-            console.log(phone);
-            console.log(email);
-            console.log(address);
-            console.log(createDate);
+  $(".submitBtn").click(function(event) {
+    alert("Đặt hàng thành công");
+    var name = $("#name").val();
+    var phone = $("#phone").val();
+    var email = $("#email").val();
+    var address = $("#addr").val();
+    var d = new Date();
+    var createDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
-			$.ajax({
+    console.log(name);
+    console.log(phone);
+    console.log(email);
+    console.log(address);
+    console.log(createDate);
 
-				method: "POST",// phương thức dữ liệu được truyền đi
-				url: "http://localhost/aglet/shipping_information/process",// gọi đến file server show_data.php để xử lý
-				data: {name:name, phone:phone, email:email, address : address, create_date:createDate},//lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
-				success : function(response){//kết quả trả về từ server nếu gửi thành công
-                  alert(response);
-				}
-			});
-		});
+    $.ajax({
 
-
+      method: "POST", // phương thức dữ liệu được truyền đi
+      url: "http://localhost/aglet/shipping_information/process", // gọi đến file server show_data.php để xử lý
+      data: {
+        name: name,
+        phone: phone,
+        email: email,
+        address: address,
+        create_date: createDate
+      }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+      success: function(response) { //kết quả trả về từ server nếu gửi thành công
+        alert(response);
+      }
+    });
+  });
 </script>

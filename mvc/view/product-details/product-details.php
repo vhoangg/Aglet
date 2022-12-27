@@ -236,7 +236,7 @@ $qty = mysqli_fetch_array($data['qty']);
 <body>
   <!--Content start-->
   <div id="product-details" class="container product-detail-container-fluid my-5 pt-5">
-    <div class="row mt-5"> hàng
+    <div class="row mt-5">
       <div class="col-lg-5 col-md-12 col-12">
         <img class="img-fluid w-100 pb-1" src="<?php echo $row[$i]['thumb'] ?>" alt="" id="featured-img" />
       </div>
@@ -305,8 +305,8 @@ $qty = mysqli_fetch_array($data['qty']);
           <div class="col-xs-12">
             <h3>SỐ LƯỢNG</h3>
             <?php
-              if($qty[0] > 0)
-              echo'
+            if ($qty[0] > 0)
+              echo '
               <select class="my-3" name="" id="soluong">
                 <option value="">Chọn số lượng</option>
                 <option value="1">1</option>
@@ -316,31 +316,30 @@ $qty = mysqli_fetch_array($data['qty']);
                 <option value="5">5</option>
                 <option value="6">6</option>
               </select>';
-              else {
-                echo'
+            else {
+              echo '
                 <select class="my-3" name="" id="soluong" disabled = "disabled">
                   <option value="">Chọn số lượng</option>
                 </select>';
-              }
+            }
             ?>
 
           </div>
         </div>
         <div class="row group-btn-1">
           <?php
-            if($qty[0] > 0){
-              echo'
-              <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart('.$row[0]['parent_id'].' )">
+          if ($qty[0] > 0) {
+            echo '
+              <button href="javascript:void(0)" class="btn btn-addcart" onclick="addCart(' . $row[0]['parent_id'] . ' )">
                 THÊM VÀO GIỎ HÀNG
               </button>
               ';
-            }
-              else {
-                echo'
+          } else {
+            echo '
                  <button  class="btn btn-addcart" disabled>
                    THÊM VÀO GIỎ HÀNG
                   </button>';
-              }
+          }
 
           ?>
 
@@ -348,15 +347,15 @@ $qty = mysqli_fetch_array($data['qty']);
         </div>
         <div class="row group-btn-1">
           <?php
-            if($qty[0] > 0){
-              echo'
+          if ($qty[0] > 0) {
+            echo '
                 <button class="btn btn-pay"><a href="cart">THANH TOÁN </a></button>
               ';
-            }else {
-              echo'
+          } else {
+            echo '
               <button class="btn btn-pay" disabled>THANH TOÁN</button>
             ';
-            }
+          }
           ?>
 
         </div>
