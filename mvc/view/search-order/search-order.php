@@ -37,19 +37,35 @@
 
 <body>
     <div id="order-tracker">
-        <form action="" method="POST" class="form">
+        <form action=""  onsubmit="return false" method="POST" class="form">
             <h2 class="heading">TRA CỨU ĐƠN HÀNG</h2>
             <div class="form-group">
                 <input id="madonhang" name="madonhang" type="text" placeholder="MÃ ĐƠN HÀNG" class="form-control">
                 <span class="form-message"></span>
             </div>
-            <div class="form-group">
-                <input id="ttlienlac" name="ttlienlac" type="text" placeholder="Email/Số điện thoại" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <button class="form-submit">TRA CỨU ĐƠN HÀNG</button>
+            <button class="form-submit" id="search">TRA CỨU ĐƠN HÀNG</button>
         </form>
     </div>
 </body>
 
 </html>
+
+<script>
+    $("#search").click(function () {
+
+        var id = $("#madonhang").val();
+        $.ajax({
+            method: "POST",
+            url: "http://localhost/Aglet/search_order/search",
+            data:{id:id},
+            success:function(response){
+                console.log(response);
+                window.location.replace(response)
+            },
+            error:function(response){
+                alert(response);
+            }
+
+        })
+    })
+</script>

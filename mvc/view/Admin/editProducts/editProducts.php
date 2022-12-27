@@ -134,7 +134,7 @@
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
                     <div class="row-md">
-                        <img class="img-account-profile square img-fluid mb-2" id="thumb" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="">
+                        <img class="img-account-profile square img-fluid mb-2" id="thumb" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930">
                     </div>
 
                     <!-- Profile picture help block-->

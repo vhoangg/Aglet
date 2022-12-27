@@ -267,14 +267,14 @@ $qty = mysqli_fetch_array($data['qty']);
           <ul class="nav tree">
 
             <?php
-
             $i = 0;
             $row = [];
-            while ($row[$i] = mysqli_fetch_array($data["color"])) {
+            $color = $data["color"];
+            while ($row[$i] = mysqli_fetch_array($color)) {
               echo '
               <li class="cb-color-fixed">
                 <label data-link="">
-                  <a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '" class="bg-color" style="background-color: ' . $row[$i]['color'] . '"></a>
+                  <a href="http://localhost/Aglet/product_details?id=' . $row[$i]['parent_id'] . '" class="bg-color" style="background-color: ' . $row[$i]['color_code'] . '"></a>
                   <input name="cbColor" type="checkbox" value="0" hidden="" />
                 </label>
               </li> ';

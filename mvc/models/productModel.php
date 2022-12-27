@@ -26,7 +26,7 @@ class productModel extends db
 
   public function getProductColor($id)
   {
-    $qr = "SELECT color, PD.parent_id as parent_id FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE PD.parent_id = P.id GROUP BY color, P.parent_id HAVING P.parent_id = (SELECT parent_id FROM products WHERE id = $id);";
+    $qr = "SELECT color_code, PD.parent_id as parent_id FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE PD.parent_id = P.id GROUP BY color_code, P.parent_id HAVING P.parent_id = (SELECT parent_id FROM products WHERE id = $id);";
     return mysqli_query($this->con, $qr);
   }
 
@@ -88,7 +88,7 @@ class productModel extends db
 
   public function findProductWithGender($gender)
   {
-    $qr = "SELECT thumb, PD.parent_id, name, price, price_sale, color FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE P.id = PD.parent_id and gender = $gender GROUP BY parent_id;
+    $qr = "SELECT thumb, PD.parent_id, name, price, price_sale FROM PRODUCTS P, PRODUCT_DETAIL PD WHERE P.id = PD.parent_id and gender = $gender GROUP BY parent_id;
     ";
     return mysqli_query($this->con, $qr);
   }
