@@ -1,15 +1,57 @@
+<?php
+$model = $data['pr'];
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$month = date('m');
 
+$year = date('Y');
+
+$sql = 'select arrived_at, invoice_detail.product_id, sum(invoice_detail.qty) as qty from invoice, invoice_detail where invoice.id = invoice_detail.invoice_id and status = 3 and month(arrived_at) = '.$month.' and year(arrived_at) = '.$year.' group by product_id order by sum(invoice_detail.qty) desc limit 1;';
+$preparedStm = $model->customQuery($sql);
+$rs = mysqli_fetch_array($preparedStm);
+
+$sql = 'select products.id ,name, thumb, size, gender from products, product_detail where product_detail.id = '.$rs['product_id'].' and product_detail.parent_id = products.id';
+$preparedStm = $model->customQuery($sql);
+$result = mysqli_fetch_array($preparedStm);
+
+
+?>
 <div class="container-xl px-1 mt-4">
   <div class="row ">
-    <div class="card col-xl-5 mx-5 ">
-      <div class="card-header">Sản phẩm bán chạy nhất</div>
-      <p>tên</p>
-    </div>
-    <div class="card col-xl-5 ">
-        <div class="card-header">Tỉ lệ hủy hàng</div>
-        <canvas id="circleChart"></canvas>
+    <div class="card col-xl-6 mx-1 ">
+      <div class="card-header">Sản phẩm bán chạy nhất tháng hiện tại</div>
+      <div class="row">
+          <div class="col-xl-5 mx-1 mt-2">
+          <img class="img-account-profile square img-fluid mb-2" id="thumb" src="<?php
+          echo $result['thumb'];
+          ?>" alt="">
+          </div>
+          <div class="col-xl-6 mx-1 mt-2">
+          <?php
+                echo'
+                <div class="row">
+                    <div class="mt-2 col-xl-6">Tên sản phẩm</div>
+                    <div class="mt-2 col-xl-6">'.$result['name'].'</div>
+                  <div></div>
+                </div>
+                <div class="row">
+                 <div class="mt-2 col-xl-6">Size</div>
+                 <div class="mt-2 col-xl-6">'.$result['size'].'</div>
+                </div>
+                <div class="row">
+                  <div class="mt-2 col-xl-6">Số lượng đã bán</div>
+                  <div class="mt-2 col-xl-6">'.$rs['qty'].'</div>
+                </div>
+                ';
+              ?>
+
+
+
+
+          </div>
       </div>
-  </div>
+
+    </div>
+
   <div class="row mt-4">
       <div class="card col-xl mx-2">
         <div class="card-header">Doanh thu từng tháng</div>

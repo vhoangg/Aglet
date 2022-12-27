@@ -1,18 +1,14 @@
 
 <div class="input-group d-flex flex-row justify-content-center mt-3 mb-3">
     <div class="col-md-4">
-        <input type="search" class="form-control  rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <input type="search" id="search" class="form-control  rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
 
     </div>
     <button type="button" class="btn btn-outline-primary">search</button>
 
-
-
-
-
 </div>
 
-<table class="table table-hover">
+<table class="table table-hover" id="myTable">
   <thead class="thead-light">
     <tr>
       <th scope="col">ID</th>
@@ -47,7 +43,7 @@
                     $isActive = "Đang hoạt dộng";
                 }
 				echo '
-				<tr>
+				<tr id="#trow_'.$row[$i]['id'].'">
 				<td>'.$row[$i]['id'].'</td>
 				<td>'.$row[$i]['name'].'</td>
 				<td>'.$isActive.'</td>
@@ -56,7 +52,7 @@
                     <div class="d-flex flex-row justify-content-around">
                         <a href = "http://localhost/aglet/admin/addProduct/'.$row[$i]["id"].'"><i class="fa-solid fa-plus"></i></a></li>
 						<a href = "http://localhost/aglet/admin/editProducts/'.$row[$i]["id"].'"><i class="fa-regular fa-pen-to-square"></i></a></li>
-						<div id="delete"><i class="fa-solid fa-trash">'.$row[$i]["id"].'</i></div>
+						<button type="button" class="btn btn-light" id="delete" data-id="'.$row[$i]["id"].'"><i class="fa-solid fa-trash"></i></button>
                     </div>
 				</td>
 				</tr>
@@ -109,3 +105,42 @@
         </ul>
     </nav>
 </div>
+<script>
+  $('body').on('click', '#delete', function () {
+    var id = $(this).data("id");
+    var isConfirm = confirm("Toàn bộ sản phẩm của dòng sẽ bị xóa. Bạn có muốn tiếp tục ?");
+    if(isConfirm == true){
+        $.ajax({
+            url: '../deleteAll',
+            type: 'POST',
+            data: { id: id },
+            success: function (result) {
+
+                console.log(result);
+                window.location.reload();
+
+            }
+        })
+    }
+  });
+
+  $("#search").keyup(function () {
+   var val =  $("#search").val();
+   $.ajax({
+            url: '../search',
+            type: 'POST',
+            data: { val:val},
+            success: function (result) {
+                $('tbody').empty();
+                $('tbody').html(result);
+
+
+            }
+        })
+
+
+  }
+)
+
+
+</script>

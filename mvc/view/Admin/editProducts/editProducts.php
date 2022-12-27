@@ -6,9 +6,6 @@
   $str = "";
   $product = mysqli_fetch_array($pr->findProductWithId($data["id"]));
 
-echo $product['id'];
-
-
 
 ?>
 <div id="noti" style="display: none">
@@ -53,7 +50,7 @@ echo $product['id'];
                                 <option value="" disabled selected>Chọn sản phẩm</option>
                                 <?php
                                     while($row = mysqli_fetch_array($data['names'])){
-                                        echo '<option value="' . $row['name']. '">' .$row['name'] . '</option>';
+                                        echo '<option id="'.$row['id'].'"value="' . $row['name']. '">' .$row['name'] . '</option>';
                                     }
 
                                 ?>
@@ -136,7 +133,10 @@ echo $product['id'];
             <div class="card-header">Ảnh sản phẩm</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile square mb-2" id="thumb" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <div class="row-md">
+                        <img class="img-account-profile square img-fluid mb-2" id="thumb" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="">
+                    </div>
+
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG hoặc PNG nhẹ hơn 5MB</div>
                     <!-- Profile picture upload button-->
@@ -222,7 +222,7 @@ echo $product['id'];
     	$("select").change(function(event){
             var size = $("#inputSize").val();
             var gender = $("#inputGender").val();
-            var id = $("#productId").val();
+            var id = $("#detailName option:selected").attr("id");
             var name = $("#detailName").val();
             console.log(size);
             console.log(gender);
@@ -241,9 +241,9 @@ echo $product['id'];
                     $("#inputQty").val(data.qty);
                     $("#inputDescription").html(data.description);
                     $("#productId").val(data.id);
-                    $("#thumb"),prop('checked', true);
+                    $("#thumb").prop('src', data.thumb);
                     if(data.status == 1){
-                        $('#cbActive').prop('src', data.thumb);
+                        $('#cbActive').prop('checked', data.thumb);
                         $('#cbUnactive').prop('checked', false);
                     }
                     else{
