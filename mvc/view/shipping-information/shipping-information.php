@@ -99,22 +99,6 @@ $sum = 0;
     console.log(email);
     console.log(address);
     console.log(createDate);
-
-    $.ajax({
-
-      method: "POST", // phương thức dữ liệu được truyền đi
-      url: "http://localhost/aglet/shipping_information/process", // gọi đến file server show_data.php để xử lý
-      data: {
-        name: name,
-        phone: phone,
-        email: email,
-        address: address,
-        create_date: createDate
-      }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
-      success: function(response) { //kết quả trả về từ server nếu gửi thành công
-      }
-    });
-
     $.ajax({
 
       method: "POST", // phương thức dữ liệu được truyền đi
