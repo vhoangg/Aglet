@@ -73,7 +73,7 @@ $sum = 0;
                             ?> VND</span>
         </li>
         <li class="group_item">
-          <a href="home"><button class="submitBtn"> HOÀN TẤT ĐẶT HÀNG</button></a>
+          <a href=""><button class="submitBtn"> HOÀN TẤT ĐẶT HÀNG</button></a>
         </li>
       </ul>
     </div>
@@ -90,7 +90,9 @@ $sum = 0;
     var email = $("#email").val();
     var address = $("#addr").val();
     var d = new Date();
-    var createDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+    var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    var date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    var createDate = date + ' ' + time;
 
     console.log(name);
     console.log(phone);

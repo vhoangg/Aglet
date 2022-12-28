@@ -23,6 +23,32 @@
         "numOfPr"=>$product->numOfProducts(),
         "resultPage"=>$page]);
     }
+
+    function deleteAll(){
+      $product = $this->model("productModel");
+
+      $sql = 'SELECT id FROM PRODUCTS WHERE parent_id = '.$_POST['id'];
+      $tmp = $product->customQuery($sql);
+      echo $sql;
+
+
+      $pr=[];
+       while($pr = mysqli_fetch_assoc($tmp)){
+        $str = 'DELETE FROM PRODUCT_DETAIL WHERE parent_id = '.$pr['id'];
+
+        $product->customQuery($str);
+
+
+      }
+
+      $sql1 = 'DELETE FROM PRODUCTS WHERE parent_id = '.$_POST['id'];
+      $product->customQuery($sql1);
+
+      $sql2 = 'DELETE FROM PRODUCTS WHERE id = '.$_POST['id'];
+      $product->customQuery($sql2);
+    }
+
+
     function delete(){
       $pr = $this->model("productModel");
       $sql = 'SELECT PRODUCTS.id FROM PRODUCTS, PRODUCT_DETAIL WHERE PRODUCT_DETAIL.id = '.$_POST['id'].' AND PRODUCTS.parent_id = '.$_POST['parent_id'].' AND PRODUCT_DETAIL.parent_id = PRODUCTS.id';
@@ -33,6 +59,12 @@
       echo $_POST['gender'];
       $sql = 'DELETE FROM PRODUCT_DETAIL WHERE parent_id = '.$id[0].' AND gender = '.$_POST['gender'];
       $pr->customQuery($sql);
+      $sql = 'SELECT * FROM PRODUCT_DETAIL WHERE parent_id = '.$id[0];
+      $tmp = mysqli_fetch_array($pr->customQuery($sql));
+      if($tmp == null){
+        $sql = 'DELETE FROM PRODUCTS WHERE id = '.$id[0];
+        $pr->customQuery($sql);
+      }
       echo "Đã xóa sản phẩm";
     }
 
@@ -117,6 +149,52 @@
           echo $str;
     }
 
+    function search(){
+      $pr = $this->model("productModel");
+      $sql = 'SELECT id, name, active from products where parent_id = 0 AND name like"%'.$_POST['val'].'%"';
+      $preparedStm = $pr->customQuery($sql);
+      $row = [];
+      $i = 0;
+      while($row[$i] = mysqli_fetch_array($preparedStm)){
+
+        $str = 'SELECT SUM(product_detail.QTY) FROM products, product_detail WHERE products.parent_id =  '.$row[$i]['id'].' AND products.id = product_detail.parent_id group by product_detail.parent_id';
+        $qty = mysqli_fetch_array($pr->customQuery($str));
+        $row[$i]['qty'] = $qty[0];
+        $i++;
+      }
+
+      array_pop($row);
+     foreach ($row as $key => $value){
+
+        if($value['qty'] > 0)
+          $str = "Còn hàng";
+        else
+        $str = "Hết hàng";
+        if($value['active'] == 0){
+         $isActive = "Ngừng hoạt động";
+
+         }
+
+        else {
+          $isActive = "Đang hoạt dộng";
+        }
+        echo '<tr id="#trow_'.$value['id'].'">
+				<td>'.$value['id'].'</td>
+				<td>'.$value['name'].'</td>
+				<td>'.$isActive.'</td>
+				<td>'.$str.'</td>
+				<td>
+                    <div class="d-flex flex-row justify-content-around">
+                        <a href = "http://localhost/aglet/admin/addProduct/'.$value["id"].'"><i class="fa-solid fa-plus"></i></a></li>
+						<a href = "http://localhost/aglet/admin/editProducts/'.$value["id"].'"><i class="fa-regular fa-pen-to-square"></i></a></li>
+						<button type="button" class="btn btn-light" id="delete" data-id="'.$value["id"].'"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+				</td>
+				</tr>';
+        $i++;
+      }
+
+    }
 
     function add(){
       $pr = $this->model("productModel");
@@ -130,7 +208,7 @@
           $flag = false;
       }
       else{
-        $sql1='INSERT INTO PRODUCTS (name, menu_id, active, parent_id, description) values("'.$_POST['detail_name'].'", '.$_POST['type'].', 1, '.$_POST['parent_id'].')';
+        $sql1='INSERT INTO PRODUCTS (name, menu_id, active, parent_id, description) values("'.$_POST['detail_name'].'", '.$_POST['type'].', 1, '.$_POST['parent_id'].', description = "'.$_POST['description'].'")';
 
         if($pr->customQuery($sql1))
           echo "Thành công";
@@ -162,14 +240,11 @@
 
     function query(){
       $pr = $this->model("productModel");
-      $str = 'SELECT ID FROM PRODUCTS WHERE NAME = "'.$_POST['name'].'"';
-      echo $str;
+      $str = 'SELECT thumb FROM PRODUCTS WHERE id = '.$_POST['id'];
       $id = mysqli_fetch_array($pr->customQuery($str));
-      if(!isset($id)){
-        $id = -1;
-      }
 
-      $rs = mysqli_fetch_array($pr->query($_POST['size'], $_POST['gender'], $id[0]));
+
+      $rs = mysqli_fetch_array($pr->query($_POST['size'], $_POST['gender'], $_POST['id']));
       $success = array(
       "id"=>$rs['id'],
       "status"=>$rs['active'],
