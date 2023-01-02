@@ -14,7 +14,7 @@
       <th scope="col">Email</th>
       <th scope="col">Ngày tạo</th>
       <th scope="col">Trạng thái</th>
-      <th scope="col">gege</th>
+      <th scope="col">Chi tiết</th>
     </tr>
   </thead>
   <tbody>
@@ -51,7 +51,6 @@
         <td>
         <div class="d-flex flex-row justify-content-around">
           <a href = "http://localhost/aglet/admin/orderDetail?id=' . $row[$i]["id"] . '"><i class="fa-regular fa-circle-info"></i></a></li>
-
     </div>
         </td>
 				';

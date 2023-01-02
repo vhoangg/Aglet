@@ -2,16 +2,23 @@
 session_start();
 
 if ((isset($_POST['submit'])) && ($_POST['submit'])) {
-    $_SESSION['username'] = $_POST['username'];
-    $_SESSION['password'] = $_POST['password'];
-
-    if ($_SESSION['username']) {
-        header("location: admin");
-    } else {
-        header("location: login");
+    $sql = 'SELECT * FROM USERS WHERE name = "' . $_POST['username'] . '" AND password = "' . $_POST['password'] . '"';
+    $preparedStm = $data['admin']->customQuery($sql);
+    $admin = mysqli_fetch_array($preparedStm);
+    if ($admin != null) {
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['password'] = $_POST['password'];
     }
+
+
+    if ($_SESSION['username'] && $_SESSION['password']) {
+        header("location: admin");
+    } else
+
+        header("location: login");
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

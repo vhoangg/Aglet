@@ -244,14 +244,31 @@ function formatMoney($money)
               <div class="od-cancel" id ="button">
                 <button type="button" class="btn btn-danger" id="cancel">Hủy đơn hàng</button>
               </div>
-              </div>
+      </div>
               ';
-    else if ($row['status'] == 3)
+    else if ($row['status'] == 1) {
+      echo '
+          <div id = "od-button" class = "od-col od-col-half">
+                  <div class="od-confirm" id ="button">
+                    <button type="button" class="btn btn-primary" id="ship">Giao hàng</button>
+                  </div> 
+          </div>
+                  ';
+    } else if ($row['status'] == 2) {
+      echo '
+          <div id = "od-button" class = "od-col od-col-half">
+                  <div class="od-confirm" id ="button">
+                    <button type="button" class="btn btn-primary" id="arrived">Giao hàng thành công</button>
+                  </div> 
+          </div>
+                  ';
+    } else if ($row['status'] == 3)
       echo '
           <div class="col-xl-4 mt-3">
              <button type="button" class="btn btn-success" id="print">In hóa đơn</button>
            </div>';
     ?>
+
   </div>
 
 </body>
@@ -291,6 +308,52 @@ function formatMoney($money)
       url: "http://localhost/aglet/admin/orderDetailProcess", // gọi đến file server show_data.php để xử lý
       data: {
         status: "cancel",
+        id: id,
+        date: createDate
+      }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+      success: function(response) { //kết quả trả về từ server nếu gửi thành công
+        window.location.reload();
+      }
+    });
+  });
+
+  $("#ship").click(function(event) {
+    var id = $('#id').html();
+    console.log(id);
+    var d = new Date();
+    var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    var date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    var createDate = date + ' ' + time;
+    console.log(createDate);
+    $.ajax({
+
+      method: "POST", // phương thức dữ liệu được truyền đi
+      url: "http://localhost/aglet/admin/orderDetailProcess", // gọi đến file server show_data.php để xử lý
+      data: {
+        status: "ship",
+        id: id,
+        date: createDate
+      }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+      success: function(response) { //kết quả trả về từ server nếu gửi thành công
+        window.location.reload();
+      }
+    });
+  });
+
+  $("#arrived").click(function(event) {
+    var id = $('#id').html();
+    console.log(id);
+    var d = new Date();
+    var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    var date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    var createDate = date + ' ' + time;
+    console.log(createDate);
+    $.ajax({
+
+      method: "POST", // phương thức dữ liệu được truyền đi
+      url: "http://localhost/aglet/admin/orderDetailProcess", // gọi đến file server show_data.php để xử lý
+      data: {
+        status: "arrived",
         id: id,
         date: createDate
       }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery

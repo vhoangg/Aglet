@@ -15,26 +15,22 @@ $sum = 0;
         <input type="text" class="info" id="email" placeholder="Email">
         <input type="text" class="info" id="addr" placeholder="Địa chỉ">
 
-        <div class="info-holder">
-          <input type="checkbox" name="" id="getInfo" class="checkBox">
-          <h4>Cập nhật các thông tin mới nhất về chương trình từ Aglet</h4>
-        </div>
         <div class="form_title">PHƯƠNG THỨC GIAO HÀNG</div>
         <div class="info-holder">
-          <input type="checkbox" name="" id="shippingType" class="checkBox">
+          <input type="checkbox" name="" id="shippingType" class="checkBox" checked disabled>
           <h4>Tốc độ tiêu chuẩn (từ 2 - 5 ngày làm việc)</h4>
         </div>
         <div class="form_title">PHƯƠNG THỨC THANH TOÁN</div>
         <div class="info-holder">
-          <input type="checkbox" name="" id="checkBox" class="checkBox">
+          <input type="checkbox" name="" id="checkBox" class="checkBox" checked disabled>
           <h4> Thanh toán trực tiếp khi giao hàng </h4>
         </div>
         <div class="info-holder">
-          <input type="checkbox" name="" id="checkBox" class="checkBox">
+          <input type="checkbox" name="" id="checkBox" class="checkBox" disabled>
           <h4>Thanh toán bằng thẻ quốc tế và nội địa (ATM)</h4>
         </div>
         <div class="info-holder">
-          <input type="checkbox" name="" id="checkBox" class="checkBox">
+          <input type="checkbox" name="" id="checkBox" class="checkBox" disabled>
           <h4>Thanh toán bằng ví MoMo</h4>
         </div>
       </form>
@@ -61,9 +57,9 @@ $sum = 0;
           <h4>Đơn hàng <span class="right"><?php
                                             echo number_format($sum, 0, ",", ".");
                                             ?> VND</span></h4>
-          <h4>Giảm <span class="right normal">Giá VND</span></h4>
-          <h4 class="fee-black">Phí vận chuyển <span class="right normal">Giá VND</span></h4>
-          <h4 class="fee-black">Phí thanh toán <span class="right normal">Giá VND</span></h4>
+          <h4>Giảm <span class="right normal">0 VND</span></h4>
+          <h4 class="fee-black">Phí vận chuyển <span class="right normal">0 VND</span></h4>
+          <h4 class="fee-black">Phí thanh toán <span class="right normal">0 VND</span></h4>
         </li>
         <li class="divider-dashed"></li>
         <li class="group_item total">
@@ -73,7 +69,7 @@ $sum = 0;
                             ?> VND</span>
         </li>
         <li class="group_item">
-          <a href=""><button class="submitBtn"> HOÀN TẤT ĐẶT HÀNG</button></a>
+          <a href="home"><button class="submitBtn"> HOÀN TẤT ĐẶT HÀNG</button></a>
         </li>
       </ul>
     </div>
@@ -90,15 +86,30 @@ $sum = 0;
     var email = $("#email").val();
     var address = $("#addr").val();
     var d = new Date();
-    var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-    var date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-    var createDate = date + ' ' + time;
+    var createDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
     console.log(name);
     console.log(phone);
     console.log(email);
     console.log(address);
     console.log(createDate);
+
+    $.ajax({
+
+      method: "POST", // phương thức dữ liệu được truyền đi
+      url: "http://localhost/aglet/shipping_information/process", // gọi đến file server show_data.php để xử lý
+      data: {
+        name: name,
+        phone: phone,
+        email: email,
+        address: address,
+        create_date: createDate
+      }, //lấy toàn thông tin các fields trong form bằng hàm serialize của jquery
+      success: function(response) { //kết quả trả về từ server nếu gửi thành công
+        window.location.replace("http://localhost/Aglet/tracking_order?id=" + response)
+      }
+    });
+
     $.ajax({
 
       method: "POST", // phương thức dữ liệu được truyền đi

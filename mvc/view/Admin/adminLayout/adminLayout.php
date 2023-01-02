@@ -30,25 +30,14 @@ if (!$_SESSION["username"]) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        #layoutSidenav #layoutSidenav_nav #sidenavAccordion .sb-sidenav-menu-heading {
-            font-size: 21px;
-        }
-
-        .sb-topnav #layout-title {
-            color: #f15e2c;
-            font-style: italic;
-            font-size: 20px;
-        }
-    </style>
 </head>
 
 <body>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" id="layout-title" href="http://localhost/aglet/admin">AGLET ADMIN</a>
+        <a class="navbar-brand ps-3" href="http://localhost/aglet/admin">Aglet Admin</a>
         <!-- Sidebar Toggle-->
-
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
 
         <!-- Navbar-->
@@ -71,15 +60,13 @@ if (!$_SESSION["username"]) {
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">QUẢN LÝ</div>
+                        <div class="sb-sidenav-menu-heading">Management</div>
+
                         <a class="nav-link" href="http://localhost/aglet/admin/productManagement/1">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Quản lý sản phẩm
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Quản lý danh mục
-                        </a>
+
 
                         <a class="nav-link" href="http://localhost/aglet/admin/orderManagement/1">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -113,15 +100,19 @@ if (!$_SESSION["username"]) {
                                 </div>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">THỐNG KÊ</div>
+                        <div class="sb-sidenav-menu-heading">Statistical</div>
                         <a class="nav-link" href="http://localhost/aglet/admin/chart">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Biểu đồ
                         </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Đăng nhập với:</div>
+                    <div class="small">Logged in as:</div>
                     <?php
                     echo $_SESSION["username"];
                     ?>

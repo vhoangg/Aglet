@@ -26,12 +26,10 @@ class invoiceModel extends db
   public function getProducts($id)
   {
     $qr = 'SELECT PARENT_ID as pid , SIZE as size, INVOICE_DETAIL.QTY AS qty, price FROM INVOICE_DETAIL, PRODUCT_DETAIL  WHERE INVOICE_DETAIL.PRODUCT_ID = PRODUCT_DETAIL.ID AND INVOICE_DETAIL.INVOICE_ID = '.$id;
-    echo $qr;
+  
     return mysqli_query($this->con, $qr);
   }
 
 
 
 }
-
-?>

@@ -8,8 +8,6 @@ class product_list extends controller
     if ($gd == 'men') $gender = 0;
     else $gender = 1;
 
-    
-
     $this->view("layout", ["page" => "product-list", "product" => $product->findProductWithGender($gender)]);
   }
 }

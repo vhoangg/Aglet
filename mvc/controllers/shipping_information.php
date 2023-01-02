@@ -13,8 +13,7 @@ class shipping_information extends controller
     session_start();
     $invoice = $this->model("invoiceModel");
 
-    $sql = 'INSERT INTO INVOICE (NAME, PHONE,   ADDRESS, EMAIL, CREATED_AT, status ) VALUES("' . $_POST['name'] . '", "' . $_POST['phone'] . '", "' . $_POST['address'] . '", "' . $_POST['email'] . '", "' . $_POST['create_date'] . '",0)';
-
+    $sql = 'INSERT INTO INVOICE (NAME, PHONE,   ADDRESS, EMAIL, CREATED_AT ) VALUES("' . $_POST['name'] . '", "' . $_POST['phone'] . '", "' . $_POST['address'] . '", "' . $_POST['email'] . '", "' . $_POST['create_date'] . '")';
     $invoice->customQuery($sql);
     $sql = 'SELECT ID FROM INVOICE WHERE NAME="' . $_POST['name'] . '"AND PHONE = "' . $_POST['phone'] . '" AND EMAIL = "' . $_POST['email'] . '" AND CREATED_AT  = "' . $_POST['create_date'] . '" AND ADDRESS = "' . $_POST['address'] . '" ORDER BY CREATED_AT DESC LIMIT 1';
     $id = mysqli_fetch_array($invoice->customQuery($sql));
@@ -24,9 +23,11 @@ class shipping_information extends controller
 
       $sql = 'UPDATE product_detail SET qty = qty - ' . $value['sl'] . ' WHERE ID = ' . $value['id'] . '';
       $invoice->customQuery($sql);
-      echo $id[0];
+
       unset($_SESSION['cart'][$value['id']]);
     }
+
+    echo $id[0];
   }
 
   function mail()
@@ -74,7 +75,7 @@ class shipping_information extends controller
     $mail->Username = "agletstoreuit@gmail.com";
     $mail->Password = "esuiutesxdyjzkph";
     $mail->SetFrom("agletstoreuit@gmail.com");
-    $mail->Subject = "Test";
+    $mail->Subject = "AGLET";
     $mail->Body = '
     
 <table border="0" cellpadding="0" cellspacing="0" width="600"

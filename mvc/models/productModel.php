@@ -101,7 +101,7 @@ class productModel extends db
 
   public function customQuery1($id)
   {
-    $qr = 'select name,id from products where parent_id = ' . $id . ' group by name';
+    $qr = 'select name from products where parent_id = ' . $id . ' group by name';
     return mysqli_query($this->con, $qr);
   }
 }
